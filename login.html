@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Zull Lyniee</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-cyan"></div>
+
+    <main class="login-container">
+
+        <section class="anime-panel">
+            <img
+                class="anime-image"
+                src="mio-hamiya.jpg"
+                alt="Anime character"
+            >
+
+            <div class="image-overlay"></div>
+
+            <a class="brand" href="login.html">
+                <span class="brand-icon">🎮</span>
+                <span>
+                    <strong>ZULL <span>LYNIEE</span></strong>
+                    <small>PIXEL VAULT</small>
+                </span>
+            </a>
+
+            <div class="anime-caption">
+                <span class="mini-tag">✦ JAPANESE GAMING WORLD</span>
+                <h1>ENTER YOUR<br><span>OWN WORLD.</span></h1>
+                <p>
+                    Your collection, your adventure.
+                    Masuki dunia Pixel Vault dan mulai petualanganmu.
+                </p>
+                <div class="image-status">
+                    <span></span> PLAYER ZONE · ONLINE
+                </div>
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-content">
+
+                <div class="mobile-logo">
+                    🎮 <span>ZULL <b>LYNIEE</b></span>
+                </div>
+
+                <div class="welcome-icon">◈</div>
+
+                <p class="eyebrow">WELCOME BACK, PLAYER</p>
+                <h2>Login <span>Account</span></h2>
+                <p class="description">
+                    Masuk ke akunmu untuk melanjutkan petualangan.
+                </p>
+
+                <form id="loginForm">
+                    <label for="username">EMAIL</label>
+                    <div class="input-wrap">
+                        <span>✉</span>
+                        <input
+                            type="email"
+                            id="username"
+                            placeholder="Masukkan email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <label for="password">PASSWORD</label>
+                    <div class="input-wrap">
+                        <span>◆</span>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Masukkan password"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="toggle-password"
+                            aria-label="Tampilkan password"
+                        >◉</button>
+                    </div>
+
+                    <p id="loginMessage" role="status" aria-live="polite"></p>
+
+                    <button class="login-button" type="submit">
+                        <span>ENTER PIXEL VAULT</span>
+                        <span class="arrow">↗</span>
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>OR CONTINUE WITH</span>
+                </div>
+
+                <button
+                    type="button"
+                    id="googleLoginBtn"
+                    class="login-button google-button"
+                >
+                    <span>🌐 CONTINUE WITH GOOGLE</span>
+                    <span class="arrow">↗</span>
+                </button>
+
+                <p class="footer-note">
+                    Login aman menggunakan akun Google kamu.
+                </p>
+
+                <div class="demo-info">
+                    <span>ⓘ</span>
+                    <p>
+                        <strong>Informasi Login</strong><br>
+                        Gunakan email dan password yang sudah
+                        terdaftar di Supabase Auth.
+                    </p>
+                </div>
+
+                <p class="footer-note copyright">
+                    © 2026 Zull Lyniee · Made for gamers
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="login.js"></script>
+</body>
+</html>
