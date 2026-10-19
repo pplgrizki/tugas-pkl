@@ -1,0 +1,769 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Bawah Langit yang Kehilangan Warna | ZULL LYNIEE</title>
+    <link rel="stylesheet" href="style.css">
+
+    
+        .novel-reader {
+            max-width: 900px;
+            margin: 35px auto;
+        }
+
+        .novel-top {
+            padding: 30px;
+            border: 1px solid rgba(167, 139, 250, .3);
+            border-radius: 20px;
+            background: linear-gradient(135deg, #211432, #101827);
+            text-align: center;
+        }
+
+        .novel-cover {
+            width: 100%;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            border-radius: 14px;
+            background: radial-gradient(ellipse, #563a83, #141426 70%);
+            margin-bottom: 24px;
+        }
+
+        .novel-cover span {
+            font-size: 55px;
+        }
+
+        .novel-cover small {
+            color: #c4b5fd;
+            letter-spacing: 4px;
+        }
+
+        .novel-top h1 {
+            font-size: clamp(25px, 5vw, 38px);
+            margin: 12px 0;
+        }
+
+        .novel-top h1 span {
+            color: #b794ff;
+        }
+
+        .novel-description {
+            color: #c4c0d5;
+            line-height: 1.8;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .novel-progress {
+            height: 5px;
+            background: #29243b;
+            border-radius: 10px;
+            margin-top: 24px;
+            overflow: hidden;
+        }
+
+        .novel-progress-fill {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #a855f7, #22d3ee);
+            transition: width .25s ease;
+        }
+
+        .novel-progress-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 10px;
+            color: #aaa3c2;
+            font-size: 12px;
+        }
+
+        .novel-chapter {
+            padding: clamp(22px, 5vw, 45px);
+            margin-top: 22px;
+            border: 1px solid rgba(167, 139, 250, .2);
+            border-radius: 20px;
+            background: rgba(17, 15, 34, .95);
+        }
+<style>
+       
+/* ===== NOVEL: DI BAWAH LANGIT YANG KEHILANGAN WARNA ===== */
+
+.novel-reader {
+    width: min(920px, calc(100% - 32px));
+    max-width: 920px;
+    margin: 38px auto 70px;
+    position: relative;
+    z-index: 1;
+    color: #f3efff;
+}
+
+/* Tombol kembali */
+.novel-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 18px;
+    padding: 10px 16px;
+    color: #c4b5fd;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid rgba(167, 139, 250, .2);
+    border-radius: 30px;
+    background: rgba(20, 18, 40, .65);
+    transition: .25s ease;
+}
+
+.novel-back:hover {
+    color: #fff;
+    border-color: #a78bfa;
+    background: rgba(124, 58, 237, .2);
+    transform: translateX(-3px);
+}
+
+/* Sampul dan identitas novel */
+.novel-top {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(24px, 5vw, 46px);
+    border: 1px solid rgba(167, 139, 250, .28);
+    border-radius: 26px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, .22), transparent 55%),
+        linear-gradient(145deg, rgba(26, 22, 51, .97), rgba(9, 17, 35, .98));
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, .28),
+        0 0 45px rgba(124, 58, 237, .08);
+    text-align: center;
+}
+
+.novel-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .2;
+    background: repeating-linear-gradient(
+        112deg,
+        transparent 0 35px,
+        rgba(125, 211, 252, .16) 36px,
+        transparent 37px 70px
+    );
+    animation: novelRain 12s linear infinite;
+}
+
+.novel-cover {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    min-height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(196, 181, 253, .28);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 50% 42%, rgba(192, 132, 252, .34), transparent 35%),
+        radial-gradient(ellipse at 80% 100%, rgba(34, 211, 238, .18), transparent 45%),
+        linear-gradient(160deg, #29204b 0%, #121a36 52%, #090d1b 100%);
+    box-shadow: inset 0 0 60px rgba(5, 8, 25, .45);
+}
+
+.novel-cover::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    right: 16%;
+    border-radius: 50%;
+    background: #d9d5ff;
+    opacity: .85;
+    box-shadow:
+        0 0 35px rgba(196, 181, 253, .5),
+        0 0 90px rgba(167, 139, 250, .25);
+    z-index: -1;
+}
+
+.novel-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        105deg,
+        transparent 0 27px,
+        rgba(186, 230, 253, .16) 28px,
+        transparent 29px 55px
+    );
+    pointer-events: none;
+    animation: novelRain 7s linear infinite;
+}
+
+.novel-cover span {
+    font-size: clamp(55px, 9vw, 76px);
+    filter: drop-shadow(0 0 20px rgba(165, 180, 252, .65));
+    animation: novelFloat 4s ease-in-out infinite;
+}
+
+.novel-cover small {
+    color: #ddd6fe;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(167, 139, 250, .6);
+}
+
+.novel-top .section-eyebrow {
+    color: #67e8f9;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+}
+
+.novel-top h1 {
+    max-width: 720px;
+    margin: 0 auto 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(29px, 5.2vw, 47px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -.8px;
+    color: #f8f5ff;
+    text-wrap: balance;
+}
+
+.novel-top h1 span {
+    display: block;
+    margin-top: 5px;
+    color: #c4b5fd;
+    text-shadow: 0 0 28px rgba(167, 139, 250, .25);
+}
+
+.novel-description {
+    max-width: 590px;
+    margin: 0 auto;
+    color: #bcb8d2;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Progres membaca */
+.novel-progress {
+    height: 5px;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(196, 181, 253, .12);
+}
+
+.novel-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #a855f7, #818cf8, #22d3ee);
+    box-shadow: 0 0 16px rgba(34, 211, 238, .45);
+    transition: width .4s ease;
+}
+
+.novel-progress-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    color: #a8a2c4;
+    font-size: 11px;
+    letter-spacing: .4px;
+}
+
+/* Area baca */
+.novel-chapter {
+    position: relative;
+    margin-top: 22px;
+    padding: clamp(24px, 6vw, 52px);
+    overflow: hidden;
+    border: 1px solid rgba(167, 139, 250, .2);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(124, 58, 237, .08), transparent 40%),
+        rgba(13, 13, 30, .94);
+    box-shadow: 0 20px 65px rgba(0, 0, 0, .2);
+}
+
+.novel-chapter-label {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 13px;
+    border: 1px solid rgba(103, 232, 249, .2);
+    border-radius: 30px;
+    background: rgba(34, 211, 238, .07);
+    color: #67e8f9;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.novel-chapter h2 {
+    margin: 24px 0 30px;
+    color: #eee7ff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 4vw, 35px);
+    font-weight: 500;
+    line-height: 1.4;
+    text-wrap: balance;
+}
+
+/* Teks cerita */
+.novel-story {
+    min-height: 260px;
+    color: #d8d5e7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 2.05;
+    letter-spacing: .12px;
+    overflow-wrap: anywhere;
+}
+
+.novel-story p {
+    margin: 0 0 23px;
+    text-indent: 1.5em;
+}
+
+.novel-story p:last-child {
+    margin-bottom: 0;
+}
+
+.novel-story em {
+    color: #c4b5fd;
+}
+
+/* Navigasi chapter */
+.novel-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 38px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(167, 139, 250, .15);
+}
+
+.novel-navigation button {
+    min-height: 45px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.novel-navigation button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, .2);
+}
+
+.novel-navigation button:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Animasi lembut */
+@keyframes novelFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+@keyframes novelRain {
+    from { background-position: 0 0; }
+    to { background-position: 0 140px; }
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    .novel-reader {
+        width: calc(100% - 22px);
+        margin: 22px auto 40px;
+    }
+
+    .novel-top {
+        padding: 19px;
+        border-radius: 20px;
+    }
+
+    .novel-cover {
+        min-height: 205px;
+        margin-bottom: 26px;
+        border-radius: 15px;
+    }
+
+    .novel-cover::before {
+        width: 75px;
+        height: 75px;
+        right: 15%;
+        top: 28px;
+    }
+
+    .novel-cover small {
+        letter-spacing: 3px;
+    }
+
+    .novel-top h1 {
+        font-size: clamp(27px, 8vw, 36px);
+    }
+
+    .novel-description {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .novel-chapter {
+        margin-top: 15px;
+        padding: 23px 19px;
+        border-radius: 19px;
+    }
+
+    .novel-chapter h2 {
+        margin: 20px 0 24px;
+        font-size: 25px;
+    }
+
+    .novel-story {
+        min-height: 220px;
+        font-size: 16px;
+        line-height: 1.95;
+    }
+
+    .novel-story p {
+        margin-bottom: 20px;
+    }
+
+    .novel-navigation {
+        gap: 10px;
+        margin-top: 28px;
+    }
+
+    .novel-navigation button {
+        flex: 1;
+        padding: 12px 9px;
+        font-size: 10px;
+        letter-spacing: .5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .novel-cover span,
+    .novel-cover::after,
+    .novel-top::before {
+        animation: none;
+    }
+
+    .novel-progress-fill,
+    .novel-navigation button,
+    .novel-back {
+        transition: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="background-grid"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-cyan"></div>
+
+    <main class="main-content novel-reader">
+        <a href="index.html" class="novel-back">← Kembali ke Pixel Vault</a>
+
+        <section class="novel-top">
+            <div class="novel-cover">
+                <span>🌧️</span>
+                <small>PIXEL VAULT STORIES</small>
+            </div>
+
+            <p class="section-eyebrow">YOUR PERSONAL STORY</p>
+            <h1>Di Bawah Langit  <span>yang Kehilangan Warna</span></h1>
+
+            <p class="novel-description">
+                Sebuah kisah tentang pertemuan, kenangan, dan perasaan
+                yang tumbuh di tengah hujan. Buka setiap bab dan ikuti
+                perjalanan ceritanya.
+            </p>
+
+            <div class="novel-progress">
+                <div class="novel-progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="novel-progress-label">
+                <span id="chapterCounter">Bab 1 dari 12</span>
+                 <span id="progressText">Progres 8%</span>
+            </div>
+        </section>
+
+        <section class="novel-chapter">
+            <p class="novel-chapter-label" id="chapterLabel">CHAPTER 01</p>
+            <h2 id="chapterTitle">Pertemuan di Bawah Hujan</h2>
+
+            <div class="novel-story" id="chapterContent">
+Hujan turun perlahan sore itu. Jalanan memantulkan cahaya lampu kota, sementara orang-orang bergegas mencari tempat berteduh.
+
+Di sudut halte, seseorang berdiri sambil memandangi langit. Ia tidak tahu bahwa sore yang tampak biasa itu akan menjadi awal dari sebuah cerita yang sulit dilupakan.
+
+Kadang, pertemuan paling berarti datang ketika kita sama sekali tidak mencarinya.
+            </div>
+
+            <div class="novel-navigation">
+                <button type="button" class="secondary-button" id="prevChapter" disabled>
+                    ← SEBELUMNYA
+                </button>
+
+                <button type="button" class="primary-button" id="nextChapter">
+                    SELANJUTNYA →
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const chapters = [
+  {
+    title: "Bab 1 — Warna yang Jatuh Bersama Hujan",
+    content: `
+      <p>Langit sore itu berwarna abu-abu, seolah seseorang telah menghapus seluruh warna dari dunia. Hujan turun tanpa aba-aba, membasahi jalanan, pepohonan, dan seragam putih abu-abu yang kukenakan. Aku berdiri di halte kecil dekat sekolah, memandangi kendaraan yang berlalu sambil berharap hujan segera berhenti. Namaku Arka. Aku bukan seseorang yang pandai memulai percakapan, apalagi dengan orang asing. Bagiku, diam jauh lebih mudah daripada menjelaskan isi kepala yang bahkan tidak kupahami sendiri.</p>
+      <p>"Kamu selalu kelihatan seperti habis kehilangan sesuatu."</p>
+      <p>Suara itu membuatku menoleh. Seorang perempuan berdiri di sampingku dengan payung berwarna biru pucat. Rambutnya sedikit basah, dan senyumnya terlihat anehnya tidak terganggu oleh cuaca yang buruk. Aku mengernyit. "Memangnya kamu kenal aku?" tanyaku. Ia tertawa kecil, kemudian menggeleng. "Nggak. Tapi wajahmu seperti orang yang sedang menunggu sesuatu yang nggak akan datang."</p>
+      <p>Entah mengapa, kalimat itu membuatku kesal. Namun, sebelum aku sempat membalas, ia menyodorkan separuh payungnya kepadaku. "Aku Nara," katanya. "Kalau kamu mau, kita bisa berbagi payung sampai hujannya reda."</p>
+      <p>Aku menerima tawarannya dengan canggung. Kami berjalan berdampingan melewati trotoar yang basah. Nara berbicara tentang hal-hal sederhana: kucing yang tidur di depan minimarket, lagu yang terus terngiang di kepalanya, dan betapa menyebalkannya sepatu yang basah karena hujan. Aku hanya menjawab seperlunya, tetapi anehnya, aku tidak merasa ingin segera pergi.</p>
+      <p>Sebelum berpisah di persimpangan, Nara menoleh dan berkata, "Besok kalau hujan lagi, tunggu aku di sini, ya." Ia pergi sebelum aku sempat menjawab. Aku menatap punggungnya sampai menghilang di balik kerumunan. Sore itu, untuk pertama kalinya setelah sekian lama, perjalanan pulang terasa terlalu singkat.</p>
+      <p>Malamnya, aku membuka jendela kamar dan membiarkan udara dingin masuk. Hujan sudah berhenti, tetapi aku masih mengingat senyum perempuan asing itu. Aku bahkan tidak tahu nama lengkapnya, tidak tahu kelasnya, dan tidak tahu apakah besok ia akan benar-benar datang. Namun, tanpa kusadari, aku mulai berharap langit kembali mendung.</p>
+    `
+  },
+  {
+    title: "Bab 2 — Perempuan yang Menyukai Senja",
+    content: `
+      <p>Keesokan harinya, langit cerah. Tidak ada awan gelap, tidak ada rintik hujan, hanya matahari yang menyilaukan dan angin yang berembus pelan. Seharusnya aku senang karena tidak perlu pulang dengan sepatu basah. Nyatanya, sepanjang hari aku justru beberapa kali melirik jendela kelas, berharap hujan turun meskipun hanya sebentar.</p>
+      <p>"Nyari siapa, sih?" tanya Dimas, teman sebangkuku, ketika memergokiku melihat ke luar untuk kesekian kalinya. "Nggak nyari siapa-siapa," jawabku cepat. Ia menyeringai. "Oh, berarti ada seseorang." Aku melemparkan penghapus ke arahnya, membuatnya tertawa puas. Aku kesal karena ia benar, meskipun aku sendiri belum berani mengakuinya.</p>
+      <p>Saat pulang sekolah, aku tetap melewati halte yang sama. Dan di sanalah Nara berdiri, kali ini tanpa payung, sambil memegang dua kotak susu. "Kupikir kamu nggak bakal datang," katanya. Aku berusaha terlihat biasa saja. "Aku memang lewat sini." Nara menyerahkan satu kotak susu kepadaku. "Bagus. Berarti besok kamu juga lewat sini, kan?"</p>
+      <p>Sejak hari itu, halte tersebut menjadi tempat kecil milik kami. Kadang kami pulang bersama, kadang duduk sambil mendengarkan lagu dari ponsel Nara. Ia menyukai senja karena menurutnya langit terlihat paling jujur ketika warnanya mulai menghilang. Aku menyukai malam karena tidak ada yang menuntutku untuk tersenyum. Nara bilang kesukaanku menyedihkan, lalu tertawa ketika aku pura-pura tersinggung.</p>
+      <p>Ia punya kebiasaan memotret langit setiap sore. Katanya, ia takut lupa bagaimana rupa hari-hari yang pernah membuatnya bahagia. Aku bertanya apakah ia benar-benar bisa melupakan sesuatu hanya karena tidak memotretnya. Nara terdiam sesaat sebelum menjawab, "Kadang yang paling kita takutkan bukan lupa, Arka. Tapi ingat semuanya sendirian."</p>
+      <p>Kalimat itu terdengar terlalu berat untuk seseorang yang selalu tertawa. Aku hampir bertanya apa maksudnya, tetapi Nara kembali tersenyum dan menunjuk langit yang mulai jingga. Hari itu kami mengambil foto pertama bersama. Nara mengangkat dua jari di belakang kepalaku, sementara aku terlihat kaku seperti seseorang yang baru saja dipaksa menghadiri acara keluarga.</p>
+      <p>"Suatu hari nanti, kalau kita sudah jauh dari sini, kita lihat foto ini lagi," katanya. "Terus kita ingat kalau pernah sebahagia ini." Aku tidak menjawab. Saat itu aku tidak tahu bahwa beberapa kalimat sederhana bisa berubah menjadi sesuatu yang menyakitkan ketika waktu memaksa kita mengingatnya kembali.</p>
+    `
+  },
+  {
+    title: "Bab 3 — Hal-Hal Kecil yang Menjadi Rumah",
+    content: `
+      <p>Aku mulai hafal banyak hal tentang Nara. Ia selalu membeli roti cokelat ketika sedang kesal, menggoyangkan kaki saat gugup, dan memiringkan kepala setiap kali mencoba memahami sesuatu. Ia tidak suka suara petir, tetapi selalu pura-pura berani. Ia juga sering tertawa terlalu keras pada lelucon yang sebenarnya tidak lucu, terutama ketika aku yang mengatakannya.</p>
+      <p>Suatu Jumat, kami memutuskan berjalan lebih jauh dari halte. Nara mengajakku ke toko buku kecil yang berada di ujung jalan. Tempat itu hampir selalu sepi, beraroma kertas lama, dan memiliki jendela besar yang menghadap ke taman. Ia menghabiskan waktu berjam-jam membaca halaman pertama dari berbagai novel, sedangkan aku duduk di sebelahnya sambil memperhatikan ekspresinya.</p>
+      <p>"Kenapa lihat aku terus?" tanyanya tanpa mengangkat wajah. "Aku lagi mikir, bagaimana caranya kamu bisa membaca buku yang sama berulang kali." Nara menutup bukunya, lalu menatapku. "Karena meskipun akhirnya sama, perasaanku waktu membacanya bisa berbeda." Aku terdiam. Ia tersenyum tipis. "Orang juga begitu, Ka. Kita bisa bertemu orang yang sama setiap hari, tapi belum tentu kita benar-benar mengenalnya."</p>
+      <p>Dalam perjalanan pulang, Nara bercerita bahwa ia ingin kuliah di luar kota. Ia ingin melihat laut yang belum pernah ia kunjungi, tinggal di tempat yang tidak mengenalnya, dan mencoba menjadi seseorang yang lebih berani. Aku mendengarkan sambil menendang kerikil kecil di trotoar. Ada sesuatu yang mengganggu dadaku ketika membayangkan dirinya berada jauh dari tempat ini.</p>
+      <p>"Kalau aku pergi nanti, kamu bakal kangen nggak?" tanyanya tiba-tiba. Aku mengangkat bahu. "Mungkin aku bakal kangen sama kotak susu gratis." Nara langsung memukul lenganku pelan. "Dasar nyebelin." Namun, ia tersenyum setelahnya, dan aku menyadari bahwa aku lebih suka melihatnya bahagia daripada terlihat keren di hadapannya.</p>
+      <p>Sebelum berpisah, aku memberikan gantungan kunci kecil berbentuk bintang yang kubeli di toko dekat sekolah. Warnanya sudah sedikit pudar, dan harganya bahkan tidak seberapa. Nara menerimanya seperti aku baru saja memberikan sesuatu yang berharga. Ia memasangnya di tas, lalu berkata, "Kalau suatu hari aku lupa jalan pulang, setidaknya aku masih punya bintang dari kamu."</p>
+      <p>Aku tertawa, menganggapnya hanya candaan. Nara ikut tertawa, tetapi sesaat kemudian matanya terlihat sedih. Aku melihatnya, hanya saja aku memilih tidak bertanya. Saat itu aku percaya bahwa selama kami masih bisa tertawa bersama, tidak ada yang benar-benar perlu dikhawatirkan.</p>
+    `
+  },
+  {
+    title: "Bab 4 — Retak yang Tidak Bersuara",
+    content: `
+      <p>Perubahan itu datang perlahan, hampir tidak terlihat. Nara mulai terlambat membalas pesan. Ia beberapa kali membatalkan rencana kami, lalu meminta maaf dengan alasan yang berbeda-beda. Awalnya aku mencoba memahami. Setiap orang punya urusannya sendiri, pikirku. Aku tidak ingin menjadi seseorang yang menuntut perhatian dari orang yang kusayangi.</p>
+      <p>Namun, memahami seseorang ternyata melelahkan ketika hanya satu pihak yang berusaha. Ada malam ketika aku menunggu balasannya sampai tertidur dengan ponsel di tangan. Ada pagi ketika aku datang lebih awal ke sekolah hanya untuk melihatnya lewat koridor, tetapi ia tidak muncul. Ketika kutanya, jawabannya selalu sama: "Maaf, akhir-akhir ini aku lagi banyak pikiran."</p>
+      <p>Suatu sore, aku melihat Nara duduk di tangga belakang sekolah bersama seorang laki-laki yang tidak kukenal. Mereka berbicara dengan wajah serius. Laki-laki itu menyerahkan sebuah amplop, dan Nara menerimanya sambil menunduk. Aku berdiri cukup jauh untuk tidak mendengar percakapan mereka, tetapi cukup dekat untuk melihat Nara menghapus air mata.</p>
+      <p>Aku seharusnya menghampirinya. Seharusnya aku bertanya apakah ia baik-baik saja. Namun, rasa takut membuat kakiku tidak bergerak. Aku pulang tanpa menyapanya. Sepanjang perjalanan, pikiranku dipenuhi pertanyaan yang tidak memiliki jawaban. Siapa laki-laki itu? Mengapa Nara menangis? Dan mengapa ia tidak pernah menceritakan apa pun kepadaku?</p>
+      <p>Malamnya, aku mengirim pesan. "Nar, kamu ada masalah?" Pesanku terbaca, tetapi tidak dibalas. Satu jam kemudian, aku mengirim pesan lagi. "Kalau ada sesuatu, kamu bisa cerita ke aku." Kali ini aku menunggu lebih lama, sampai akhirnya ponselku berbunyi menjelang tengah malam.</p>
+      <p>"Aku nggak apa-apa, Ka. Maaf, aku cuma lagi capek."</p>
+      <p>Aku membaca kalimat itu berulang kali. Ada banyak hal yang ingin kukatakan, termasuk bahwa aku mulai merasa seperti orang asing dalam hidupnya sendiri. Namun, aku hanya membalas, "Istirahat yang cukup, ya." Aku meletakkan ponsel dan menatap langit-langit kamar. Untuk pertama kalinya, aku merasa bahwa mungkin seseorang bisa perlahan menjauh bahkan ketika ia masih berada di dekat kita.</p>
+    `
+  },
+  {
+    title: "Bab 5 — Aku Lelah Menebak",
+    content: `
+      <p>Hari-hari berikutnya terasa seperti berjalan di lorong yang semakin sempit. Aku masih bertemu Nara, masih melihat senyumnya, dan masih mendengar suaranya. Namun, ada jarak yang tidak terlihat di antara kami. Ia tidak lagi bercerita tentang hal-hal kecil, tidak lagi mengirim foto langit sore, dan tidak lagi bertanya apakah aku sudah makan. Semua kebiasaan itu hilang satu per satu, seolah tidak pernah ada.</p>
+      <p>Aku berusaha bersikap biasa saja. Aku tertawa bersama Dimas, mengerjakan tugas, dan pulang tanpa menunggu di halte. Tetapi setiap kali melewati tempat itu, aku selalu melirik bangku yang dulu sering kami duduki. Rasanya bodoh merindukan seseorang yang masih bisa kulihat setiap hari. Lebih bodoh lagi, aku mulai marah kepada diriku sendiri karena tidak bisa berhenti peduli.</p>
+      <p>Akhirnya, aku memutuskan menemuinya setelah sekolah. Nara sedang memasukkan buku ke dalam tas ketika aku berdiri di hadapannya. "Kamu kenapa, sih?" tanyaku. Ia mengangkat wajah, tampak terkejut. "Maksud kamu?" Aku menarik napas panjang. "Kalau ada masalah, bilang. Kalau kamu nggak mau cerita sama aku lagi, bilang juga. Aku capek harus menebak-nebak sendiri."</p>
+      <p>Nara terdiam. Jemarinya mencengkeram tali tas, dan matanya bergerak ke arah jendela. Aku menunggu, berharap ia mengatakan sesuatu yang bisa menjelaskan semua perubahan ini. Tetapi beberapa detik kemudian, ia hanya berkata, "Nggak semua hal harus kamu tahu, Arka."</p>
+      <p>Kalimat itu membuat sesuatu di dalam diriku patah. "Aku nggak minta tahu semuanya," jawabku, suaraku mulai meninggi. "Aku cuma ingin tahu kenapa kamu memperlakukanku seperti aku nggak pernah berarti." Nara menatapku, dan untuk pertama kalinya aku melihat kemarahan di wajahnya. "Kamu pikir semuanya tentang kamu? Kamu pikir aku menjauh karena ingin menyakiti kamu?"</p>
+      <p>Aku tidak bisa menjawab. Ada begitu banyak emosi yang saling bertabrakan sampai aku bahkan tidak tahu mana yang harus keluar lebih dulu. Aku kecewa, takut, dan marah karena merasa ditinggalkan tanpa penjelasan. Namun, di balik semuanya, aku juga takut mendengar jawaban yang mungkin tidak sanggup kuterima.</p>
+      <p>Nara mengambil tasnya. "Aku nggak punya tenaga buat menjelaskan sekarang." Ia melewatiku tanpa menoleh. Aku membiarkannya pergi, tetapi sebelum ia mencapai pintu, aku berkata pelan, "Kalau suatu hari kamu ingin kembali, jangan berharap aku masih berdiri di tempat yang sama." Aku sendiri tidak yakin apakah itu ancaman, harapan, atau sekadar kalimat dari seseorang yang sudah terlalu lelah menunggu.</p>
+    `
+  },
+  {
+    title: "Bab 6 — Hari Ketika Kita Menjadi Asing",
+    content: `
+      <p>Setelah pertengkaran itu, kami berhenti berbicara. Tidak ada lagi pesan selamat pagi, tidak ada lagi pertemuan di halte, dan tidak ada lagi candaan tentang cuaca. Kami tetap berada di sekolah yang sama, melewati koridor yang sama, tetapi berjalan seolah tidak pernah mengenal satu sama lain. Setiap kali melihatnya, aku memalingkan wajah lebih dulu. Aku ingin terlihat baik-baik saja, meskipun sebenarnya aku hanya sedang berusaha menyembunyikan rasa sakit.</p>
+      <p>Beberapa hari kemudian, Dimas akhirnya bertanya apa yang terjadi. Aku menceritakan semuanya dengan nada seolah aku tidak peduli. Dimas mendengarkan sampai selesai, lalu berkata, "Mungkin dia memang punya alasan." Aku mendengus. "Kalau punya alasan, kenapa nggak bilang?" Dimas menghela napas. "Karena kadang orang yang paling ingin kita lindungi justru orang yang paling sulit kita ajak bicara."</p>
+      <p>Aku membenci jawaban itu karena terdengar masuk akal. Aku lebih suka menganggap Nara egois daripada menerima kemungkinan bahwa ia sedang menghadapi sesuatu yang tidak bisa kubantu. Marah terasa lebih mudah daripada mengakui bahwa aku tidak tahu apa yang terjadi pada seseorang yang sangat ingin kupahami.</p>
+      <p>Pada hari Jumat, wali kelas mengumumkan bahwa Nara akan pindah sekolah dalam waktu dekat. Kabar itu menyebar cepat di kelas. Beberapa teman bertanya apakah ia akan pindah ke kota lain, tetapi Nara hanya menjawab singkat bahwa keluarganya harus pergi. Aku mendengar semuanya dari bangku belakang, dan rasanya seperti seseorang baru saja menarik lantai dari bawah kakiku.</p>
+      <p>Saat jam istirahat, aku menemukannya di taman sekolah. Ia duduk sendirian sambil menatap gantungan kunci berbentuk bintang yang masih terpasang di tasnya. Aku ingin menghampiri, tetapi kemarahan menahanku. Aku ingin bertanya kenapa ia tidak pernah memberitahuku. Aku ingin memintanya untuk tidak pergi. Aku ingin mengatakan bahwa kalimat yang kuucapkan waktu itu tidak benar-benar kuinginkan.</p>
+      <p>Namun, aku tetap diam. Nara mengangkat wajah, dan untuk sesaat mata kami bertemu. Ada sesuatu di sana—mungkin penyesalan, mungkin kesedihan, mungkin permintaan maaf yang tidak pernah sempat terucap. Ia membuka mulut seolah ingin mengatakan sesuatu, tetapi bel sekolah berbunyi. Nara berdiri dan berjalan pergi.</p>
+      <p>Hari itu aku menyadari bahwa tidak semua perpisahan dimulai dengan pelukan atau air mata. Ada perpisahan yang dimulai ketika dua orang sama-sama menunggu pihak lain berbicara lebih dulu, sampai akhirnya waktu mengambil kesempatan itu dari mereka.</p>
+    `
+  },
+  {
+    title: "Bab 7 — Kota yang Kehilangan Suara",
+    content: `
+      <p>Nara pergi pada Senin pagi. Aku mengetahuinya dari sebuah unggahan singkat di media sosial: foto jendela mobil dengan langit mendung di baliknya. Tidak ada keterangan panjang, hanya satu kalimat, "Semoga di tempat baru nanti aku bisa bernapas lebih lega." Aku menatap layar cukup lama, menunggu ada pesan pribadi yang menyebut namaku. Tidak ada.</p>
+      <p>Aku marah. Bukan hanya kepada Nara, tetapi juga kepada diriku sendiri. Aku marah karena masih berharap, karena masih memeriksa ponsel setiap beberapa menit, dan karena bagian paling jujur dalam diriku tetap ingin tahu apakah ia sudah sampai dengan selamat. Aku mengetik pesan, menghapusnya, mengetik lagi, lalu akhirnya mengunci layar tanpa mengirim apa pun.</p>
+      <p>Hari-hari di kota itu berubah menjadi rutinitas yang hambar. Aku tetap berangkat sekolah, bercanda dengan teman-teman, dan mengerjakan tugas. Dari luar, tidak ada yang berbeda. Namun, aku berhenti melewati toko buku kecil yang dulu kami kunjungi. Aku juga berhenti membeli susu kotak rasa stroberi, meskipun sebelumnya aku tidak pernah menyukainya. Hal-hal kecil terasa terlalu penuh oleh kenangan.</p>
+      <p>Suatu sore, hujan turun deras. Aku berteduh di halte lama, tempat semuanya dimulai. Bangku itu masih sama, papan rutenya masih sedikit miring, dan atapnya masih bocor di sudut yang sama. Tetapi tidak ada Nara yang berdiri di sampingku sambil menawarkan separuh payungnya. Tidak ada suara yang mengomentari sepatu basahku. Hanya hujan yang jatuh tanpa peduli siapa yang sedang merindukan siapa.</p>
+      <p>Aku membuka galeri ponsel dan menemukan foto pertama kami. Nara tersenyum lebar, sedangkan aku terlihat kaku. Aku memperbesar gambar itu, memperhatikan hal-hal yang dulu tidak kusadari: rambutnya yang tertiup angin, jemarinya yang hampir menyentuh lenganku, dan matanya yang melihat ke arah kamera seolah dunia tidak punya alasan untuk membuatnya sedih.</p>
+      <p>Untuk pertama kalinya sejak ia pergi, aku menangis. Bukan karena aku yakin telah kehilangan cinta dalam hidupku, melainkan karena aku tidak tahu apakah orang yang kurindukan masih menjadi orang yang sama. Aku bahkan tidak tahu apakah ia pernah merasakan hal yang sama denganku.</p>
+      <p>Hujan berhenti menjelang malam. Aku memasukkan ponsel ke saku dan berjalan pulang tanpa payung. Di bawah langit yang mulai gelap, aku berjanji tidak akan lagi menunggu seseorang yang sudah memilih pergi. Aku mengucapkan janji itu dengan sungguh-sungguh, meskipun jauh di dalam hati, aku tahu bahwa ada janji yang hanya kita buat agar bisa melewati satu malam lagi.</p>
+    `
+  },
+  {
+    title: "Bab 8 — Nama yang Tidak Lagi Kusebut",
+    content: `
+      <p>Bulan-bulan berlalu. Aku mulai terbiasa dengan ketidakhadiran Nara, atau setidaknya aku pandai berpura-pura demikian. Aku tidak lagi membuka profilnya setiap malam. Aku menghapus percakapan lama dari daftar utama, mengganti lagu-lagu yang biasa kami dengarkan, dan mencoba memenuhi hari dengan hal-hal baru. Perlahan, hidupku bergerak maju, meskipun beberapa bagian dari diriku masih tertinggal di halte itu.</p>
+      <p>Aku belajar bahwa melupakan seseorang tidak selalu berarti menghapus ingatannya. Kadang, melupakan hanyalah kemampuan untuk melewati tempat yang sama tanpa berhenti. Kadang, itu berarti mendengar lagu kesukaannya tanpa merasa perlu mematikan musik. Dan kadang, itu berarti mengucapkan namanya dalam pikiran tanpa membiarkan hari kita hancur karenanya.</p>
+      <p>Namun, ada malam ketika semuanya kembali. Biasanya saat hujan turun dan suara air memukul jendela kamar. Aku akan teringat cara Nara tertawa, bagaimana ia mengeluh tentang roti yang terlalu manis, dan bagaimana ia selalu mengambil foto langit seolah setiap senja adalah sesuatu yang mungkin tidak akan datang lagi. Kenangan itu muncul tanpa izin, lalu pergi meninggalkan ruangan yang terasa lebih sepi daripada sebelumnya.</p>
+      <p>Suatu hari, aku menemukan catatan kecil di antara halaman buku yang kupinjam dari toko buku lama. Tulisan tangan di kertas itu tidak asing bagiku. Huruf-hurufnya miring sedikit ke kanan, dengan beberapa kata yang dicoret dan ditulis ulang. Di bagian atas tertulis namaku, Arka. Jantungku berdegup lebih cepat ketika membaca kalimat pertama.</p>
+      <p>"Kalau kamu membaca ini, mungkin aku sudah terlalu jauh untuk menjelaskan semuanya secara langsung."</p>
+      <p>Aku membaca kalimat itu berulang kali. Catatan tersebut tidak memiliki tanggal, tidak ada tanda tangan, dan tidak menjelaskan bagaimana kertas itu bisa berada di sana. Aku bertanya kepada penjaga toko, tetapi ia hanya menggeleng. Katanya, buku itu sudah lama berada di rak yang sama dan tidak ada yang menitipkan apa pun kepadanya.</p>
+      <p>Aku membawa catatan itu pulang. Ada satu kalimat lagi di bagian bawah, ditulis lebih kecil, seolah penulisnya ragu untuk membiarkannya terbaca.</p>
+      <p>"Maaf karena aku membuatmu membenci sesuatu yang sebenarnya juga sedang berusaha kuselamatkan."</p>
+      <p>Malam itu, semua pertanyaan yang kupendam kembali hidup. Apa yang sedang Nara selamatkan? Mengapa ia tidak pernah mengatakan apa pun? Dan apakah selama ini aku salah memahami perpisahan kami? Aku ingin mencari jawabannya, tetapi tidak tahu harus mulai dari mana. Untuk pertama kalinya, aku merasa mungkin aku belum benar-benar mengenal cerita yang selama ini kukira milik kami berdua.</p>
+    `
+  },
+  {
+    title: "Bab 9 — Hampa yang Tinggal Setelahnya",
+    content: `
+      <p>Setahun berlalu sejak Nara meninggalkan kota. Aku sudah lulus sekolah dan mulai sibuk memikirkan masa depan. Orang-orang di sekitarku bicara tentang kampus, pekerjaan, dan impian yang ingin mereka kejar. Aku ikut tertawa ketika mereka bercanda, ikut bersemangat saat membicarakan rencana, tetapi kadang aku merasa seperti sedang menjalani hidup milik orang lain.</p>
+      <p>Yang tersisa dari Nara hanyalah beberapa foto, gantungan kenangan dalam pikiranku, dan sebuah catatan tanpa penjelasan. Aku tidak tahu apakah ia baik-baik saja. Aku tidak tahu apakah ia masih menyimpan foto kami. Aku juga tidak tahu apakah ia pernah mengingatku pada hari-hari ketika langit di kotanya berubah menjadi abu-abu. Pertanyaan-pertanyaan itu perlahan kehilangan suaranya, tetapi tidak pernah benar-benar menghilang.</p>
+      <p>Aku pernah mencoba menghubunginya sekali. Pesan itu sederhana: "Hai, kamu apa kabar?" Aku menatap layar setelah menekan tombol kirim. Satu jam berlalu, lalu satu hari. Tidak ada balasan. Pada akhirnya aku menghapus percakapan itu, bukan karena tidak peduli, melainkan karena aku tidak sanggup terus menunggu sesuatu yang mungkin tidak pernah datang.</p>
+      <p>Beberapa minggu kemudian, aku kembali ke toko buku kecil. Tempat itu masih sama, tetapi rak dekat jendela sudah dipindahkan. Aku duduk di kursi yang dulu sering ditempati Nara, membuka sebuah novel secara acak, dan menemukan bahwa aku tidak mampu membaca satu halaman pun. Pikiranku terus kembali pada catatan itu, pada kalimat tentang menyelamatkan sesuatu, dan pada mata Nara yang terlihat sedih sebelum ia pergi.</p>
+      <p>Aku mulai bertanya-tanya apakah rasa marahku dulu telah membuatnya semakin kesepian. Mungkin ia memang punya alasan untuk diam. Mungkin ia ingin bercerita, tetapi aku terlalu sibuk merasa ditinggalkan. Namun, aku juga tahu bahwa aku tidak bisa terus menyalahkan diri sendiri atas hal-hal yang tidak pernah dijelaskan kepadaku. Dua orang bisa sama-sama terluka tanpa salah satunya benar-benar menjadi penjahat.</p>
+      <p>Sore itu, aku memotret langit dari jendela toko. Warnanya pucat, hampir tanpa jingga. Aku memandangi foto tersebut cukup lama sebelum menyadari sesuatu: aku sudah mulai melakukan kebiasaan Nara. Aku menyimpan langit karena takut kehilangan perasaan yang menyertainya, meskipun aku tidak yakin perasaan apa yang sedang kucoba pertahankan.</p>
+      <p>Di perjalanan pulang, ponselku bergetar. Sebuah nomor tak dikenal mengirimkan pesan singkat: "Kamu masih menyimpan bintang itu?" Aku berhenti di tengah trotoar. Napasku terasa tertahan. Tidak ada nama, tidak ada foto profil, hanya satu pertanyaan yang tidak mungkin diketahui sembarang orang. Aku mengetik balasan, tetapi sebelum sempat mengirimkannya, nomor itu menghilang dari layar.</p>
+    `
+  },
+  {
+    title: "Bab 10 — Ketika Langit Mulai Berubah",
+    content: `
+      <p>Aku tidak bisa tidur malam itu. Pesan dari nomor tak dikenal terus berputar di kepalaku. Aku mencoba meyakinkan diri bahwa itu hanya kebetulan, mungkin teman lama yang mengetahui kisah gantungan kunci tersebut. Namun, hanya Nara yang tahu alasan di balik hadiah kecil itu. Hanya Nara yang pernah bercanda tentang bintang dan jalan pulang.</p>
+      <p>Keesokan paginya, aku kembali menghubungi nomor tersebut. Pesanku hanya terkirim satu kali, lalu tidak ada tanda bahwa penerimanya sedang aktif. Aku menunggu sampai sore, kemudian sampai malam. Ketika akhirnya tidak ada jawaban, rasa kecewa yang kukira sudah mati muncul lagi. Aku merasa bodoh karena membiarkan satu pesan singkat mengguncang ketenangan yang susah payah kubangun.</p>
+      <p>Beberapa hari kemudian, aku menemukan amplop putih terselip di pintu rumah. Tidak ada nama pengirim, hanya namaku yang ditulis dengan tinta hitam. Tulisan itu membuat dadaku sesak. Aku mengenal bentuk hurufnya, cara garis pada huruf A dibuat sedikit terlalu panjang, dan titik kecil di ujung beberapa kalimat. Itu tulisan Nara.</p>
+      <p>Di dalam amplop ada selembar foto langit senja, sama seperti foto-foto yang dulu sering ia kirimkan. Di bagian belakangnya tertulis, "Aku tidak pernah benar-benar pergi dari hari itu." Tidak ada penjelasan lain. Aku membalik foto itu berkali-kali, seolah kata-kata tambahan akan muncul jika aku cukup lama menatapnya.</p>
+      <p>Aku marah karena ia kembali dengan cara seperti ini. Setelah berbulan-bulan diam, setelah membiarkanku menebak dan menerima kehilangan sendirian, ia muncul hanya dengan sebuah foto dan kalimat yang tidak menjawab apa pun. Aku ingin merobeknya. Aku ingin meneleponnya dan menanyakan semuanya. Tetapi pada akhirnya, aku menyimpan foto itu di dalam laci, bersama catatan lama yang selama ini tidak pernah kubuang.</p>
+      <p>Malam itu, aku bermimpi tentang halte kami. Nara berdiri di bawah hujan, memegang payung biru pucat, tetapi kali ini ia tidak tersenyum. Ia hanya menatapku dari kejauhan, seolah ada sesuatu di antara kami yang tidak bisa dilewati. Aku berlari menghampirinya, tetapi setiap langkah membuat jarak kami semakin jauh.</p>
+      <p>Aku terbangun sebelum fajar dengan perasaan yang sulit dijelaskan. Di luar, hujan turun pelan. Untuk pertama kalinya setelah sekian lama, aku tidak merasa ingin menghindarinya. Aku membuka laci, mengambil foto dari amplop, dan memutuskan bahwa jika Nara benar-benar ingin kembali ke hidupku, kali ini aku tidak akan membiarkan pertanyaan-pertanyaan itu tetap tanpa jawaban.</p>
+    `
+  },
+  {
+    title: "Bab 11 — Pertemuan yang Terlambat",
+    content: `
+      <p>Pesan berikutnya datang tiga hari kemudian. Tidak ada sapaan, tidak ada penjelasan panjang. Hanya sebuah lokasi dan waktu: halte lama, pukul lima sore, hari Sabtu. Aku membaca pesan itu sambil menahan napas. Sebagian diriku ingin mengabaikannya, membiarkan Nara merasakan bagaimana rasanya menunggu tanpa kepastian. Namun, bagian lain yang lebih jujur tahu bahwa aku akan datang, bahkan jika aku harus menunggu sampai hujan berhenti.</p>
+      <p>Sabtu sore, aku tiba di halte lima belas menit lebih awal. Langit mendung, jalanan basah oleh hujan yang turun sejak siang. Aku berdiri di tempat yang sama seperti hari pertama kami bertemu. Setiap kendaraan yang berhenti membuatku menoleh, dan setiap orang yang turun membuatku berharap sekaligus takut. Aku tidak tahu apakah aku ingin melihat Nara atau ingin membuktikan kepada diriku sendiri bahwa aku sudah cukup kuat untuk menghadapinya.</p>
+      <p>Pukul lima lewat tujuh menit, sebuah mobil berhenti di seberang jalan. Seorang perempuan turun dengan jaket abu-abu dan rambut yang sedikit lebih pendek. Ia menatap halte itu beberapa detik sebelum berjalan mendekat. Aku langsung mengenalinya, meskipun waktu telah mengubah beberapa hal pada wajahnya. Nara berdiri di hadapanku, dan untuk beberapa saat kami hanya saling memandang.</p>
+      <p>"Hai, Ka," katanya pelan.</p>
+      <p>Aku tertawa pendek, bukan karena lucu, tetapi karena aku tidak tahu harus melakukan apa. "Setahun lebih, dan cuma itu yang bisa kamu bilang?" Nara menunduk. Aku bisa melihat tangannya gemetar. Ada banyak kalimat marah yang sudah kusiapkan, tetapi ketika akhirnya bertemu dengannya, semuanya terasa berantakan. Yang paling ingin kutanyakan justru yang paling sederhana: apakah ia baik-baik saja selama ini?</p>
+      <p>"Aku minta maaf," katanya. "Aku tahu itu nggak cukup." Aku menatapnya lama. "Kenapa kamu pergi tanpa bilang apa-apa? Kenapa kamu membiarkan aku berpikir kalau aku nggak berarti?" Suaraku terdengar lebih tenang daripada perasaanku. Nara menarik napas, lalu matanya mulai berkaca-kaca.</p>
+      <p>"Karena aku takut," jawabnya. "Aku takut kalau aku cerita, kamu bakal ikut menanggung sesuatu yang bahkan aku sendiri nggak tahu bagaimana menghadapinya." Ia menggenggam tali tasnya erat-erat. "Aku pikir kalau aku menjauh, semuanya akan lebih mudah. Aku pikir kamu akan membenciku dan akhirnya berhenti menunggu."</p>
+      <p>"Kamu berhasil," kataku. "Aku memang membencimu. Tapi aku juga merindukanmu. Dan dua hal itu membuatku capek, Nar." Air matanya jatuh. Aku ingin menghapusnya, tetapi aku tidak tahu apakah aku masih punya hak untuk melakukan itu. Nara mengeluarkan sebuah amplop dari tasnya dan menyodorkannya kepadaku.</p>
+      <p>"Aku datang bukan cuma untuk meminta maaf," katanya. "Ada sesuatu yang seharusnya kamu tahu sejak dulu. Aku sudah terlalu lama menyimpannya." Aku menerima amplop itu, tetapi belum membukanya. Sebelum aku sempat bertanya, Nara memandangku dengan mata yang penuh ketakutan. "Tapi setelah kamu membaca ini, mungkin kamu nggak akan pernah bisa melihatku dengan cara yang sama lagi."</p>
+    `
+  },
+  {
+    title: "Bab 12 — Di Bawah Langit yang Kehilangan Warna",
+    content: `
+      <p>Aku memandangi amplop itu, lalu kembali menatap Nara. Hujan semakin deras, tetapi tidak satu pun dari kami bergerak untuk berteduh. Ada banyak hal yang ingin kutanyakan, begitu banyak kemarahan yang belum selesai, dan terlalu banyak kenangan yang belum menemukan tempatnya. Namun, melihat Nara berdiri di hadapanku dengan wajah pucat dan mata yang sembap membuatku sadar bahwa pertemuan ini bukanlah akhir yang selama ini kubayangkan. Ini mungkin justru awal dari sesuatu yang jauh lebih sulit.</p>
+      <p>"Apa isinya?" tanyaku.</p>
+      <p>Nara menelan ludah. "Sesuatu yang seharusnya kuberikan waktu itu." Ia mengusap pipinya, lalu mencoba tersenyum meskipun gagal. "Aku menulisnya berkali-kali. Setiap kali ingin mengirimkannya, aku selalu takut. Aku takut kamu akan membenciku lebih dalam. Aku takut kamu akan datang mencariku. Dan yang paling kutakutkan..." Ia berhenti, seolah kata-kata berikutnya terlalu berat untuk diucapkan. "Aku takut kamu akan memilih tetap tinggal, padahal aku tidak tahu berapa lama aku masih bisa berada di sini."</p>
+      <p>Jantungku terasa jatuh. "Maksud kamu apa?" Nara tidak menjawab. Ia hanya menatap langit yang gelap, seperti sedang mencari sesuatu di balik awan. Aku ingin memaksanya bicara, tetapi kali ini aku memilih menunggu. Aku tidak ingin mengulangi kesalahan yang sama, menganggap diamnya sebagai penolakan sebelum memahami apa yang sebenarnya ia rasakan.</p>
+      <p>Akhirnya, Nara berkata, "Kamu masih ingat laki-laki yang kamu lihat bersamaku di tangga belakang sekolah?" Aku mengangguk perlahan. "Dia kakakku. Waktu itu keluargaku sedang mengalami masalah besar. Kami harus pindah mendadak, dan ada hal-hal tentang diriku yang belum sanggup kuceritakan kepada siapa pun." Ia menarik napas panjang. "Aku tahu kamu terluka. Aku tahu aku membuatmu merasa tidak berarti. Tapi aku benar-benar tidak tahu bagaimana cara meminta pertolongan tanpa membuat semuanya semakin buruk."</p>
+      <p>Aku merasakan kemarahan yang lama perlahan bercampur dengan sesuatu yang lain. Bukan berarti semua tindakannya menjadi benar. Bukan berarti rasa sakit yang kutanggung selama ini mendadak hilang. Namun, untuk pertama kalinya, aku melihat kemungkinan bahwa di balik diamnya, Nara juga sedang berjuang sendirian. Aku membuka amplop itu dengan tangan yang mulai gemetar.</p>
+      <p>Di dalamnya terdapat beberapa lembar surat dan sebuah foto lama. Foto kami di depan toko buku, diambil pada sore ketika kami tertawa tanpa alasan. Di belakang foto itu tertulis tanggal yang sama dengan hari terakhir kami berbicara. Aku mulai membaca suratnya. Pada halaman pertama, Nara meminta maaf. Pada halaman kedua, ia menulis tentang hari-hari yang sulit, tentang rumah yang tidak lagi terasa seperti rumah, dan tentang betapa ia ingin meneleponku setiap kali merasa takut.</p>
+      <p>Namun, di halaman terakhir, tulisan tangannya berubah berantakan. Ada beberapa kalimat yang dicoret, seolah ia berusaha memutuskan apakah aku pantas mengetahuinya. Kalimat terakhir hanya berbunyi: "Kalau suatu hari aku kembali dan kamu masih mengingatku, ada satu hal yang harus kamu ketahui tentang malam sebelum aku pergi."</p>
+      <p>Aku mengangkat wajah. "Malam sebelum kamu pergi? Apa yang terjadi malam itu?"</p>
+      <p>Nara tidak langsung menjawab. Ia menatapku dengan mata yang membuat dadaku terasa dingin. Untuk pertama kalinya, aku melihat bahwa ia bukan hanya takut kehilangan sesuatu. Ia tampak seperti seseorang yang telah membawa sebuah rahasia terlalu lama, sampai rahasia itu perlahan menghabiskan seluruh keberaniannya.</p>
+      <p>"Ka," katanya, suaranya nyaris tenggelam oleh hujan. "Ada seseorang yang datang menemuiku malam itu. Seseorang yang tahu tentang kamu. Dan sebelum aku pergi, dia mengatakan sesuatu yang sampai sekarang masih membuatku takut."</p>
+      <p>Aku menggenggam surat itu lebih erat. "Siapa orang itu, Nar?"</p>
+      <p>Nara membuka mulut, tetapi tiba-tiba ponselnya berdering. Ia melihat layar, dan seluruh warna di wajahnya seakan menghilang. Ia mundur satu langkah. Aku mencoba melihat siapa yang menelepon, tetapi ia segera mematikan layar dan memasukkan ponselnya ke dalam tas.</p>
+      <p>"Kita harus pergi," katanya terburu-buru.</p>
+      <p>"Pergi ke mana? Kamu belum menjelaskan apa-apa!"</p>
+      <p>Nara menggenggam lenganku. Tangannya dingin. "Tolong, kali ini percaya sama aku. Jangan pulang sendirian malam ini."</p>
+      <p>Aku hendak bertanya lagi ketika sebuah suara terdengar dari belakang kami.</p>
+      <p>"Akhirnya kalian bertemu juga."</p>
+      <p>Nara langsung melepaskan lenganku. Aku berbalik. Seorang laki-laki berdiri beberapa meter dari kami, mengenakan jaket hitam dan memegang payung yang tidak terbuka. Wajahnya tidak asing, tetapi aku tidak bisa mengingat dari mana aku pernah melihatnya. Ia menatapku seolah sudah mengenalku sejak lama, lalu tersenyum tipis.</p>
+      <p>"Arka, kan?" tanyanya.</p>
+      <p>Aku tidak menjawab. Nara berdiri di sampingku dengan napas yang semakin cepat. Laki-laki itu mengeluarkan sesuatu dari saku jaketnya: sebuah foto lama yang memperlihatkan diriku sedang berdiri di depan rumah, diambil dari kejauhan.</p>
+      <p>"Sepertinya Nara belum menceritakan semuanya kepadamu," katanya. "Padahal alasan sebenarnya dia pergi dulu... bukan karena keluarganya."</p>
+      <p>Aku menoleh kepada Nara. Matanya dipenuhi air mata, tetapi ia tidak menyangkal satu kata pun.</p>
+      <p>Laki-laki itu melangkah mendekat, lalu menyodorkan foto tersebut kepadaku. Di balik foto itu, ada tulisan yang membuat darahku terasa membeku.</p>
+      <p><em>"Jangan percaya pada orang yang pertama kali mengajakmu berbagi payung."</em></p>
+      <p>Hujan terus turun. Nara memanggil namaku dengan suara bergetar, tetapi aku tidak lagi tahu harus mempercayai siapa. Aku menatap perempuan yang pernah menjadi warna paling terang dalam hidupku, lalu menatap orang asing yang seolah mengetahui setiap rahasia kami.</p>
+      <p>Dan tepat ketika aku hendak bertanya apa yang sebenarnya terjadi, laki-laki itu menoleh ke arah jalan yang gelap.</p>
+      <p>"Kita kehabisan waktu," katanya. "Karena orang yang seharusnya kalian takutkan..."</p>
+      <p>Ia berhenti, lalu menatapku lurus-lurus.</p>
+      <p>"...baru saja sampai."</p>
+    `
+  }
+];const totalChapters = 12;
+        let currentChapter = 1;
+
+        const chapterLabel = document.getElementById("chapterLabel");
+        const chapterTitle = document.getElementById("chapterTitle");
+        const chapterContent = document.getElementById("chapterContent");
+        const chapterCounter = document.getElementById("chapterCounter");
+        const progressFill = document.getElementById("progressFill");
+        const progressText = document.getElementById("progressText");
+        const prevButton = document.getElementById("prevChapter");
+        const nextButton = document.getElementById("nextChapter");
+
+        function renderChapter() {
+            const chapter = chapters[currentChapter - 1];
+            const progress = Math.round((currentChapter / totalChapters) * 100);
+
+            chapterLabel.textContent =
+                `CHAPTER ${String(currentChapter).padStart(2, "0")}`;
+
+            if (chapter) {
+                chapterTitle.textContent = chapter.title;
+                chapterContent.innerHTML = chapter.content;
+            } else {
+                chapterTitle.textContent = `Bab ${currentChapter}`;
+                chapterContent.textContent =
+                    "Bab ini belum ditulis. Kita bisa menambahkan cerita selanjutnya nanti.";
+            }
+
+            chapterCounter.textContent =
+                `Bab ${currentChapter} dari ${totalChapters}`;
+
+            progressFill.style.width = `${progress}%`;
+            progressText.textContent = `Progres ${progress}%`;
+
+            prevButton.disabled = currentChapter === 1;
+            nextButton.disabled = currentChapter === totalChapters;
+        }
+
+        prevButton.addEventListener("click", () => {
+            if (currentChapter > 1) {
+                currentChapter--;
+                renderChapter();
+            }
+        });
+
+        nextButton.addEventListener("click", () => {
+            if (currentChapter < totalChapters) {
+                currentChapter++;
+                renderChapter();
+            }
+        });
+
+        renderChapter();
+    </script>
+</body>
+</html>

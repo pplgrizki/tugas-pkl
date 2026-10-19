@@ -1,0 +1,234 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 16px;
+    display: grid;
+    place-items: center;
+    background: #090914;
+    color: #f4f1ff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.game {
+    width: min(1200px, 100%);
+    overflow: hidden;
+    border: 1px solid #68419b;
+    border-radius: 18px;
+    background: #141427;
+    box-shadow: 0 0 35px #a855f71c;
+}
+
+.game button { font: inherit; cursor: pointer; }
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: #19192d;
+    border-bottom: 1px solid #33234d;
+}
+
+.game-brand {
+    color: #f4f1ff;
+    font: 700 15px 'Orbitron', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.game-brand span { color: #22d3ee; }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#chapterCounter {
+    margin-right: 8px;
+    color: #22d3ee;
+    font-size: 11px;
+}
+
+.game .screen { padding: 22px; }
+.game [hidden] { display: none !important; }
+
+.game #welcomeScreen,
+.game #endingScreen { text-align: center; }
+
+.welcome-image,
+.ending-image {
+    display: block;
+    width: 100%;
+    max-height: 410px;
+    margin: 0 auto 20px;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #090914;
+}
+
+.eyebrow {
+    color: #22d3ee;
+    font: 600 10px 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+.game h1 {
+    margin: 12px 0;
+    color: #c084fc;
+    font: 700 clamp(20px, 3vw, 29px) 'Orbitron', sans-serif;
+}
+
+.intro,
+#endingDescription {
+    max-width: 650px;
+    margin: 15px auto;
+    color: #c4bdd8;
+    line-height: 1.8;
+}
+
+.voice-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+    color: #c4bdd8;
+    font-size: 12px;
+}
+
+/* Area gambar: setengah layar, kontrol tetap di kanan atas */
+.visual-scene {
+    position: relative;
+    height: clamp(340px, 48vw, 520px);
+    overflow: hidden;
+    border: 1px solid #493365;
+    border-radius: 12px;
+    background: #090914;
+}
+
+#backgroundImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 96%;
+    object-fit: contain;
+    object-position: bottom;
+    filter: drop-shadow(0 0 8px #0008);
+}
+
+.character.zull { left: 0; }
+.character.miku { right: 0; }
+
+.scene-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    border: 1px solid #ffffff2b;
+    border-radius: 6px;
+    background: #090914bd;
+    color: #80e8ff;
+    font-size: 11px;
+}
+
+.story-heading { margin-top: 20px; }
+.story-heading h1 { text-align: left; }
+
+.dialogue-box {
+    min-height: 125px;
+    margin-top: 12px;
+    padding: 18px;
+    border: 1px solid #493365;
+    border-radius: 12px;
+    background: #19192d;
+}
+
+.speaker {
+    margin: 0 0 10px;
+    color: #22d3ee;
+    font-weight: 700;
+}
+
+#dialogueText {
+    margin: 0;
+    line-height: 1.85;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+#choicesContainer {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.game button {
+    padding: 11px 15px;
+    border: 1px solid #8962ca;
+    border-radius: 8px;
+    background: #382653;
+    color: #fff;
+    transition: background .2s, transform .2s;
+}
+
+.game button:hover {
+    background: #634093;
+    transform: translateY(-1px);
+}
+
+.game button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game .nav-button {
+    min-width: 42px;
+    padding: 9px 12px;
+    white-space: nowrap;
+}
+
+.game .primary-button {
+    min-width: 200px;
+    margin: 18px auto 0;
+    border-color: #a855f7;
+    background: linear-gradient(100deg, #8b35df, #6535bd);
+}
+
+.game footer {
+    padding: 15px;
+    border-top: 1px solid #33234d;
+    background: #19192d;
+    color: #9694b2;
+    text-align: center;
+    font-size: 10px;
+}
+
+@media (max-width: 600px) {
+    body { padding: 5px; }
+    .game .screen { padding: 12px; }
+    .game-header { padding: 12px; flex-wrap: wrap; }
+    .game-brand { font-size: 12px; }
+    .header-right { gap: 5px; }
+    #chapterCounter { font-size: 9px; margin-right: 2px; }
+    .game .nav-button { min-width: 34px; padding: 8px; }
+    .visual-scene { height: 330px; }
+    .character { height: 85%; }
+    .dialogue-box { padding: 14px; }
+}

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zull × Miku | Our Story</title>
+    <link rel="stylesheet" href="anime-game.css">
+</head>
+<body>
+<main class="game">
+    <header class="game-header">
+        <a class="game-brand" href="index.html">ZULL <span>×</span> MIKU</a>
+        <div class="header-right">
+            <span id="chapterCounter">OUR STORY</span>
+            <button id="backButton" class="nav-button" disabled>←</button>
+            <button id="nextButton" class="nav-button">Mulai →</button>
+        </div>
+    </header>
+
+    <section id="welcomeScreen" class="screen active">
+        <img id="welcomeImage"
+             class="welcome-image"
+             src="images/Zull x Miku/foto berdua.jpg"
+             alt="Zull dan Miku">
+        <p class="eyebrow">AN INTERACTIVE VISUAL NOVEL</p>
+        <h1>Di Antara Hujan dan Kamu</h1>
+        <p class="intro">
+            Dua orang, satu perjalanan, dan pilihan yang menentukan
+            apakah mereka akan bersama, berpisah, atau menemukan rahasia.
+        </p>
+        <label class="voice-setting">
+            <input type="checkbox" id="voiceMode">
+            Aktifkan suara dialog Jepang
+        </label>
+        <button id="startButton" class="primary-button">Mulai Cerita ↗</button>
+    </section>
+
+    <section id="storyScreen" class="screen" hidden>
+        <div class="visual-scene">
+            <img id="backgroundImage" src="" alt="Latar cerita">
+            <img id="zullImage" class="character zull" src="" alt="Zull" hidden>
+            <img id="mikuImage" class="character miku" src="" alt="Miku" hidden>
+            <div class="scene-label" id="locationName"></div>
+        </div>
+
+        <div class="story-heading">
+            <p class="eyebrow">CURRENT CHAPTER</p>
+            <h1 id="chapterTitle"></h1>
+        </div>
+
+        <div class="dialogue-box">
+            <p id="speakerName" class="speaker"></p>
+            <p id="dialogueText"></p>
+        </div>
+
+        <div id="choicesContainer" hidden></div>
+    </section>
+
+    <section id="endingScreen" class="screen" hidden>
+        <p class="eyebrow">YOUR STORY, YOUR ENDING</p>
+        <h1 id="endingTitle"></h1>
+        <img id="endingImage" class="ending-image" src="" alt="Ilustrasi ending">
+        <p id="endingDescription"></p>
+        <button id="restartButton" class="primary-button">Main Lagi ↻</button>
+    </section>
+
+    <footer>© 2026 ZULL LYNIEE — OUR STORY</footer>
+</main>
+
+<script src="anime-game.js"></script>
+</body>
+</html>
