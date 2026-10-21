@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090914">
     <title>Zull Lyniee | Pixel Vault</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -77,6 +79,7 @@
                     <p class="topbar-eyebrow">JAPANESE GAMING WORLD</p>
                     <h2>Pixel <span>Vault</span></h2>
                 </div>
+
                 <div class="topbar-status">
                     <span class="status-dot"></span>
                     SYSTEM ONLINE
@@ -85,6 +88,7 @@
 
             <!-- DASHBOARD -->
             <section class="page-section active" id="dashboardPage">
+
                 <div class="hero-card">
                     <img
                         src="mio-hamiya.jpg"
@@ -104,6 +108,7 @@
                         <span class="mini-tag">✦ WELCOME TO YOUR WORLD</span>
                         <h1>ENTER YOUR<br><span>OWN WORLD.</span></h1>
                         <p>Kelola koleksi buku dan penulis favoritmu dalam satu tempat.</p>
+
                         <button type="button" class="primary-button" id="exploreBtn">
                             EXPLORE COLLECTION <span>↗</span>
                         </button>
@@ -112,6 +117,7 @@
                     <div class="hero-corner">PV / 2026</div>
                 </div>
 
+                <!-- STATISTIK -->
                 <div class="section-heading">
                     <div>
                         <p class="section-eyebrow">YOUR COLLECTION</p>
@@ -152,24 +158,97 @@
                     </article>
                 </div>
 
+                <!-- KOLEKSI TERBARU -->
                 <div class="content-card recent-card">
                     <div class="card-heading">
                         <div>
                             <p class="section-eyebrow">LATEST ENTRIES</p>
                             <h3>Recent <span>Collection</span></h3>
                         </div>
+
                         <button type="button" class="secondary-button" id="viewBooksBtn">
                             VIEW BOOKS ↗
                         </button>
                     </div>
+
                     <div id="recentList" class="recent-list">
                         <p class="empty-state">Memuat koleksi buku...</p>
                     </div>
                 </div>
-            </section>
 
-            <!-- BOOKS -->
+                <!-- NOVEL & GAME: KHUSUS DASHBOARD -->
+                <section class="promo-section" id="promoSection">
+
+                    <div class="section-heading promo-heading">
+                        <div>
+                            <p class="section-eyebrow">SPECIAL CONTENT</p>
+                            <h2>Enter Another <span>World</span></h2>
+                            <p class="promo-subtitle">
+                                Pilih cerita atau petualangan yang ingin kamu mulai.
+                            </p>
+                        </div>
+
+                        <span class="section-chip">NOVEL &amp; GAME</span>
+                    </div>
+
+                    <div class="promo-grid">
+
+                        <!-- NOVEL -->
+                        <article class="promo-card promo-novel">
+                            <div class="promo-art">
+                                <span class="promo-icon">📖</span>
+                                <span class="promo-art-label">01 / VISUAL NOVEL</span>
+                            </div>
+
+                            <div class="promo-content">
+                                <p class="section-eyebrow">VISUAL NOVEL</p>
+
+                                <h3>Di Bawah Langit yang Kehilangan Warna</h3>
+
+                                <p>
+                                    Ikuti perjalanan Zull dan Miku dalam kisah
+                                    penuh kenangan, perasaan, dan pilihan.
+                                </p>
+
+                                <a href="novel.html" class="promo-button">
+                                    BACA NOVEL <span>↗</span>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- GAME -->
+                        <article class="promo-card promo-game">
+                            <div class="promo-art">
+                                <span class="promo-icon">🎮</span>
+                                <span class="promo-art-label">02 / INTERACTIVE STORY</span>
+                            </div>
+
+                            <div class="promo-content">
+                                <p class="section-eyebrow">INTERACTIVE STORY</p>
+
+                                <h3>Zull <span class="promo-cross">×</span> Miku</h3>
+
+                                <p>
+                                    Tentukan pilihanmu dan temukan Good, Sad,
+                                    Mystery, serta Secret Ending.
+                                </p>
+
+                                <a href="anime-game.html" class="promo-button">
+                                    LET'S PLAY <span>↗</span>
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+            </section>
+            <!-- AKHIR DASHBOARD -->
+
+
+            <!-- BOOKS COLLECTION -->
             <section class="page-section" id="booksPage">
+
                 <div class="page-intro">
                     <p class="section-eyebrow">MANAGE YOUR LIBRARY</p>
                     <h1>Books <span>Collection</span></h1>
@@ -191,14 +270,22 @@
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="bookTitle">JUDUL BUKU</label>
-                                <input type="text" id="bookTitle"
-                                    placeholder="Masukkan judul buku" required>
+                                <input
+                                    type="text"
+                                    id="bookTitle"
+                                    placeholder="Masukkan judul buku"
+                                    required
+                                >
                             </div>
 
                             <div class="form-group">
                                 <label for="bookSlug">SLUG BUKU</label>
-                                <input type="text" id="bookSlug"
-                                    placeholder="contoh: belajar-javascript" required>
+                                <input
+                                    type="text"
+                                    id="bookSlug"
+                                    placeholder="contoh: belajar-javascript"
+                                    required
+                                >
                             </div>
                         </div>
 
@@ -206,8 +293,13 @@
                             <button type="submit" class="primary-button" id="bookSubmit">
                                 + SIMPAN BUKU
                             </button>
-                            <button type="button" class="secondary-button"
-                                id="cancelBookEdit" hidden>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="cancelBookEdit"
+                                hidden
+                            >
                                 BATAL EDIT
                             </button>
                         </div>
@@ -223,14 +315,19 @@
                             <h3>Book <span>List</span></h3>
                         </div>
                     </div>
+
                     <div id="bookList" class="data-list">
                         <p class="empty-state">Memuat koleksi buku...</p>
                     </div>
                 </div>
+
             </section>
+            <!-- AKHIR BOOKS -->
+
 
             <!-- AUTHORS -->
             <section class="page-section" id="authorsPage">
+
                 <div class="page-intro">
                     <p class="section-eyebrow">MANAGE YOUR WRITERS</p>
                     <h1>Authors <span>Database</span></h1>
@@ -251,16 +348,25 @@
 
                         <div class="form-group">
                             <label for="authorName">NAMA PENULIS</label>
-                            <input type="text" id="authorName"
-                                placeholder="Masukkan nama penulis" required>
+                            <input
+                                type="text"
+                                id="authorName"
+                                placeholder="Masukkan nama penulis"
+                                required
+                            >
                         </div>
 
                         <div class="form-actions">
                             <button type="submit" class="primary-button" id="authorSubmit">
                                 + SIMPAN PENULIS
                             </button>
-                            <button type="button" class="secondary-button"
-                                id="cancelAuthorEdit" hidden>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="cancelAuthorEdit"
+                                hidden
+                            >
                                 BATAL EDIT
                             </button>
                         </div>
@@ -276,11 +382,15 @@
                             <h3>Author <span>List</span></h3>
                         </div>
                     </div>
+
                     <div id="authorList" class="data-list">
                         <p class="empty-state">Memuat data penulis...</p>
                     </div>
                 </div>
+
             </section>
+            <!-- AKHIR AUTHORS -->
+
 
             <footer class="main-footer">
                 <span>© 2026 ZULL LYNIEE</span>
@@ -290,10 +400,8 @@
         </main>
     </div>
 
-    <!-- Cek sesi login -->
+    <!-- AUTENTIKASI DAN CRUD TETAP MENGGUNAKAN FILE ASLI -->
     <script type="module" src="auth-guard.js"></script>
-
-    <!-- CRUD, navigasi, profil, dan logout -->
     <script type="module" src="script.js"></script>
 
 </body>

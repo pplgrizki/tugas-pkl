@@ -1,12 +1,6 @@
 
 "use strict";
 
-// ==================================================
-// ZULL x MIKU — VISUAL NOVEL
-// 12 CHAPTER | 4 ENDINGS | JAPANESE VOICE
-// ==================================================
-
-// 1. LOKASI FILE
 
 const PATH = {
     welcome: "images/Zull x Miku/foto berdua.jpg",

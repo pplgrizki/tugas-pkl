@@ -510,3 +510,24 @@ form label {
         transition: none !important;
     }
 }
+
+/* LINK DAFTAR AKUN */
+.register-link {
+    margin: 18px 0;
+    text-align: center;
+    color: #aaa4c7;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.register-link a {
+    color: #42caff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.register-link a:hover {
+    color: #c39aff;
+    text-shadow: 0 0 10px rgba(195, 154, 255, 0.5);
+}

@@ -1493,3 +1493,985 @@ body {
         min-height: 145px;
     }
 }
+
+/* =========================================
+   PIXEL VAULT — NOVEL & ANIME GAME CARDS
+========================================= */
+
+#openNovelBtn,
+#openAnimeGameBtn {
+    min-height: 52px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Kartu novel */
+.novel-card,
+#novelCard {
+    padding: 30px;
+}
+
+.novel-card h1,
+.novel-card h2,
+#novelCard h1,
+#novelCard h2 {
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.4;
+    color: #c084fc;
+}
+
+.novel-card p,
+#novelCard p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #c4bdd8;
+}
+
+/* Kartu interactive story */
+.game-card,
+#gameCard {
+    padding: 30px;
+}
+
+.game-card h1,
+.game-card h2,
+#gameCard h1,
+#gameCard h2 {
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.4;
+    color: #22d3ee;
+}
+
+.game-card p,
+#gameCard p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #c4bdd8;
+}
+
+/* Judul di halaman pembaca novel */
+.novel-title,
+#novelTitle,
+.reader-title {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.4;
+    font-weight: 800;
+    color: #c084fc;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    .novel-card,
+    #novelCard,
+    .game-card,
+    #gameCard {
+        padding: 20px;
+    }
+
+    .novel-card p,
+    #novelCard p,
+    .game-card p,
+    #gameCard p {
+        font-size: 14px;
+    }
+
+    #openNovelBtn,
+    #openAnimeGameBtn {
+        width: 100%;
+        font-size: 13px;
+    }
+}
+
+/* ===== PIXEL VAULT NOVEL & GAME ===== */
+
+.promo-section {
+    width: 100%;
+    margin: 38px 0 28px;
+    min-width: 0;
+}
+
+.promo-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.promo-heading h2 {
+    margin: 7px 0 0;
+    font-size: clamp(23px, 3vw, 32px);
+    line-height: 1.4;
+}
+
+.promo-subtitle {
+    margin: 9px 0 0;
+    color: #a9a3c2;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+.promo-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #40305f;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #1d1a32, #121221);
+    box-shadow: 0 8px 28px #00000020;
+    transition: transform .25s ease, border-color .25s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-4px);
+    border-color: #9460d7;
+}
+
+.promo-art {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 170px;
+    overflow: hidden;
+    border-bottom: 1px solid #40305f;
+    background: radial-gradient(ellipse at center bottom, #a855f73b, transparent 70%), #17152a;
+}
+
+.promo-game .promo-art {
+    background: radial-gradient(ellipse at center bottom, #22d3ee2b, transparent 70%), #111a2c;
+}
+
+.promo-icon {
+    display: grid;
+    width: 86px;
+    height: 86px;
+    place-items: center;
+    border: 1px solid #c084fc66;
+    border-radius: 24px;
+    background: #a855f71c;
+    font-size: 42px;
+}
+
+.promo-game .promo-icon {
+    border-color: #22d3ee66;
+    background: #22d3ee12;
+}
+
+.promo-art-label {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    color: #c8b8e5;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.promo-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 23px;
+}
+
+.promo-content .section-eyebrow {
+    margin: 0 0 10px;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+.promo-content h3 {
+    margin: 0;
+    color: #f4f1ff;
+    font-size: clamp(19px, 2vw, 25px);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.promo-novel .promo-content h3 {
+    color: #d8b4fe;
+}
+
+.promo-game .promo-content h3 {
+    color: #a5f3fc;
+}
+
+.promo-cross {
+    color: #c084fc;
+}
+
+.promo-content > p:not(.section-eyebrow) {
+    margin: 12px 0 22px;
+    color: #b7b1cd;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.promo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 46px;
+    margin-top: auto;
+    padding: 12px 18px;
+    border: 1px solid #a855f7;
+    border-radius: 9px;
+    background: linear-gradient(110deg, #8037c8, #5633a0);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.promo-game .promo-button {
+    border-color: #22d3ee88;
+    background: linear-gradient(110deg, #164e72, #493079);
+}
+
+.promo-button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(110deg, #984ce2, #7046c7);
+}
+
+.promo-game .promo-button:hover {
+    background: linear-gradient(110deg, #17658a, #6741a1);
+}
+
+.promo-button:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 4px;
+}
+
+@media (max-width: 850px) {
+    .promo-grid {
+        gap: 15px;
+    }
+
+    .promo-art {
+        min-height: 145px;
+    }
+
+    .promo-content {
+        padding: 18px;
+    }
+
+    .promo-content h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .promo-section {
+        margin-top: 28px;
+    }
+
+    .promo-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .promo-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .promo-art {
+        min-height: 145px;
+    }
+
+    .promo-content {
+        padding: 20px;
+    }
+
+    .promo-content h3 {
+        font-size: 22px;
+    }
+
+    .promo-button {
+        width: 100%;
+    }
+}
+
+.novel-quote {
+    margin: 0 0 24px;
+    padding: 16px 18px;
+    border-left: 3px solid #c084fc;
+    border-radius: 0 8px 8px 0;
+    background: #a855f710;
+    color: #d8c9e9;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 2;
+}
+
+.promo-novel .promo-button {
+    margin-top: auto;
+}
+
+/* ===== VISUAL NOVEL: GAMBAR + CERITA ===== */
+
+.novel-chapter {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-top: 22px;
+    padding: 0 !important;
+    border: 1px solid #a78bfa55;
+    border-radius: 20px;
+    background: #111326;
+    box-shadow: 0 18px 55px #0007;
+    animation: chapterEnter .65s ease both;
+}
+
+.chapter-image {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: min(78vh, 700px);
+    min-height: 420px;
+    object-fit: cover;
+    object-position: center;
+    opacity: .9;
+    animation: imageEnter 1.1s ease both;
+}
+
+.chapter-image-overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 22, .08) 0%,
+        rgba(8, 8, 22, .16) 22%,
+        rgba(10, 10, 26, .58) 45%,
+        rgba(17, 19, 38, .96) 72%,
+        #111326 100%
+    );
+}
+
+.chapter-content {
+    position: relative;
+    padding: clamp(22px, 5vw, 45px);
+    padding-top: clamp(280px, 43vh, 440px);
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(17, 19, 38, .12) 120px,
+        rgba(17, 19, 38, .82) 300px,
+        #111326 470px
+    );
+}
+
+.chapter-number {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #67e8f955;
+    border-radius: 30px;
+    background: rgba(10, 13, 30, .7);
+    color: #67e8f9;
+    font-size: 11px;
+    letter-spacing: 3px;
+    backdrop-filter: blur(8px);
+}
+
+.novel-chapter h2 {
+    margin: 14px 0 18px;
+    color: #e4ccff;
+    font-family: Georgia, serif;
+    font-size: clamp(27px, 5vw, 39px);
+    line-height: 1.35;
+    text-shadow: 0 3px 20px #000;
+}
+
+.chapter-atmosphere {
+    color: #d2c9e8;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.novel-story {
+    color: #f0edf8;
+    font-size: 16px;
+    line-height: 2.05;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.story-paragraph {
+    margin: 0 0 24px;
+    opacity: 0;
+    transform: translateY(18px);
+    text-shadow: 0 2px 12px #0005;
+}
+
+.story-paragraph.is-visible {
+    animation: storyReveal .8s ease forwards;
+}
+
+.novel-quote {
+    margin-top: 32px;
+    padding: 20px;
+    border: 1px solid #bd8cff55;
+    border-left: 3px solid #bd8cff;
+    border-radius: 0 14px 14px 0;
+    background: rgba(124, 58, 180, .13);
+    color: #e5d5ff;
+    backdrop-filter: blur(8px);
+    line-height: 1.9;
+}
+
+@keyframes storyReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes chapterEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageEnter {
+    from {
+        opacity: .25;
+        transform: scale(1.035);
+    }
+    to {
+        opacity: .9;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .chapter-image {
+        height: 550px;
+        min-height: 380px;
+    }
+
+    .chapter-content {
+        padding: 22px;
+        padding-top: 280px;
+    }
+
+    .novel-story {
+        font-size: 15px;
+        line-height: 2;
+    }
+
+    .novel-chapter h2 {
+        font-size: 27px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .novel-chapter,
+    .chapter-image,
+    .story-paragraph.is-visible {
+        animation: none;
+    }
+
+    .story-paragraph {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================================
+   FIX GAMBAR NOVEL — PIXEL VAULT
+   Tambahkan di PALING BAWAH style.css
+========================================= */
+
+/* Kartu bab menjadi wadah gambar */
+.novel-chapter {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 500px;
+    background-color: #111326;
+}
+
+/* Gambar bab harus tampil di dalam kartu */
+.novel-chapter .chapter-image {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 700px;
+    min-height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Lapisan gelap di atas gambar agar tulisan terbaca */
+.novel-chapter .chapter-image-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 22, 0.02) 0%,
+        rgba(8, 8, 22, 0.05) 25%,
+        rgba(10, 10, 26, 0.20) 50%,
+        rgba(17, 19, 38, 0.65) 75%,
+        #111326 100%
+    );
+}
+
+/* Konten cerita berada di atas gambar */
+.novel-chapter .chapter-content {
+    position: relative;
+    z-index: 2;
+    padding: clamp(22px, 5vw, 45px);
+    padding-top: clamp(280px, 43vh, 440px);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(17, 19, 38, 0.12) 120px,
+        rgba(17, 19, 38, 0.82) 300px,
+        #111326 470px
+    );
+}
+
+/* Pastikan gambar sambutan novel juga tampil */
+.novel-welcome {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 350px;
+    background: #111326;
+}
+
+.novel-welcome .welcome-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.novel-welcome .welcome-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(9, 9, 20, 0.95),
+        rgba(9, 9, 20, 0.55)
+    );
+}
+
+.novel-welcome .welcome-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    .novel-chapter {
+        min-height: 450px;
+    }
+
+    .novel-chapter .chapter-image {
+        height: 550px;
+        min-height: 380px;
+    }
+
+    .novel-chapter .chapter-content {
+        padding: 22px;
+        padding-top: 280px;
+    }
+}
+/* NOVEL: GAMBAR DAN TEKS MENYATU TANPA TUMPANG TINDIH */
+
+.novel-chapter {
+    position: relative;
+    isolation: auto;
+    overflow: hidden;
+    min-height: auto;
+    padding: 0;
+    background: #111326;
+    border-radius: 18px;
+}
+
+.novel-chapter .chapter-image {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: 650px;
+    object-fit: contain;
+    object-position: center;
+    opacity: 1;
+    filter: none;
+}
+
+.novel-chapter .chapter-image-overlay {
+    display: none;
+}
+
+.novel-chapter .chapter-content {
+    position: relative;
+    z-index: 2;
+    padding: 28px;
+    margin: 0;
+    background: #111326;
+}
+
+.novel-chapter .chapter-content h1,
+.novel-chapter .chapter-content h2,
+.novel-chapter .chapter-content h3 {
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+.novel-chapter .chapter-content p {
+    position: relative;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    color: #e0e0ee;
+}
+
+@media (max-width: 600px) {
+    .novel-chapter .chapter-image {
+        max-height: none;
+        width: 100%;
+    }
+
+    .novel-chapter .chapter-content {
+        padding: 20px;
+    }
+}
+.ending-music {
+    width: 100%;
+    text-align: center;
+}
+
+.final-quote {
+    color: #c8c0d6;
+    font-size: 1rem;
+    line-height: 2;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: quoteAppear 3s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.final-quote span {
+    display: block;
+    margin-top: 12px;
+    color: #a99abf;
+    letter-spacing: 3px;
+}
+
+@keyframes quoteAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* VIDEO ENDING ZULL DAN MIKU */
+.ending-video-wrap {
+    width: min(900px, 92%);
+    margin: 24px auto;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(150, 100, 255, 0.6);
+    box-shadow: 0 0 30px rgba(120, 60, 255, 0.25);
+    background: #080610;
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+#endingVideo {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    background: #080610;
+}
+
+#endingPage.active .ending-video-wrap {
+    animation: endingVideoAppear 1.5s ease forwards;
+}
+
+@keyframes endingVideoAppear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tulisan ending muncul perlahan */
+#finalQuote {
+    animation: endingTextAppear 3s ease both;
+    animation-delay: 1.5s;
+}
+
+@keyframes endingTextAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ENDING: SAAT VIDEO BERJALAN */
+#endingPage.ending-video-playing > :not(.ending-video-wrap) {
+    display: none !important;
+}
+
+/* Sembunyikan progress selama video */
+body.ending-video-playing #novelProgress {
+    display: none !important;
+}
+
+/* Video ending */
+.ending-video-wrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 28px;
+}
+
+#endingVideo {
+    display: block;
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 14px;
+    background: #000;
+}
+
+/* Tulisan dan tombol muncul setelah video selesai */
+#endingPage.ending-revealed > :not(.ending-video-wrap) {
+    animation: endingTextAppear 1.5s ease both;
+}
+
+@keyframes endingTextAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* JUDUL DI ATAS VIDEO */
+.ending-heading {
+    text-align: center;
+    margin: 0 auto 24px;
+    max-width: 850px;
+}
+
+.ending-label {
+    color: #9b8cff;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+}
+
+.ending-title {
+    color: #f4edff;
+    font-size: clamp(26px, 4vw, 44px);
+    line-height: 1.35;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(157, 116, 255, 0.3);
+}
+
+/* VIDEO DI TENGAH */
+.ending-video-wrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#endingVideo {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    background: #000;
+    border-radius: 14px;
+}
+
+/* KATA-KATA DI BAWAH VIDEO */
+.ending-content {
+    max-width: 800px;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
+.ending-poem {
+    color: #e2d8ff;
+    font-size: clamp(17px, 2vw, 23px);
+    line-height: 1.9;
+    white-space: pre-line;
+    margin-bottom: 24px;
+}
+
+#finalQuote {
+    color: #bcb2d2;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.ending-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.ending-buttons a {
+    color: #b9a5ff;
+    text-decoration: none;
+}
+
+.ending-buttons a:hover {
+    color: #fff;
+}
+
+/* JUDUL TETAP ADA SAAT VIDEO BERJALAN */
+#endingPage.ending-video-playing > :not(.ending-video-wrap):not(.ending-heading) {
+    display: none !important;
+}
+
+/* JUDUL DAN VIDEO TERLIHAT, KONTEN PENUTUP MENUNGGU */
+#endingPage.ending-video-playing .ending-content {
+    display: none !important;
+}
+
+/* TAMPILAN PENUTUP SETELAH VIDEO SELESAI */
+#endingPage.ending-revealed .ending-content {
+    animation: endingTextAppear 1.5s ease both;
+}
+
+@media (max-width: 600px) {
+    .ending-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .ending-video-wrap {
+        width: 100%;
+    }
+
+    #endingVideo {
+        border-radius: 8px;
+    }
+
+    .ending-content {
+        padding: 0 16px;
+    }
+}
+
+/* KUTIPAN ENDING: NEON MERAH DAN BIRU */
+#finalQuote.final-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    font-size: clamp(17px, 2.5vw, 25px);
+    font-weight: 600;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+#finalQuote .ending-red {
+    color: #ff3b5c;
+    text-shadow: 0 0 8px rgba(255, 35, 75, 0.65);
+}
+
+#finalQuote .ending-blue {
+    color: #36bfff;
+    text-shadow: 0 0 8px rgba(40, 160, 255, 0.65);
+}
+
+@media (max-width: 600px) {
+    #finalQuote.final-quote {
+        font-size: 17px;
+        padding: 0 8px;
+    }
+}
+
+/* LINK LUPA PASSWORD */
+.forgot-password-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0 16px;
+}
+
+.forgot-password-row a {
+    color: #42caff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.forgot-password-row a:hover {
+    color: #c39aff;
+    text-shadow: 0 0 10px rgba(195, 154, 255, 0.5);
+}
+
+#forgotMessage {
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    margin: 12px 0;
+}

@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun | Zull Lyniee</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        .register-link {
+            margin: 18px 0;
+            text-align: center;
+            color: #aaa4c7;
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #42caff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            color: #c39aff;
+        }
+
+        #registerMessage {
+            margin: 12px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-cyan"></div>
+
+    <main class="login-container">
+        <section class="anime-panel">
+            <img
+                class="anime-image"
+                src="mio-hamiya.jpg"
+                alt="Anime character"
+            >
+
+            <div class="image-overlay"></div>
+
+            <a class="brand" href="login.html">
+                <span class="brand-icon">🎮</span>
+                <span>
+                    <strong>ZULL <span>LYNIEE</span></strong>
+                    <small>PIXEL VAULT</small>
+                </span>
+            </a>
+
+            <div class="anime-caption">
+                <span class="mini-tag">✦ JOIN THE ADVENTURE</span>
+                <h1>CREATE YOUR<br><span>OWN WORLD.</span></h1>
+                <p>
+                    Buat akunmu dan mulai petualangan baru
+                    di dunia Pixel Vault.
+                </p>
+                <div class="image-status">
+                    <span></span> NEW PLAYER · WELCOME
+                </div>
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-content">
+                <div class="mobile-logo">
+                    🎮 <span>ZULL <b>LYNIEE</b></span>
+                </div>
+
+                <div class="welcome-icon">◈</div>
+
+                <p class="eyebrow">JOIN PIXEL VAULT</p>
+                <h2>Create <span>Account</span></h2>
+                <p class="description">
+                    Daftarkan akun baru untuk memulai petualanganmu.
+                </p>
+
+                <form id="registerForm">
+                    <label for="displayName">USERNAME</label>
+                    <div class="input-wrap">
+                        <span>♙</span>
+                        <input
+                            type="text"
+                            id="displayName"
+                            placeholder="Masukkan username"
+                            autocomplete="nickname"
+                            minlength="3"
+                            maxlength="30"
+                            required
+                        >
+                    </div>
+
+                    <label for="email">EMAIL</label>
+                    <div class="input-wrap">
+                        <span>✉</span>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Masukkan email aktif"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <label for="password">PASSWORD</label>
+                    <div class="input-wrap">
+                        <span>◆</span>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Minimal 6 karakter"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <label for="confirmPassword">KONFIRMASI PASSWORD</label>
+                    <div class="input-wrap">
+                        <span>◆</span>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Ulangi password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+                    </div>
+
+                    <p id="registerMessage" role="status" aria-live="polite"></p>
+
+                    <button class="login-button" type="submit" id="registerButton">
+                        <span>CREATE ACCOUNT</span>
+                        <span class="arrow">↗</span>
+                    </button>
+                </form>
+
+                <p class="register-link">
+                    Sudah punya akun?
+                    <a href="login.html">Login sekarang ↗</a>
+                </p>
+
+                <p class="footer-note copyright">
+                    © 2026 Zull Lyniee · Made for gamers
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="register.js"></script>
+</body>
+</html>

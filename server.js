@@ -4,11 +4,10 @@ const express = require("express");
 const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-// Koneksi ke Supabase
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
     console.error("ERROR: SUPABASE_URL atau SUPABASE_KEY belum tersedia di .env");
     process.exit(1);
@@ -57,15 +56,12 @@ async function verifyToken(req, res, next) {
     }
 }
 
-// Cek apakah server aktif
 app.get("/api/status", (req, res) => {
     res.json({
         message: "Pixel Vault API berhasil berjalan!"
     });
 });
 
-// Log informasi login untuk keperluan debugging
-// Data dari endpoint ini bukan bukti autentikasi.
 app.post("/api/login-log", (req, res) => {
     console.log("========== LOGIN PIXEL VAULT ==========");
     console.log("Email:", req.body.email);
@@ -97,7 +93,7 @@ app.get("/api/me", verifyToken, (req, res) => {
 app.use(express.static(__dirname));
 
 // Penanda agar kita tahu server.js yang baru sedang berjalan
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log("==================================");
     console.log("PIXEL VAULT JWT BACKEND AKTIF");
     console.log(`Server: http://localhost:${PORT}`);

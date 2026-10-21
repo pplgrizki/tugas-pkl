@@ -2,768 +2,1681 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Di Bawah Langit yang Kehilangan Warna | ZULL LYNIEE</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Di Bawah Langit yang Kehilangan Warna | Zull Lyniee</title>
+<link rel="stylesheet" href="style.css">
 
-    
-        .novel-reader {
-            max-width: 900px;
-            margin: 35px auto;
-        }
-
-        .novel-top {
-            padding: 30px;
-            border: 1px solid rgba(167, 139, 250, .3);
-            border-radius: 20px;
-            background: linear-gradient(135deg, #211432, #101827);
-            text-align: center;
-        }
-
-        .novel-cover {
-            width: 100%;
-            min-height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 12px;
-            border-radius: 14px;
-            background: radial-gradient(ellipse, #563a83, #141426 70%);
-            margin-bottom: 24px;
-        }
-
-        .novel-cover span {
-            font-size: 55px;
-        }
-
-        .novel-cover small {
-            color: #c4b5fd;
-            letter-spacing: 4px;
-        }
-
-        .novel-top h1 {
-            font-size: clamp(25px, 5vw, 38px);
-            margin: 12px 0;
-        }
-
-        .novel-top h1 span {
-            color: #b794ff;
-        }
-
-        .novel-description {
-            color: #c4c0d5;
-            line-height: 1.8;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        .novel-progress {
-            height: 5px;
-            background: #29243b;
-            border-radius: 10px;
-            margin-top: 24px;
-            overflow: hidden;
-        }
-
-        .novel-progress-fill {
-            width: 0;
-            height: 100%;
-            background: linear-gradient(90deg, #a855f7, #22d3ee);
-            transition: width .25s ease;
-        }
-
-        .novel-progress-label {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 10px;
-            color: #aaa3c2;
-            font-size: 12px;
-        }
-
-        .novel-chapter {
-            padding: clamp(22px, 5vw, 45px);
-            margin-top: 22px;
-            border: 1px solid rgba(167, 139, 250, .2);
-            border-radius: 20px;
-            background: rgba(17, 15, 34, .95);
-        }
 <style>
-       
-/* ===== NOVEL: DI BAWAH LANGIT YANG KEHILANGAN WARNA ===== */
-
-.novel-reader {
-    width: min(920px, calc(100% - 32px));
-    max-width: 920px;
-    margin: 38px auto 70px;
-    position: relative;
-    z-index: 1;
-    color: #f3efff;
+:root {
+    --purple: #bd8cff;
+    --cyan: #67e8f9;
+    --panel: #111326;
+    --muted: #b9b4d0;
 }
 
-/* Tombol kembali */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(ellipse at top, #252044 0%, #0b0d19 65%);
+    color: #f0eaff;
+    font-family: Arial, sans-serif;
+}
+
+.novel-reader {
+    width: min(1000px, calc(100% - 32px));
+    margin: 24px auto 60px;
+}
+
 .novel-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    margin-bottom: 18px;
-    padding: 10px 16px;
-    color: #c4b5fd;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--purple);
     text-decoration: none;
-    font-size: 13px;
-    border: 1px solid rgba(167, 139, 250, .2);
-    border-radius: 30px;
-    background: rgba(20, 18, 40, .65);
-    transition: .25s ease;
 }
 
 .novel-back:hover {
-    color: #fff;
-    border-color: #a78bfa;
-    background: rgba(124, 58, 237, .2);
-    transform: translateX(-3px);
+    color: var(--cyan);
 }
 
-/* Sampul dan identitas novel */
-.novel-top {
+/* HALAMAN WELCOME */
+
+.novel-welcome {
     position: relative;
     isolation: isolate;
-    overflow: hidden;
-    padding: clamp(24px, 5vw, 46px);
-    border: 1px solid rgba(167, 139, 250, .28);
-    border-radius: 26px;
-    background:
-        radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, .22), transparent 55%),
-        linear-gradient(145deg, rgba(26, 22, 51, .97), rgba(9, 17, 35, .98));
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, .28),
-        0 0 45px rgba(124, 58, 237, .08);
-    text-align: center;
-}
-
-.novel-top::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: .2;
-    background: repeating-linear-gradient(
-        112deg,
-        transparent 0 35px,
-        rgba(125, 211, 252, .16) 36px,
-        transparent 37px 70px
-    );
-    animation: novelRain 12s linear infinite;
-}
-
-.novel-cover {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    width: 100%;
-    min-height: 265px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 32px;
-    border: 1px solid rgba(196, 181, 253, .28);
-    border-radius: 20px;
-    background:
-        radial-gradient(ellipse at 50% 42%, rgba(192, 132, 252, .34), transparent 35%),
-        radial-gradient(ellipse at 80% 100%, rgba(34, 211, 238, .18), transparent 45%),
-        linear-gradient(160deg, #29204b 0%, #121a36 52%, #090d1b 100%);
-    box-shadow: inset 0 0 60px rgba(5, 8, 25, .45);
+    min-height: 500px;
+    padding: clamp(30px, 6vw, 65px);
+    overflow: hidden;
+    border: 1px solid #a78bfa55;
+    border-radius: 22px;
+    background: #111326;
+    box-shadow: 0 15px 45px #0005;
 }
 
-.novel-cover::before {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 35px;
-    right: 16%;
-    border-radius: 50%;
-    background: #d9d5ff;
-    opacity: .85;
-    box-shadow:
-        0 0 35px rgba(196, 181, 253, .5),
-        0 0 90px rgba(167, 139, 250, .25);
-    z-index: -1;
-}
-
-.novel-cover::after {
-    content: "";
+.welcome-image {
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        105deg,
-        transparent 0 27px,
-        rgba(186, 230, 253, .16) 28px,
-        transparent 29px 55px
+    z-index: -2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.welcome-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 9, 23, .94),
+        rgba(12, 10, 30, .78),
+        rgba(8, 9, 23, .45)
     );
     pointer-events: none;
-    animation: novelRain 7s linear infinite;
 }
 
-.novel-cover span {
-    font-size: clamp(55px, 9vw, 76px);
-    filter: drop-shadow(0 0 20px rgba(165, 180, 252, .65));
-    animation: novelFloat 4s ease-in-out infinite;
+.welcome-content {
+    position: relative;
+    z-index: 1;
+    width: min(680px, 100%);
+    text-shadow: 0 2px 15px #000;
 }
 
-.novel-cover small {
-    color: #ddd6fe;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 5px;
-    text-shadow: 0 0 15px rgba(167, 139, 250, .6);
-}
-
-.novel-top .section-eyebrow {
-    color: #67e8f9;
-    font-size: 10px;
-    font-weight: 700;
+.welcome-eyebrow {
+    color: var(--cyan);
     letter-spacing: 4px;
-    margin-bottom: 14px;
+    font-size: 11px;
+    margin-bottom: 22px;
 }
 
-.novel-top h1 {
-    max-width: 720px;
-    margin: 0 auto 20px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(29px, 5.2vw, 47px);
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -.8px;
-    color: #f8f5ff;
-    text-wrap: balance;
+.welcome-content h1 {
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 6vw, 54px);
+    line-height: 1.2;
 }
 
-.novel-top h1 span {
-    display: block;
-    margin-top: 5px;
-    color: #c4b5fd;
-    text-shadow: 0 0 28px rgba(167, 139, 250, .25);
+.welcome-content h2 {
+    color: var(--purple);
+    font-family: Georgia, serif;
+    font-size: clamp(23px, 4vw, 35px);
+    line-height: 1.4;
+    margin: 0 0 20px;
 }
 
-.novel-description {
-    max-width: 590px;
-    margin: 0 auto;
-    color: #bcb8d2;
-    font-size: 14px;
-    line-height: 2;
+.welcome-content p:not(.welcome-eyebrow) {
+    max-width: 550px;
+    margin: 0 0 28px;
+    color: #e1dced;
+    line-height: 1.9;
+    font-size: 15px;
 }
 
-/* Progres membaca */
+/* PROGRESS BAR */
+
 .novel-progress {
-    height: 5px;
-    margin-top: 30px;
+    margin: 20px 0;
+    padding: 18px 20px;
+    border: 1px solid #a78bfa44;
+    border-radius: 14px;
+    background: #111326f5;
+    box-shadow: 0 8px 25px #0003;
+}
+
+.novel-progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #dcd5ef;
+    font-size: 13px;
+}
+
+#progressPercent {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.novel-progress-track {
+    width: 100%;
+    height: 9px;
     overflow: hidden;
-    border-radius: 20px;
-    background: rgba(196, 181, 253, .12);
+    border-radius: 99px;
+    background: #29243e;
 }
 
 .novel-progress-fill {
     width: 0;
     height: 100%;
     border-radius: inherit;
-    background: linear-gradient(90deg, #a855f7, #818cf8, #22d3ee);
-    box-shadow: 0 0 16px rgba(34, 211, 238, .45);
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    box-shadow: 0 0 12px #67e8f955;
     transition: width .4s ease;
 }
 
-.novel-progress-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 12px;
-    color: #a8a2c4;
-    font-size: 11px;
-    letter-spacing: .4px;
-}
+/* HALAMAN BAB */
 
-/* Area baca */
 .novel-chapter {
     position: relative;
     margin-top: 22px;
-    padding: clamp(24px, 6vw, 52px);
     overflow: hidden;
-    border: 1px solid rgba(167, 139, 250, .2);
-    border-radius: 24px;
-    background:
-        radial-gradient(ellipse at 100% 0%, rgba(124, 58, 237, .08), transparent 40%),
-        rgba(13, 13, 30, .94);
-    box-shadow: 0 20px 65px rgba(0, 0, 0, .2);
+    border: 1px solid #a78bfa33;
+    border-radius: 20px;
+    background: #111326f5;
+    box-shadow: 0 15px 45px #0003;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .25s ease, transform .25s ease;
 }
 
-.novel-chapter-label {
-    display: inline-block;
-    margin: 0;
-    padding: 8px 13px;
-    border: 1px solid rgba(103, 232, 249, .2);
-    border-radius: 30px;
-    background: rgba(34, 211, 238, .07);
-    color: #67e8f9;
-    font-size: 10px;
-    font-weight: 700;
+.novel-chapter.chapter-transition {
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+/* GAMBAR BERADA DI ATAS TEKS */
+
+.chapter-visual {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #111326;
+}
+
+.chapter-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+    object-position: center;
+    background: #111326;
+}
+
+.chapter-image-overlay {
+    display: none;
+}
+
+.chapter-content {
+    position: relative;
+    padding: clamp(22px, 5vw, 45px);
+}
+
+.chapter-number {
+    color: var(--cyan);
+    font-size: 12px;
     letter-spacing: 3px;
 }
 
 .novel-chapter h2 {
-    margin: 24px 0 30px;
-    color: #eee7ff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(25px, 4vw, 35px);
-    font-weight: 500;
+    color: var(--purple);
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 4vw, 36px);
     line-height: 1.4;
-    text-wrap: balance;
+    margin: 12px 0 20px;
 }
 
-/* Teks cerita */
+.chapter-atmosphere {
+    color: #a49abf;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 24px;
+    line-height: 1.8;
+}
+
+/* ANIMASI PARAGRAF */
+
 .novel-story {
-    min-height: 260px;
-    color: #d8d5e7;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
+    color: #e0dbea;
+    font-size: 16px;
     line-height: 2.05;
-    letter-spacing: .12px;
-    overflow-wrap: anywhere;
 }
 
-.novel-story p {
-    margin: 0 0 23px;
-    text-indent: 1.5em;
+.story-paragraph {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+        opacity .65s ease,
+        transform .65s ease;
+    margin: 0 0 22px;
 }
 
-.novel-story p:last-child {
-    margin-bottom: 0;
+.story-paragraph.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.novel-story em {
-    color: #c4b5fd;
+.novel-quote {
+    margin-top: 30px;
+    padding: 18px 20px;
+    border-left: 3px solid var(--purple);
+    border-radius: 0 10px 10px 0;
+    background: #a855f710;
+    color: #d8c9e9;
+    font-style: italic;
+    line-height: 1.9;
 }
 
-/* Navigasi chapter */
-.novel-navigation {
+/* TOMBOL NAVIGASI */
+
+.novel-controls {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 38px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(167, 139, 250, .15);
+    margin-top: 30px;
 }
 
-.novel-navigation button {
-    min-height: 45px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: transform .2s ease, box-shadow .2s ease;
+.novel-btn {
+    padding: 13px 20px;
+    border: 1px solid #9b72e8;
+    border-radius: 10px;
+    background: #211432;
+    color: #eee7ff;
+    cursor: pointer;
+    transition: .2s;
+    font-size: 14px;
 }
 
-.novel-navigation button:not(:disabled):hover {
+.novel-btn:hover:not(:disabled) {
+    background: #6335a4;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(124, 58, 237, .2);
 }
 
-.novel-navigation button:disabled {
-    opacity: .3;
+.novel-btn:disabled {
+    opacity: .35;
     cursor: not-allowed;
-    box-shadow: none;
 }
 
-/* Animasi lembut */
-@keyframes novelFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
+/* HALAMAN ENDING */
+
+.novel-ending {
+    display: none;
+    min-height: 65vh;
+    margin-top: 22px;
+    padding: clamp(24px, 6vw, 60px);
+    border: 1px solid #a78bfa66;
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse at top, #4b286d66, transparent 60%),
+        #0b0d19;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-@keyframes novelRain {
-    from { background-position: 0 0; }
-    to { background-position: 0 140px; }
+.novel-ending.active {
+    display: flex;
+    animation: appear .8s ease;
 }
 
-/* Tampilan HP */
+.ending-label {
+    color: var(--cyan);
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.novel-ending h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 5vw, 44px);
+    color: var(--purple);
+    line-height: 1.35;
+    margin: 22px 0;
+}
+
+.ending-message {
+    width: 100%;
+    max-width: 600px;
+    min-height: 180px;
+    color: #e2d9f4;
+    font-family: Georgia, serif;
+    font-size: clamp(16px, 2.5vw, 19px);
+    line-height: 2.1;
+    white-space: pre-line;
+    text-align: left;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    margin-left: 4px;
+    background: var(--cyan);
+    vertical-align: middle;
+    animation: blink .8s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ending-note {
+    color: #9389ad;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.ending-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* TAMPILAN HP */
+
 @media (max-width: 600px) {
     .novel-reader {
-        width: calc(100% - 22px);
-        margin: 22px auto 40px;
+        width: calc(100% - 20px);
+        margin-top: 14px;
     }
 
-    .novel-top {
-        padding: 19px;
-        border-radius: 20px;
+    .novel-welcome {
+        min-height: 520px;
+        padding: 30px 18px;
     }
 
-    .novel-cover {
-        min-height: 205px;
-        margin-bottom: 26px;
-        border-radius: 15px;
+    .novel-controls {
+        flex-direction: column;
     }
 
-    .novel-cover::before {
-        width: 75px;
-        height: 75px;
-        right: 15%;
-        top: 28px;
-    }
-
-    .novel-cover small {
-        letter-spacing: 3px;
-    }
-
-    .novel-top h1 {
-        font-size: clamp(27px, 8vw, 36px);
-    }
-
-    .novel-description {
-        font-size: 13px;
-        line-height: 1.9;
-    }
-
-    .novel-chapter {
-        margin-top: 15px;
-        padding: 23px 19px;
-        border-radius: 19px;
-    }
-
-    .novel-chapter h2 {
-        margin: 20px 0 24px;
-        font-size: 25px;
+    .novel-btn {
+        width: 100%;
     }
 
     .novel-story {
-        min-height: 220px;
-        font-size: 16px;
-        line-height: 1.95;
+        font-size: 15px;
     }
 
-    .novel-story p {
-        margin-bottom: 20px;
+    .chapter-image {
+        max-height: none;
     }
 
-    .novel-navigation {
-        gap: 10px;
-        margin-top: 28px;
-    }
-
-    .novel-navigation button {
-        flex: 1;
-        padding: 12px 9px;
-        font-size: 10px;
-        letter-spacing: .5px;
+    .novel-progress {
+        padding: 15px;
     }
 }
 
+/* PENGATURAN AKSESIBILITAS */
+
 @media (prefers-reduced-motion: reduce) {
-    .novel-cover span,
-    .novel-cover::after,
-    .novel-top::before {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .novel-chapter,
+    .story-paragraph,
+    .novel-progress-fill {
+        transition: none;
+    }
+
+    .novel-ending.active {
         animation: none;
     }
 
-    .novel-progress-fill,
-    .novel-navigation button,
-    .novel-back {
-        transition: none;
+    .typing-cursor {
+        animation: none;
     }
 }
+/* PEMUTAR AUDIO DAN TEKS KARAOKE */
 
-    </style>
+.karaoke-player {
+    width: 100%;
+    max-width: 650px;
+    margin: 24px auto 8px;
+    padding: 22px;
+    border: 1px solid #a78bfa55;
+    border-radius: 16px;
+    background: #111326cc;
+    text-align: center;
+}
+
+.karaoke-heading {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin: 0 0 16px;
+}
+
+.karaoke-player audio {
+    display: block;
+    width: 100%;
+}
+
+.karaoke-stage {
+    display: flex;
+    min-height: 90px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #080a16;
+    border: 1px solid #bd8cff33;
+}
+
+#karaokeText {
+    color: #e8dcff;
+    font-family: Georgia, serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: bold;
+    line-height: 1.8;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+#karaokeText.fade {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+@media (max-width: 600px) {
+    .karaoke-player {
+        padding: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
-    <div class="background-grid"></div>
-    <div class="glow glow-purple"></div>
-    <div class="glow glow-cyan"></div>
+<main class="novel-reader">
 
-    <main class="main-content novel-reader">
-        <a href="index.html" class="novel-back">← Kembali ke Pixel Vault</a>
+    <a href="index.html" class="novel-back">← Kembali ke Pixel Vault</a>
 
-        <section class="novel-top">
-            <div class="novel-cover">
-                <span>🌧️</span>
-                <small>PIXEL VAULT STORIES</small>
-            </div>
+    <!-- HALAMAN WELCOME -->
 
-            <p class="section-eyebrow">YOUR PERSONAL STORY</p>
-            <h1>Di Bawah Langit  <span>yang Kehilangan Warna</span></h1>
+    <section class="novel-welcome" id="welcomePage">
+        <img
+            src="./image/bab-0.jpg"
+            class="welcome-image"
+            alt="Ilustrasi pembuka novel"
+        >
 
-            <p class="novel-description">
-                Sebuah kisah tentang pertemuan, kenangan, dan perasaan
-                yang tumbuh di tengah hujan. Buka setiap bab dan ikuti
-                perjalanan ceritanya.
+        <div class="welcome-overlay"></div>
+
+        <div class="welcome-content">
+            <p class="welcome-eyebrow">ZULL LYNIEE · PIXEL VAULT</p>
+
+            <h1>Sudah Siap Membaca?</h1>
+
+            <h2>Di Bawah Langit yang Kehilangan Warna</h2>
+
+            <p>
+                Sebuah kisah tentang pertemuan, kenangan,
+                dan perasaan yang belum sempat diungkapkan.
             </p>
 
-            <div class="novel-progress">
-                <div class="novel-progress-fill" id="progressFill"></div>
-            </div>
+            <button id="startReading" class="novel-btn" type="button">
+                Mulai Membaca →
+            </button>
+        </div>
+    </section>
 
-            <div class="novel-progress-label">
-                <span id="chapterCounter">Bab 1 dari 12</span>
-                 <span id="progressText">Progres 8%</span>
-            </div>
-        </section>
+    <!-- PROGRESS MEMBACA -->
 
-        <section class="novel-chapter">
-            <p class="novel-chapter-label" id="chapterLabel">CHAPTER 01</p>
-            <h2 id="chapterTitle">Pertemuan di Bawah Hujan</h2>
+    <section class="novel-progress" id="novelProgress" style="display: none;">
+        <div class="novel-progress-info">
+            <span id="chapterLabel">Bab 1 dari 14</span>
+            <span id="progressPercent">8%</span>
+        </div>
 
-            <div class="novel-story" id="chapterContent">
-Hujan turun perlahan sore itu. Jalanan memantulkan cahaya lampu kota, sementara orang-orang bergegas mencari tempat berteduh.
+        <div
+            class="novel-progress-track"
+            id="progressBar"
+            role="progressbar"
+            aria-label="Progress membaca novel"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="8"
+        >
+            <div class="novel-progress-fill" id="progressFill"></div>
+        </div>
+    </section>
 
-Di sudut halte, seseorang berdiri sambil memandangi langit. Ia tidak tahu bahwa sore yang tampak biasa itu akan menjadi awal dari sebuah cerita yang sulit dilupakan.
+    <!-- HALAMAN CERITA -->
 
-Kadang, pertemuan paling berarti datang ketika kita sama sekali tidak mencarinya.
-            </div>
+    <section class="novel-chapter" id="chapterPage" style="display: none;">
+        <div class="chapter-visual">
+            <img
+                class="chapter-image"
+                id="chapterImage"
+                src="./image/bab-1.jpg"
+                alt="Ilustrasi bab novel"
+            >
+            <div class="chapter-image-overlay"></div>
+        </div>
 
-            <div class="novel-navigation">
-                <button type="button" class="secondary-button" id="prevChapter" disabled>
-                    ← SEBELUMNYA
+        <div class="chapter-content">
+            <p class="chapter-number" id="chapterNumber">BAB 01</p>
+            <h2 id="chapterTitle"></h2>
+            <p class="chapter-atmosphere" id="chapterAtmosphere"></p>
+
+            <div class="novel-story" id="chapterStory"></div>
+            <div class="novel-quote" id="chapterQuote"></div>
+
+            <div class="novel-controls">
+                <button class="novel-btn" id="prevChapter" type="button">
+                    ← Bab Sebelumnya
                 </button>
 
-                <button type="button" class="primary-button" id="nextChapter">
-                    SELANJUTNYA →
+                <button class="novel-btn" id="nextChapter" type="button">
+                    Bab Berikutnya →
                 </button>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+<!-- HALAMAN ENDING -->
+<section class="novel-ending" id="endingPage">
+    <!-- JUDUL DI ATAS VIDEO -->
+    <div class="ending-heading">
+        <p class="ending-label">
+            PIXEL VAULT · AKHIR BAGIAN PERTAMA
+        </p>
+        <h2 class="ending-title">
+            Di Bawah Langit yang<br>
+            Kehilangan Warna
+        </h2>
+    </div>
+    <!-- VIDEO ENDING -->
+    <div class="ending-video-wrap">
+        <video
+            id="endingVideo"
+            controls
+            playsinline
+            preload="auto"
+            muted
+        >
+            <source
+                src="./videos/ending-zull-miku.mp4"
+                type="video/mp4"
+            >
+            Browser kamu tidak mendukung video.
+        </video>
+    </div>
+    <!-- MUSIK DAN KATA-KATA -->
+<div class="ending-music">
+    <audio id="rapsodiAudio" preload="auto">
+        <source src="./sounds/nuts.mp3" type="audio/mpeg">
+    </audio>
 
-    <script>
-        const chapters = [
-  {
-    title: "Bab 1 — Warna yang Jatuh Bersama Hujan",
-    content: `
-      <p>Langit sore itu berwarna abu-abu, seolah seseorang telah menghapus seluruh warna dari dunia. Hujan turun tanpa aba-aba, membasahi jalanan, pepohonan, dan seragam putih abu-abu yang kukenakan. Aku berdiri di halte kecil dekat sekolah, memandangi kendaraan yang berlalu sambil berharap hujan segera berhenti. Namaku Arka. Aku bukan seseorang yang pandai memulai percakapan, apalagi dengan orang asing. Bagiku, diam jauh lebih mudah daripada menjelaskan isi kepala yang bahkan tidak kupahami sendiri.</p>
-      <p>"Kamu selalu kelihatan seperti habis kehilangan sesuatu."</p>
-      <p>Suara itu membuatku menoleh. Seorang perempuan berdiri di sampingku dengan payung berwarna biru pucat. Rambutnya sedikit basah, dan senyumnya terlihat anehnya tidak terganggu oleh cuaca yang buruk. Aku mengernyit. "Memangnya kamu kenal aku?" tanyaku. Ia tertawa kecil, kemudian menggeleng. "Nggak. Tapi wajahmu seperti orang yang sedang menunggu sesuatu yang nggak akan datang."</p>
-      <p>Entah mengapa, kalimat itu membuatku kesal. Namun, sebelum aku sempat membalas, ia menyodorkan separuh payungnya kepadaku. "Aku Nara," katanya. "Kalau kamu mau, kita bisa berbagi payung sampai hujannya reda."</p>
-      <p>Aku menerima tawarannya dengan canggung. Kami berjalan berdampingan melewati trotoar yang basah. Nara berbicara tentang hal-hal sederhana: kucing yang tidur di depan minimarket, lagu yang terus terngiang di kepalanya, dan betapa menyebalkannya sepatu yang basah karena hujan. Aku hanya menjawab seperlunya, tetapi anehnya, aku tidak merasa ingin segera pergi.</p>
-      <p>Sebelum berpisah di persimpangan, Nara menoleh dan berkata, "Besok kalau hujan lagi, tunggu aku di sini, ya." Ia pergi sebelum aku sempat menjawab. Aku menatap punggungnya sampai menghilang di balik kerumunan. Sore itu, untuk pertama kalinya setelah sekian lama, perjalanan pulang terasa terlalu singkat.</p>
-      <p>Malamnya, aku membuka jendela kamar dan membiarkan udara dingin masuk. Hujan sudah berhenti, tetapi aku masih mengingat senyum perempuan asing itu. Aku bahkan tidak tahu nama lengkapnya, tidak tahu kelasnya, dan tidak tahu apakah besok ia akan benar-benar datang. Namun, tanpa kusadari, aku mulai berharap langit kembali mendung.</p>
-    `
-  },
-  {
-    title: "Bab 2 — Perempuan yang Menyukai Senja",
-    content: `
-      <p>Keesokan harinya, langit cerah. Tidak ada awan gelap, tidak ada rintik hujan, hanya matahari yang menyilaukan dan angin yang berembus pelan. Seharusnya aku senang karena tidak perlu pulang dengan sepatu basah. Nyatanya, sepanjang hari aku justru beberapa kali melirik jendela kelas, berharap hujan turun meskipun hanya sebentar.</p>
-      <p>"Nyari siapa, sih?" tanya Dimas, teman sebangkuku, ketika memergokiku melihat ke luar untuk kesekian kalinya. "Nggak nyari siapa-siapa," jawabku cepat. Ia menyeringai. "Oh, berarti ada seseorang." Aku melemparkan penghapus ke arahnya, membuatnya tertawa puas. Aku kesal karena ia benar, meskipun aku sendiri belum berani mengakuinya.</p>
-      <p>Saat pulang sekolah, aku tetap melewati halte yang sama. Dan di sanalah Nara berdiri, kali ini tanpa payung, sambil memegang dua kotak susu. "Kupikir kamu nggak bakal datang," katanya. Aku berusaha terlihat biasa saja. "Aku memang lewat sini." Nara menyerahkan satu kotak susu kepadaku. "Bagus. Berarti besok kamu juga lewat sini, kan?"</p>
-      <p>Sejak hari itu, halte tersebut menjadi tempat kecil milik kami. Kadang kami pulang bersama, kadang duduk sambil mendengarkan lagu dari ponsel Nara. Ia menyukai senja karena menurutnya langit terlihat paling jujur ketika warnanya mulai menghilang. Aku menyukai malam karena tidak ada yang menuntutku untuk tersenyum. Nara bilang kesukaanku menyedihkan, lalu tertawa ketika aku pura-pura tersinggung.</p>
-      <p>Ia punya kebiasaan memotret langit setiap sore. Katanya, ia takut lupa bagaimana rupa hari-hari yang pernah membuatnya bahagia. Aku bertanya apakah ia benar-benar bisa melupakan sesuatu hanya karena tidak memotretnya. Nara terdiam sesaat sebelum menjawab, "Kadang yang paling kita takutkan bukan lupa, Arka. Tapi ingat semuanya sendirian."</p>
-      <p>Kalimat itu terdengar terlalu berat untuk seseorang yang selalu tertawa. Aku hampir bertanya apa maksudnya, tetapi Nara kembali tersenyum dan menunjuk langit yang mulai jingga. Hari itu kami mengambil foto pertama bersama. Nara mengangkat dua jari di belakang kepalaku, sementara aku terlihat kaku seperti seseorang yang baru saja dipaksa menghadiri acara keluarga.</p>
-      <p>"Suatu hari nanti, kalau kita sudah jauh dari sini, kita lihat foto ini lagi," katanya. "Terus kita ingat kalau pernah sebahagia ini." Aku tidak menjawab. Saat itu aku tidak tahu bahwa beberapa kalimat sederhana bisa berubah menjadi sesuatu yang menyakitkan ketika waktu memaksa kita mengingatnya kembali.</p>
-    `
-  },
-  {
-    title: "Bab 3 — Hal-Hal Kecil yang Menjadi Rumah",
-    content: `
-      <p>Aku mulai hafal banyak hal tentang Nara. Ia selalu membeli roti cokelat ketika sedang kesal, menggoyangkan kaki saat gugup, dan memiringkan kepala setiap kali mencoba memahami sesuatu. Ia tidak suka suara petir, tetapi selalu pura-pura berani. Ia juga sering tertawa terlalu keras pada lelucon yang sebenarnya tidak lucu, terutama ketika aku yang mengatakannya.</p>
-      <p>Suatu Jumat, kami memutuskan berjalan lebih jauh dari halte. Nara mengajakku ke toko buku kecil yang berada di ujung jalan. Tempat itu hampir selalu sepi, beraroma kertas lama, dan memiliki jendela besar yang menghadap ke taman. Ia menghabiskan waktu berjam-jam membaca halaman pertama dari berbagai novel, sedangkan aku duduk di sebelahnya sambil memperhatikan ekspresinya.</p>
-      <p>"Kenapa lihat aku terus?" tanyanya tanpa mengangkat wajah. "Aku lagi mikir, bagaimana caranya kamu bisa membaca buku yang sama berulang kali." Nara menutup bukunya, lalu menatapku. "Karena meskipun akhirnya sama, perasaanku waktu membacanya bisa berbeda." Aku terdiam. Ia tersenyum tipis. "Orang juga begitu, Ka. Kita bisa bertemu orang yang sama setiap hari, tapi belum tentu kita benar-benar mengenalnya."</p>
-      <p>Dalam perjalanan pulang, Nara bercerita bahwa ia ingin kuliah di luar kota. Ia ingin melihat laut yang belum pernah ia kunjungi, tinggal di tempat yang tidak mengenalnya, dan mencoba menjadi seseorang yang lebih berani. Aku mendengarkan sambil menendang kerikil kecil di trotoar. Ada sesuatu yang mengganggu dadaku ketika membayangkan dirinya berada jauh dari tempat ini.</p>
-      <p>"Kalau aku pergi nanti, kamu bakal kangen nggak?" tanyanya tiba-tiba. Aku mengangkat bahu. "Mungkin aku bakal kangen sama kotak susu gratis." Nara langsung memukul lenganku pelan. "Dasar nyebelin." Namun, ia tersenyum setelahnya, dan aku menyadari bahwa aku lebih suka melihatnya bahagia daripada terlihat keren di hadapannya.</p>
-      <p>Sebelum berpisah, aku memberikan gantungan kunci kecil berbentuk bintang yang kubeli di toko dekat sekolah. Warnanya sudah sedikit pudar, dan harganya bahkan tidak seberapa. Nara menerimanya seperti aku baru saja memberikan sesuatu yang berharga. Ia memasangnya di tas, lalu berkata, "Kalau suatu hari aku lupa jalan pulang, setidaknya aku masih punya bintang dari kamu."</p>
-      <p>Aku tertawa, menganggapnya hanya candaan. Nara ikut tertawa, tetapi sesaat kemudian matanya terlihat sedih. Aku melihatnya, hanya saja aku memilih tidak bertanya. Saat itu aku percaya bahwa selama kami masih bisa tertawa bersama, tidak ada yang benar-benar perlu dikhawatirkan.</p>
-    `
-  },
-  {
-    title: "Bab 4 — Retak yang Tidak Bersuara",
-    content: `
-      <p>Perubahan itu datang perlahan, hampir tidak terlihat. Nara mulai terlambat membalas pesan. Ia beberapa kali membatalkan rencana kami, lalu meminta maaf dengan alasan yang berbeda-beda. Awalnya aku mencoba memahami. Setiap orang punya urusannya sendiri, pikirku. Aku tidak ingin menjadi seseorang yang menuntut perhatian dari orang yang kusayangi.</p>
-      <p>Namun, memahami seseorang ternyata melelahkan ketika hanya satu pihak yang berusaha. Ada malam ketika aku menunggu balasannya sampai tertidur dengan ponsel di tangan. Ada pagi ketika aku datang lebih awal ke sekolah hanya untuk melihatnya lewat koridor, tetapi ia tidak muncul. Ketika kutanya, jawabannya selalu sama: "Maaf, akhir-akhir ini aku lagi banyak pikiran."</p>
-      <p>Suatu sore, aku melihat Nara duduk di tangga belakang sekolah bersama seorang laki-laki yang tidak kukenal. Mereka berbicara dengan wajah serius. Laki-laki itu menyerahkan sebuah amplop, dan Nara menerimanya sambil menunduk. Aku berdiri cukup jauh untuk tidak mendengar percakapan mereka, tetapi cukup dekat untuk melihat Nara menghapus air mata.</p>
-      <p>Aku seharusnya menghampirinya. Seharusnya aku bertanya apakah ia baik-baik saja. Namun, rasa takut membuat kakiku tidak bergerak. Aku pulang tanpa menyapanya. Sepanjang perjalanan, pikiranku dipenuhi pertanyaan yang tidak memiliki jawaban. Siapa laki-laki itu? Mengapa Nara menangis? Dan mengapa ia tidak pernah menceritakan apa pun kepadaku?</p>
-      <p>Malamnya, aku mengirim pesan. "Nar, kamu ada masalah?" Pesanku terbaca, tetapi tidak dibalas. Satu jam kemudian, aku mengirim pesan lagi. "Kalau ada sesuatu, kamu bisa cerita ke aku." Kali ini aku menunggu lebih lama, sampai akhirnya ponselku berbunyi menjelang tengah malam.</p>
-      <p>"Aku nggak apa-apa, Ka. Maaf, aku cuma lagi capek."</p>
-      <p>Aku membaca kalimat itu berulang kali. Ada banyak hal yang ingin kukatakan, termasuk bahwa aku mulai merasa seperti orang asing dalam hidupnya sendiri. Namun, aku hanya membalas, "Istirahat yang cukup, ya." Aku meletakkan ponsel dan menatap langit-langit kamar. Untuk pertama kalinya, aku merasa bahwa mungkin seseorang bisa perlahan menjauh bahkan ketika ia masih berada di dekat kita.</p>
-    `
-  },
-  {
-    title: "Bab 5 — Aku Lelah Menebak",
-    content: `
-      <p>Hari-hari berikutnya terasa seperti berjalan di lorong yang semakin sempit. Aku masih bertemu Nara, masih melihat senyumnya, dan masih mendengar suaranya. Namun, ada jarak yang tidak terlihat di antara kami. Ia tidak lagi bercerita tentang hal-hal kecil, tidak lagi mengirim foto langit sore, dan tidak lagi bertanya apakah aku sudah makan. Semua kebiasaan itu hilang satu per satu, seolah tidak pernah ada.</p>
-      <p>Aku berusaha bersikap biasa saja. Aku tertawa bersama Dimas, mengerjakan tugas, dan pulang tanpa menunggu di halte. Tetapi setiap kali melewati tempat itu, aku selalu melirik bangku yang dulu sering kami duduki. Rasanya bodoh merindukan seseorang yang masih bisa kulihat setiap hari. Lebih bodoh lagi, aku mulai marah kepada diriku sendiri karena tidak bisa berhenti peduli.</p>
-      <p>Akhirnya, aku memutuskan menemuinya setelah sekolah. Nara sedang memasukkan buku ke dalam tas ketika aku berdiri di hadapannya. "Kamu kenapa, sih?" tanyaku. Ia mengangkat wajah, tampak terkejut. "Maksud kamu?" Aku menarik napas panjang. "Kalau ada masalah, bilang. Kalau kamu nggak mau cerita sama aku lagi, bilang juga. Aku capek harus menebak-nebak sendiri."</p>
-      <p>Nara terdiam. Jemarinya mencengkeram tali tas, dan matanya bergerak ke arah jendela. Aku menunggu, berharap ia mengatakan sesuatu yang bisa menjelaskan semua perubahan ini. Tetapi beberapa detik kemudian, ia hanya berkata, "Nggak semua hal harus kamu tahu, Arka."</p>
-      <p>Kalimat itu membuat sesuatu di dalam diriku patah. "Aku nggak minta tahu semuanya," jawabku, suaraku mulai meninggi. "Aku cuma ingin tahu kenapa kamu memperlakukanku seperti aku nggak pernah berarti." Nara menatapku, dan untuk pertama kalinya aku melihat kemarahan di wajahnya. "Kamu pikir semuanya tentang kamu? Kamu pikir aku menjauh karena ingin menyakiti kamu?"</p>
-      <p>Aku tidak bisa menjawab. Ada begitu banyak emosi yang saling bertabrakan sampai aku bahkan tidak tahu mana yang harus keluar lebih dulu. Aku kecewa, takut, dan marah karena merasa ditinggalkan tanpa penjelasan. Namun, di balik semuanya, aku juga takut mendengar jawaban yang mungkin tidak sanggup kuterima.</p>
-      <p>Nara mengambil tasnya. "Aku nggak punya tenaga buat menjelaskan sekarang." Ia melewatiku tanpa menoleh. Aku membiarkannya pergi, tetapi sebelum ia mencapai pintu, aku berkata pelan, "Kalau suatu hari kamu ingin kembali, jangan berharap aku masih berdiri di tempat yang sama." Aku sendiri tidak yakin apakah itu ancaman, harapan, atau sekadar kalimat dari seseorang yang sudah terlalu lelah menunggu.</p>
-    `
-  },
-  {
-    title: "Bab 6 — Hari Ketika Kita Menjadi Asing",
-    content: `
-      <p>Setelah pertengkaran itu, kami berhenti berbicara. Tidak ada lagi pesan selamat pagi, tidak ada lagi pertemuan di halte, dan tidak ada lagi candaan tentang cuaca. Kami tetap berada di sekolah yang sama, melewati koridor yang sama, tetapi berjalan seolah tidak pernah mengenal satu sama lain. Setiap kali melihatnya, aku memalingkan wajah lebih dulu. Aku ingin terlihat baik-baik saja, meskipun sebenarnya aku hanya sedang berusaha menyembunyikan rasa sakit.</p>
-      <p>Beberapa hari kemudian, Dimas akhirnya bertanya apa yang terjadi. Aku menceritakan semuanya dengan nada seolah aku tidak peduli. Dimas mendengarkan sampai selesai, lalu berkata, "Mungkin dia memang punya alasan." Aku mendengus. "Kalau punya alasan, kenapa nggak bilang?" Dimas menghela napas. "Karena kadang orang yang paling ingin kita lindungi justru orang yang paling sulit kita ajak bicara."</p>
-      <p>Aku membenci jawaban itu karena terdengar masuk akal. Aku lebih suka menganggap Nara egois daripada menerima kemungkinan bahwa ia sedang menghadapi sesuatu yang tidak bisa kubantu. Marah terasa lebih mudah daripada mengakui bahwa aku tidak tahu apa yang terjadi pada seseorang yang sangat ingin kupahami.</p>
-      <p>Pada hari Jumat, wali kelas mengumumkan bahwa Nara akan pindah sekolah dalam waktu dekat. Kabar itu menyebar cepat di kelas. Beberapa teman bertanya apakah ia akan pindah ke kota lain, tetapi Nara hanya menjawab singkat bahwa keluarganya harus pergi. Aku mendengar semuanya dari bangku belakang, dan rasanya seperti seseorang baru saja menarik lantai dari bawah kakiku.</p>
-      <p>Saat jam istirahat, aku menemukannya di taman sekolah. Ia duduk sendirian sambil menatap gantungan kunci berbentuk bintang yang masih terpasang di tasnya. Aku ingin menghampiri, tetapi kemarahan menahanku. Aku ingin bertanya kenapa ia tidak pernah memberitahuku. Aku ingin memintanya untuk tidak pergi. Aku ingin mengatakan bahwa kalimat yang kuucapkan waktu itu tidak benar-benar kuinginkan.</p>
-      <p>Namun, aku tetap diam. Nara mengangkat wajah, dan untuk sesaat mata kami bertemu. Ada sesuatu di sana—mungkin penyesalan, mungkin kesedihan, mungkin permintaan maaf yang tidak pernah sempat terucap. Ia membuka mulut seolah ingin mengatakan sesuatu, tetapi bel sekolah berbunyi. Nara berdiri dan berjalan pergi.</p>
-      <p>Hari itu aku menyadari bahwa tidak semua perpisahan dimulai dengan pelukan atau air mata. Ada perpisahan yang dimulai ketika dua orang sama-sama menunggu pihak lain berbicara lebih dulu, sampai akhirnya waktu mengambil kesempatan itu dari mereka.</p>
-    `
-  },
-  {
-    title: "Bab 7 — Kota yang Kehilangan Suara",
-    content: `
-      <p>Nara pergi pada Senin pagi. Aku mengetahuinya dari sebuah unggahan singkat di media sosial: foto jendela mobil dengan langit mendung di baliknya. Tidak ada keterangan panjang, hanya satu kalimat, "Semoga di tempat baru nanti aku bisa bernapas lebih lega." Aku menatap layar cukup lama, menunggu ada pesan pribadi yang menyebut namaku. Tidak ada.</p>
-      <p>Aku marah. Bukan hanya kepada Nara, tetapi juga kepada diriku sendiri. Aku marah karena masih berharap, karena masih memeriksa ponsel setiap beberapa menit, dan karena bagian paling jujur dalam diriku tetap ingin tahu apakah ia sudah sampai dengan selamat. Aku mengetik pesan, menghapusnya, mengetik lagi, lalu akhirnya mengunci layar tanpa mengirim apa pun.</p>
-      <p>Hari-hari di kota itu berubah menjadi rutinitas yang hambar. Aku tetap berangkat sekolah, bercanda dengan teman-teman, dan mengerjakan tugas. Dari luar, tidak ada yang berbeda. Namun, aku berhenti melewati toko buku kecil yang dulu kami kunjungi. Aku juga berhenti membeli susu kotak rasa stroberi, meskipun sebelumnya aku tidak pernah menyukainya. Hal-hal kecil terasa terlalu penuh oleh kenangan.</p>
-      <p>Suatu sore, hujan turun deras. Aku berteduh di halte lama, tempat semuanya dimulai. Bangku itu masih sama, papan rutenya masih sedikit miring, dan atapnya masih bocor di sudut yang sama. Tetapi tidak ada Nara yang berdiri di sampingku sambil menawarkan separuh payungnya. Tidak ada suara yang mengomentari sepatu basahku. Hanya hujan yang jatuh tanpa peduli siapa yang sedang merindukan siapa.</p>
-      <p>Aku membuka galeri ponsel dan menemukan foto pertama kami. Nara tersenyum lebar, sedangkan aku terlihat kaku. Aku memperbesar gambar itu, memperhatikan hal-hal yang dulu tidak kusadari: rambutnya yang tertiup angin, jemarinya yang hampir menyentuh lenganku, dan matanya yang melihat ke arah kamera seolah dunia tidak punya alasan untuk membuatnya sedih.</p>
-      <p>Untuk pertama kalinya sejak ia pergi, aku menangis. Bukan karena aku yakin telah kehilangan cinta dalam hidupku, melainkan karena aku tidak tahu apakah orang yang kurindukan masih menjadi orang yang sama. Aku bahkan tidak tahu apakah ia pernah merasakan hal yang sama denganku.</p>
-      <p>Hujan berhenti menjelang malam. Aku memasukkan ponsel ke saku dan berjalan pulang tanpa payung. Di bawah langit yang mulai gelap, aku berjanji tidak akan lagi menunggu seseorang yang sudah memilih pergi. Aku mengucapkan janji itu dengan sungguh-sungguh, meskipun jauh di dalam hati, aku tahu bahwa ada janji yang hanya kita buat agar bisa melewati satu malam lagi.</p>
-    `
-  },
-  {
-    title: "Bab 8 — Nama yang Tidak Lagi Kusebut",
-    content: `
-      <p>Bulan-bulan berlalu. Aku mulai terbiasa dengan ketidakhadiran Nara, atau setidaknya aku pandai berpura-pura demikian. Aku tidak lagi membuka profilnya setiap malam. Aku menghapus percakapan lama dari daftar utama, mengganti lagu-lagu yang biasa kami dengarkan, dan mencoba memenuhi hari dengan hal-hal baru. Perlahan, hidupku bergerak maju, meskipun beberapa bagian dari diriku masih tertinggal di halte itu.</p>
-      <p>Aku belajar bahwa melupakan seseorang tidak selalu berarti menghapus ingatannya. Kadang, melupakan hanyalah kemampuan untuk melewati tempat yang sama tanpa berhenti. Kadang, itu berarti mendengar lagu kesukaannya tanpa merasa perlu mematikan musik. Dan kadang, itu berarti mengucapkan namanya dalam pikiran tanpa membiarkan hari kita hancur karenanya.</p>
-      <p>Namun, ada malam ketika semuanya kembali. Biasanya saat hujan turun dan suara air memukul jendela kamar. Aku akan teringat cara Nara tertawa, bagaimana ia mengeluh tentang roti yang terlalu manis, dan bagaimana ia selalu mengambil foto langit seolah setiap senja adalah sesuatu yang mungkin tidak akan datang lagi. Kenangan itu muncul tanpa izin, lalu pergi meninggalkan ruangan yang terasa lebih sepi daripada sebelumnya.</p>
-      <p>Suatu hari, aku menemukan catatan kecil di antara halaman buku yang kupinjam dari toko buku lama. Tulisan tangan di kertas itu tidak asing bagiku. Huruf-hurufnya miring sedikit ke kanan, dengan beberapa kata yang dicoret dan ditulis ulang. Di bagian atas tertulis namaku, Arka. Jantungku berdegup lebih cepat ketika membaca kalimat pertama.</p>
-      <p>"Kalau kamu membaca ini, mungkin aku sudah terlalu jauh untuk menjelaskan semuanya secara langsung."</p>
-      <p>Aku membaca kalimat itu berulang kali. Catatan tersebut tidak memiliki tanggal, tidak ada tanda tangan, dan tidak menjelaskan bagaimana kertas itu bisa berada di sana. Aku bertanya kepada penjaga toko, tetapi ia hanya menggeleng. Katanya, buku itu sudah lama berada di rak yang sama dan tidak ada yang menitipkan apa pun kepadanya.</p>
-      <p>Aku membawa catatan itu pulang. Ada satu kalimat lagi di bagian bawah, ditulis lebih kecil, seolah penulisnya ragu untuk membiarkannya terbaca.</p>
-      <p>"Maaf karena aku membuatmu membenci sesuatu yang sebenarnya juga sedang berusaha kuselamatkan."</p>
-      <p>Malam itu, semua pertanyaan yang kupendam kembali hidup. Apa yang sedang Nara selamatkan? Mengapa ia tidak pernah mengatakan apa pun? Dan apakah selama ini aku salah memahami perpisahan kami? Aku ingin mencari jawabannya, tetapi tidak tahu harus mulai dari mana. Untuk pertama kalinya, aku merasa mungkin aku belum benar-benar mengenal cerita yang selama ini kukira milik kami berdua.</p>
-    `
-  },
-  {
-    title: "Bab 9 — Hampa yang Tinggal Setelahnya",
-    content: `
-      <p>Setahun berlalu sejak Nara meninggalkan kota. Aku sudah lulus sekolah dan mulai sibuk memikirkan masa depan. Orang-orang di sekitarku bicara tentang kampus, pekerjaan, dan impian yang ingin mereka kejar. Aku ikut tertawa ketika mereka bercanda, ikut bersemangat saat membicarakan rencana, tetapi kadang aku merasa seperti sedang menjalani hidup milik orang lain.</p>
-      <p>Yang tersisa dari Nara hanyalah beberapa foto, gantungan kenangan dalam pikiranku, dan sebuah catatan tanpa penjelasan. Aku tidak tahu apakah ia baik-baik saja. Aku tidak tahu apakah ia masih menyimpan foto kami. Aku juga tidak tahu apakah ia pernah mengingatku pada hari-hari ketika langit di kotanya berubah menjadi abu-abu. Pertanyaan-pertanyaan itu perlahan kehilangan suaranya, tetapi tidak pernah benar-benar menghilang.</p>
-      <p>Aku pernah mencoba menghubunginya sekali. Pesan itu sederhana: "Hai, kamu apa kabar?" Aku menatap layar setelah menekan tombol kirim. Satu jam berlalu, lalu satu hari. Tidak ada balasan. Pada akhirnya aku menghapus percakapan itu, bukan karena tidak peduli, melainkan karena aku tidak sanggup terus menunggu sesuatu yang mungkin tidak pernah datang.</p>
-      <p>Beberapa minggu kemudian, aku kembali ke toko buku kecil. Tempat itu masih sama, tetapi rak dekat jendela sudah dipindahkan. Aku duduk di kursi yang dulu sering ditempati Nara, membuka sebuah novel secara acak, dan menemukan bahwa aku tidak mampu membaca satu halaman pun. Pikiranku terus kembali pada catatan itu, pada kalimat tentang menyelamatkan sesuatu, dan pada mata Nara yang terlihat sedih sebelum ia pergi.</p>
-      <p>Aku mulai bertanya-tanya apakah rasa marahku dulu telah membuatnya semakin kesepian. Mungkin ia memang punya alasan untuk diam. Mungkin ia ingin bercerita, tetapi aku terlalu sibuk merasa ditinggalkan. Namun, aku juga tahu bahwa aku tidak bisa terus menyalahkan diri sendiri atas hal-hal yang tidak pernah dijelaskan kepadaku. Dua orang bisa sama-sama terluka tanpa salah satunya benar-benar menjadi penjahat.</p>
-      <p>Sore itu, aku memotret langit dari jendela toko. Warnanya pucat, hampir tanpa jingga. Aku memandangi foto tersebut cukup lama sebelum menyadari sesuatu: aku sudah mulai melakukan kebiasaan Nara. Aku menyimpan langit karena takut kehilangan perasaan yang menyertainya, meskipun aku tidak yakin perasaan apa yang sedang kucoba pertahankan.</p>
-      <p>Di perjalanan pulang, ponselku bergetar. Sebuah nomor tak dikenal mengirimkan pesan singkat: "Kamu masih menyimpan bintang itu?" Aku berhenti di tengah trotoar. Napasku terasa tertahan. Tidak ada nama, tidak ada foto profil, hanya satu pertanyaan yang tidak mungkin diketahui sembarang orang. Aku mengetik balasan, tetapi sebelum sempat mengirimkannya, nomor itu menghilang dari layar.</p>
-    `
-  },
-  {
-    title: "Bab 10 — Ketika Langit Mulai Berubah",
-    content: `
-      <p>Aku tidak bisa tidur malam itu. Pesan dari nomor tak dikenal terus berputar di kepalaku. Aku mencoba meyakinkan diri bahwa itu hanya kebetulan, mungkin teman lama yang mengetahui kisah gantungan kunci tersebut. Namun, hanya Nara yang tahu alasan di balik hadiah kecil itu. Hanya Nara yang pernah bercanda tentang bintang dan jalan pulang.</p>
-      <p>Keesokan paginya, aku kembali menghubungi nomor tersebut. Pesanku hanya terkirim satu kali, lalu tidak ada tanda bahwa penerimanya sedang aktif. Aku menunggu sampai sore, kemudian sampai malam. Ketika akhirnya tidak ada jawaban, rasa kecewa yang kukira sudah mati muncul lagi. Aku merasa bodoh karena membiarkan satu pesan singkat mengguncang ketenangan yang susah payah kubangun.</p>
-      <p>Beberapa hari kemudian, aku menemukan amplop putih terselip di pintu rumah. Tidak ada nama pengirim, hanya namaku yang ditulis dengan tinta hitam. Tulisan itu membuat dadaku sesak. Aku mengenal bentuk hurufnya, cara garis pada huruf A dibuat sedikit terlalu panjang, dan titik kecil di ujung beberapa kalimat. Itu tulisan Nara.</p>
-      <p>Di dalam amplop ada selembar foto langit senja, sama seperti foto-foto yang dulu sering ia kirimkan. Di bagian belakangnya tertulis, "Aku tidak pernah benar-benar pergi dari hari itu." Tidak ada penjelasan lain. Aku membalik foto itu berkali-kali, seolah kata-kata tambahan akan muncul jika aku cukup lama menatapnya.</p>
-      <p>Aku marah karena ia kembali dengan cara seperti ini. Setelah berbulan-bulan diam, setelah membiarkanku menebak dan menerima kehilangan sendirian, ia muncul hanya dengan sebuah foto dan kalimat yang tidak menjawab apa pun. Aku ingin merobeknya. Aku ingin meneleponnya dan menanyakan semuanya. Tetapi pada akhirnya, aku menyimpan foto itu di dalam laci, bersama catatan lama yang selama ini tidak pernah kubuang.</p>
-      <p>Malam itu, aku bermimpi tentang halte kami. Nara berdiri di bawah hujan, memegang payung biru pucat, tetapi kali ini ia tidak tersenyum. Ia hanya menatapku dari kejauhan, seolah ada sesuatu di antara kami yang tidak bisa dilewati. Aku berlari menghampirinya, tetapi setiap langkah membuat jarak kami semakin jauh.</p>
-      <p>Aku terbangun sebelum fajar dengan perasaan yang sulit dijelaskan. Di luar, hujan turun pelan. Untuk pertama kalinya setelah sekian lama, aku tidak merasa ingin menghindarinya. Aku membuka laci, mengambil foto dari amplop, dan memutuskan bahwa jika Nara benar-benar ingin kembali ke hidupku, kali ini aku tidak akan membiarkan pertanyaan-pertanyaan itu tetap tanpa jawaban.</p>
-    `
-  },
-  {
-    title: "Bab 11 — Pertemuan yang Terlambat",
-    content: `
-      <p>Pesan berikutnya datang tiga hari kemudian. Tidak ada sapaan, tidak ada penjelasan panjang. Hanya sebuah lokasi dan waktu: halte lama, pukul lima sore, hari Sabtu. Aku membaca pesan itu sambil menahan napas. Sebagian diriku ingin mengabaikannya, membiarkan Nara merasakan bagaimana rasanya menunggu tanpa kepastian. Namun, bagian lain yang lebih jujur tahu bahwa aku akan datang, bahkan jika aku harus menunggu sampai hujan berhenti.</p>
-      <p>Sabtu sore, aku tiba di halte lima belas menit lebih awal. Langit mendung, jalanan basah oleh hujan yang turun sejak siang. Aku berdiri di tempat yang sama seperti hari pertama kami bertemu. Setiap kendaraan yang berhenti membuatku menoleh, dan setiap orang yang turun membuatku berharap sekaligus takut. Aku tidak tahu apakah aku ingin melihat Nara atau ingin membuktikan kepada diriku sendiri bahwa aku sudah cukup kuat untuk menghadapinya.</p>
-      <p>Pukul lima lewat tujuh menit, sebuah mobil berhenti di seberang jalan. Seorang perempuan turun dengan jaket abu-abu dan rambut yang sedikit lebih pendek. Ia menatap halte itu beberapa detik sebelum berjalan mendekat. Aku langsung mengenalinya, meskipun waktu telah mengubah beberapa hal pada wajahnya. Nara berdiri di hadapanku, dan untuk beberapa saat kami hanya saling memandang.</p>
-      <p>"Hai, Ka," katanya pelan.</p>
-      <p>Aku tertawa pendek, bukan karena lucu, tetapi karena aku tidak tahu harus melakukan apa. "Setahun lebih, dan cuma itu yang bisa kamu bilang?" Nara menunduk. Aku bisa melihat tangannya gemetar. Ada banyak kalimat marah yang sudah kusiapkan, tetapi ketika akhirnya bertemu dengannya, semuanya terasa berantakan. Yang paling ingin kutanyakan justru yang paling sederhana: apakah ia baik-baik saja selama ini?</p>
-      <p>"Aku minta maaf," katanya. "Aku tahu itu nggak cukup." Aku menatapnya lama. "Kenapa kamu pergi tanpa bilang apa-apa? Kenapa kamu membiarkan aku berpikir kalau aku nggak berarti?" Suaraku terdengar lebih tenang daripada perasaanku. Nara menarik napas, lalu matanya mulai berkaca-kaca.</p>
-      <p>"Karena aku takut," jawabnya. "Aku takut kalau aku cerita, kamu bakal ikut menanggung sesuatu yang bahkan aku sendiri nggak tahu bagaimana menghadapinya." Ia menggenggam tali tasnya erat-erat. "Aku pikir kalau aku menjauh, semuanya akan lebih mudah. Aku pikir kamu akan membenciku dan akhirnya berhenti menunggu."</p>
-      <p>"Kamu berhasil," kataku. "Aku memang membencimu. Tapi aku juga merindukanmu. Dan dua hal itu membuatku capek, Nar." Air matanya jatuh. Aku ingin menghapusnya, tetapi aku tidak tahu apakah aku masih punya hak untuk melakukan itu. Nara mengeluarkan sebuah amplop dari tasnya dan menyodorkannya kepadaku.</p>
-      <p>"Aku datang bukan cuma untuk meminta maaf," katanya. "Ada sesuatu yang seharusnya kamu tahu sejak dulu. Aku sudah terlalu lama menyimpannya." Aku menerima amplop itu, tetapi belum membukanya. Sebelum aku sempat bertanya, Nara memandangku dengan mata yang penuh ketakutan. "Tapi setelah kamu membaca ini, mungkin kamu nggak akan pernah bisa melihatku dengan cara yang sama lagi."</p>
-    `
-  },
-  {
-    title: "Bab 12 — Di Bawah Langit yang Kehilangan Warna",
-    content: `
-      <p>Aku memandangi amplop itu, lalu kembali menatap Nara. Hujan semakin deras, tetapi tidak satu pun dari kami bergerak untuk berteduh. Ada banyak hal yang ingin kutanyakan, begitu banyak kemarahan yang belum selesai, dan terlalu banyak kenangan yang belum menemukan tempatnya. Namun, melihat Nara berdiri di hadapanku dengan wajah pucat dan mata yang sembap membuatku sadar bahwa pertemuan ini bukanlah akhir yang selama ini kubayangkan. Ini mungkin justru awal dari sesuatu yang jauh lebih sulit.</p>
-      <p>"Apa isinya?" tanyaku.</p>
-      <p>Nara menelan ludah. "Sesuatu yang seharusnya kuberikan waktu itu." Ia mengusap pipinya, lalu mencoba tersenyum meskipun gagal. "Aku menulisnya berkali-kali. Setiap kali ingin mengirimkannya, aku selalu takut. Aku takut kamu akan membenciku lebih dalam. Aku takut kamu akan datang mencariku. Dan yang paling kutakutkan..." Ia berhenti, seolah kata-kata berikutnya terlalu berat untuk diucapkan. "Aku takut kamu akan memilih tetap tinggal, padahal aku tidak tahu berapa lama aku masih bisa berada di sini."</p>
-      <p>Jantungku terasa jatuh. "Maksud kamu apa?" Nara tidak menjawab. Ia hanya menatap langit yang gelap, seperti sedang mencari sesuatu di balik awan. Aku ingin memaksanya bicara, tetapi kali ini aku memilih menunggu. Aku tidak ingin mengulangi kesalahan yang sama, menganggap diamnya sebagai penolakan sebelum memahami apa yang sebenarnya ia rasakan.</p>
-      <p>Akhirnya, Nara berkata, "Kamu masih ingat laki-laki yang kamu lihat bersamaku di tangga belakang sekolah?" Aku mengangguk perlahan. "Dia kakakku. Waktu itu keluargaku sedang mengalami masalah besar. Kami harus pindah mendadak, dan ada hal-hal tentang diriku yang belum sanggup kuceritakan kepada siapa pun." Ia menarik napas panjang. "Aku tahu kamu terluka. Aku tahu aku membuatmu merasa tidak berarti. Tapi aku benar-benar tidak tahu bagaimana cara meminta pertolongan tanpa membuat semuanya semakin buruk."</p>
-      <p>Aku merasakan kemarahan yang lama perlahan bercampur dengan sesuatu yang lain. Bukan berarti semua tindakannya menjadi benar. Bukan berarti rasa sakit yang kutanggung selama ini mendadak hilang. Namun, untuk pertama kalinya, aku melihat kemungkinan bahwa di balik diamnya, Nara juga sedang berjuang sendirian. Aku membuka amplop itu dengan tangan yang mulai gemetar.</p>
-      <p>Di dalamnya terdapat beberapa lembar surat dan sebuah foto lama. Foto kami di depan toko buku, diambil pada sore ketika kami tertawa tanpa alasan. Di belakang foto itu tertulis tanggal yang sama dengan hari terakhir kami berbicara. Aku mulai membaca suratnya. Pada halaman pertama, Nara meminta maaf. Pada halaman kedua, ia menulis tentang hari-hari yang sulit, tentang rumah yang tidak lagi terasa seperti rumah, dan tentang betapa ia ingin meneleponku setiap kali merasa takut.</p>
-      <p>Namun, di halaman terakhir, tulisan tangannya berubah berantakan. Ada beberapa kalimat yang dicoret, seolah ia berusaha memutuskan apakah aku pantas mengetahuinya. Kalimat terakhir hanya berbunyi: "Kalau suatu hari aku kembali dan kamu masih mengingatku, ada satu hal yang harus kamu ketahui tentang malam sebelum aku pergi."</p>
-      <p>Aku mengangkat wajah. "Malam sebelum kamu pergi? Apa yang terjadi malam itu?"</p>
-      <p>Nara tidak langsung menjawab. Ia menatapku dengan mata yang membuat dadaku terasa dingin. Untuk pertama kalinya, aku melihat bahwa ia bukan hanya takut kehilangan sesuatu. Ia tampak seperti seseorang yang telah membawa sebuah rahasia terlalu lama, sampai rahasia itu perlahan menghabiskan seluruh keberaniannya.</p>
-      <p>"Ka," katanya, suaranya nyaris tenggelam oleh hujan. "Ada seseorang yang datang menemuiku malam itu. Seseorang yang tahu tentang kamu. Dan sebelum aku pergi, dia mengatakan sesuatu yang sampai sekarang masih membuatku takut."</p>
-      <p>Aku menggenggam surat itu lebih erat. "Siapa orang itu, Nar?"</p>
-      <p>Nara membuka mulut, tetapi tiba-tiba ponselnya berdering. Ia melihat layar, dan seluruh warna di wajahnya seakan menghilang. Ia mundur satu langkah. Aku mencoba melihat siapa yang menelepon, tetapi ia segera mematikan layar dan memasukkan ponselnya ke dalam tas.</p>
-      <p>"Kita harus pergi," katanya terburu-buru.</p>
-      <p>"Pergi ke mana? Kamu belum menjelaskan apa-apa!"</p>
-      <p>Nara menggenggam lenganku. Tangannya dingin. "Tolong, kali ini percaya sama aku. Jangan pulang sendirian malam ini."</p>
-      <p>Aku hendak bertanya lagi ketika sebuah suara terdengar dari belakang kami.</p>
-      <p>"Akhirnya kalian bertemu juga."</p>
-      <p>Nara langsung melepaskan lenganku. Aku berbalik. Seorang laki-laki berdiri beberapa meter dari kami, mengenakan jaket hitam dan memegang payung yang tidak terbuka. Wajahnya tidak asing, tetapi aku tidak bisa mengingat dari mana aku pernah melihatnya. Ia menatapku seolah sudah mengenalku sejak lama, lalu tersenyum tipis.</p>
-      <p>"Arka, kan?" tanyanya.</p>
-      <p>Aku tidak menjawab. Nara berdiri di sampingku dengan napas yang semakin cepat. Laki-laki itu mengeluarkan sesuatu dari saku jaketnya: sebuah foto lama yang memperlihatkan diriku sedang berdiri di depan rumah, diambil dari kejauhan.</p>
-      <p>"Sepertinya Nara belum menceritakan semuanya kepadamu," katanya. "Padahal alasan sebenarnya dia pergi dulu... bukan karena keluarganya."</p>
-      <p>Aku menoleh kepada Nara. Matanya dipenuhi air mata, tetapi ia tidak menyangkal satu kata pun.</p>
-      <p>Laki-laki itu melangkah mendekat, lalu menyodorkan foto tersebut kepadaku. Di balik foto itu, ada tulisan yang membuat darahku terasa membeku.</p>
-      <p><em>"Jangan percaya pada orang yang pertama kali mengajakmu berbagi payung."</em></p>
-      <p>Hujan terus turun. Nara memanggil namaku dengan suara bergetar, tetapi aku tidak lagi tahu harus mempercayai siapa. Aku menatap perempuan yang pernah menjadi warna paling terang dalam hidupku, lalu menatap orang asing yang seolah mengetahui setiap rahasia kami.</p>
-      <p>Dan tepat ketika aku hendak bertanya apa yang sebenarnya terjadi, laki-laki itu menoleh ke arah jalan yang gelap.</p>
-      <p>"Kita kehabisan waktu," katanya. "Karena orang yang seharusnya kalian takutkan..."</p>
-      <p>Ia berhenti, lalu menatapku lurus-lurus.</p>
-      <p>"...baru saja sampai."</p>
-    `
-  }
-];const totalChapters = 12;
-        let currentChapter = 1;
+    <p id="finalQuote" class="final-quote">
+        <span class="ending-red">From every perspective,</span>
+        <span class="ending-blue">I’m still the one to blame.</span>
+    </p>
+</div>
 
-        const chapterLabel = document.getElementById("chapterLabel");
-        const chapterTitle = document.getElementById("chapterTitle");
-        const chapterContent = document.getElementById("chapterContent");
-        const chapterCounter = document.getElementById("chapterCounter");
-        const progressFill = document.getElementById("progressFill");
-        const progressText = document.getElementById("progressText");
-        const prevButton = document.getElementById("prevChapter");
-        const nextButton = document.getElementById("nextChapter");
+    <!-- PENUTUP, MUNCUL SETELAH VIDEO SELESAI -->
+    <div class="ending-content" id="endingContent">
 
-        function renderChapter() {
-            const chapter = chapters[currentChapter - 1];
-            const progress = Math.round((currentChapter / totalChapters) * 100);
+        <p class="ending-note">
+            Cerita ini belum selesai. Mungkin jawabannya ada pada bab berikutnya.
+        </p>
 
-            chapterLabel.textContent =
-                `CHAPTER ${String(currentChapter).padStart(2, "0")}`;
+        <div class="ending-actions">
+            <button
+                class="novel-btn"
+                id="readAgain"
+                type="button"
+            >
+                Baca Bab 1 Lagi ↻
+            </button>
 
-            if (chapter) {
-                chapterTitle.textContent = chapter.title;
-                chapterContent.innerHTML = chapter.content;
-            } else {
-                chapterTitle.textContent = `Bab ${currentChapter}`;
-                chapterContent.textContent =
-                    "Bab ini belum ditulis. Kita bisa menambahkan cerita selanjutnya nanti.";
-            }
+            <button
+                class="novel-btn"
+                id="backHome"
+                type="button"
+            >
+                ← Kembali ke Pixel Vault
+            </button>
+        </div>
 
-            chapterCounter.textContent =
-                `Bab ${currentChapter} dari ${totalChapters}`;
+    </div>
 
-            progressFill.style.width = `${progress}%`;
-            progressText.textContent = `Progres ${progress}%`;
+</section>
+</main>
 
-            prevButton.disabled = currentChapter === 1;
-            nextButton.disabled = currentChapter === totalChapters;
+<script>
+
+"use strict";
+
+/* DATA CERITA: ISI 14 BAB DIPERTAHANKAN */
+
+const chapters = [
+{
+title: "Hujan di Hari Pertama",
+atmosphere: "Suasana: kota basah, halte sepi, dan pertemuan yang tidak direncanakan.",
+story: `Hujan turun sebelum bel pulang berbunyi. Dari jendela kelas, Zull melihat jalanan berubah menjadi cermin panjang yang memantulkan lampu kendaraan. Anak-anak lain sudah berlari menuju gerbang, tertawa sambil menutupi kepala dengan tas. Zull tetap duduk, menunggu hujan sedikit mereda.
+
+Ia bukan orang yang tidak punya teman. Ia hanya terbiasa menjaga jarak, seolah ada bagian dari dirinya yang tidak ingin disentuh siapa pun. Baginya, percakapan sering berakhir sebelum benar-benar dimulai, dan janji biasanya terdengar indah hanya sampai seseorang lupa menepatinya.
+
+Di halte dekat sekolah, ia bertemu seorang gadis berambut merah. Gadis itu memegang payung yang rusak di salah satu sisinya dan menatap langit dengan ekspresi kesal.
+
+"Payung ini memilih hari yang salah buat menyerah," katanya.
+
+Zull tanpa sadar tertawa. Gadis itu menoleh, lalu ikut tersenyum.
+
+Namanya Miku. Ia tinggal beberapa halte dari sana dan ternyata mengenal jalan pulang yang sama. Mereka berjalan bersama di bawah payung Zull yang terlalu kecil untuk dua orang. Bahu mereka sesekali bersentuhan, dan Miku terus meminta maaf setiap kali air hujan mengenai lengan Zull.
+
+"Kalau kamu terus minta maaf, kita bakal sampai rumah tahun depan," kata Zull.
+
+Miku tertawa. Suaranya terdengar begitu ringan di tengah suara hujan.
+
+Di persimpangan, mereka berpisah. Miku berlari beberapa langkah, kemudian berbalik.
+
+"Sampai besok, Zull!"
+
+Zull tidak ingat kapan terakhir kali seseorang mengatakan akan bertemu dengannya lagi dengan begitu yakin.
+
+Malamnya, ia memandangi hujan dari jendela kamar. Entah kenapa, suara hujan tidak lagi terdengar sesunyi biasanya.`,
+quote: "Mungkin beberapa pertemuan terlihat sederhana karena kita belum tahu betapa besar tempatnya kelak di dalam kenangan."
+},
+{
+title: "Kota yang Menyimpan Cahaya",
+atmosphere: "Suasana: pagi berkabut, jalanan ramai, dan awal dari sebuah kebiasaan.",
+story: `Miku benar-benar datang ke sekolah keesokan harinya. Ia muncul di depan kelas Zull sambil mengangkat dua kotak susu, seolah mereka sudah berteman selama bertahun-tahun.
+
+"Sebagai ucapan terima kasih karena kemarin menyelamatkan aku dari hujan," katanya, menyerahkan satu kotak kepadanya.
+
+"Aku cuma berbagi payung."
+
+"Dan aku cuma berbagi susu. Berarti kita impas."
+
+Sejak itu, Miku mulai hadir dalam rutinitas Zull. Kadang ia mengirim pesan tentang tugas sekolah, kadang mengirim foto langit pagi, dan terkadang hanya bertanya apakah Zull sudah makan. Pesan-pesan itu tidak pernah luar biasa, tetapi Zull mulai menunggu bunyi notifikasi ponselnya.
+
+Mereka menemukan sebuah toko kecil di dekat stasiun. Toko itu menjual roti hangat dan minuman murah. Miku selalu memilih tempat duduk dekat jendela, sementara Zull lebih suka duduk menghadap pintu.
+
+"Kamu selalu melihat orang yang datang," ujar Miku suatu hari.
+
+"Kebiasaan."
+
+"Menunggu seseorang?"
+
+Zull menggeleng. "Mungkin cuma memastikan tidak ada yang pergi tanpa pamit."
+
+Miku terdiam. Untuk sesaat, senyumnya menghilang. Namun, sebelum Zull sempat bertanya, ia kembali bercanda tentang roti yang terlalu manis.
+
+Hari-hari mereka berjalan seperti itu. Kota yang sebelumnya terasa asing mulai memiliki tempat-tempat yang ingin Zull kunjungi kembali. Halte, toko roti, jalan kecil di samping sekolah. Semuanya biasa saja, sampai Miku berada di sana.
+
+Zull belum menyebutnya kebahagiaan. Ia takut memberi nama pada sesuatu yang belum ia pahami. Namun, untuk pertama kalinya, ia mulai mengambil foto langit, hanya karena Miku pernah berkata bahwa langit pagi terlihat seperti awal yang baru.`,
+quote: "Kadang, seseorang tidak mengubah dunia kita. Ia hanya membuat tempat-tempat biasa terasa layak untuk didatangi kembali."
+},
+{
+title: "Senja dan Janji Kecil",
+atmosphere: "Suasana: senja jingga di atap gedung dan harapan yang tumbuh diam-diam.",
+story: `Miku menemukan tempat favoritnya di atap gedung sekolah. Dari sana, bangunan-bangunan terlihat kecil dan matahari tampak seperti bara yang perlahan tenggelam di ujung kota.
+
+Ia mengajak Zull ke sana setelah kegiatan sekolah selesai. Mereka duduk berdampingan, berbagi camilan, dan membicarakan hal-hal yang ingin dilakukan setelah lulus.
+
+Miku ingin melihat laut pada malam hari. Ia ingin pergi ke kota yang tidak dikenalnya, membeli tiket tanpa terlalu banyak berpikir, lalu berjalan sampai menemukan tempat yang membuatnya ingin tinggal lebih lama.
+
+"Kalau kamu?" tanyanya.
+
+Zull berpikir cukup lama. "Aku ingin punya satu tempat yang nggak membuatku merasa harus pergi."
+
+Miku tidak langsung menjawab. Ia memandang langit yang berubah dari jingga menjadi merah muda.
+
+"Kalau begitu, semoga kamu menemukannya."
+
+"Bagaimana kalau aku sudah menemukannya?"
+
+Miku menoleh. Mata mereka bertemu sedikit lebih lama daripada biasanya. Zull ingin mengatakan sesuatu, tetapi kata-katanya tertahan. Ia takut merusak momen itu dengan kejujuran yang belum siap ia tanggung.
+
+Miku mengeluarkan sebuah buku catatan kecil. Di halaman pertama, ia menulis tanggal hari itu dan menggambar dua lingkaran kecil di bawahnya.
+
+"Ini buku untuk hal-hal yang nggak boleh kita lupakan," katanya. "Setiap kali ada hari yang menyenangkan, kita tulis di sini."
+
+Zull menerima buku itu dan menambahkan satu kalimat: Senja pertama yang terasa tidak ingin cepat berakhir.
+
+Miku membacanya diam-diam. Wajahnya memerah, tetapi ia tidak mengejek Zull seperti biasanya.
+
+Sebelum turun dari atap, mereka berjanji akan kembali ke sana setiap kali salah satu dari mereka merasa dunia terlalu berat.
+
+Mereka tidak tahu bahwa suatu hari nanti, janji itu akan menjadi hal paling sulit untuk ditepati.`,
+quote: "Janji kecil bisa menjadi sangat berharga ketika waktu mulai mengambil hal-hal yang dulu kita kira akan selalu ada."
+},
+{
+title: "Tanda yang Tak Terucapkan",
+atmosphere: "Suasana: lorong sekolah yang sepi dan perubahan yang belum bisa dijelaskan.",
+story: `Beberapa minggu setelah mereka membuat buku kenangan, Zull mulai menyadari perubahan pada Miku.
+
+Gadis itu terkadang datang terlambat. Ia sering melihat ponselnya dengan wajah cemas, lalu segera menyembunyikannya ketika Zull mendekat. Ada hari-hari ketika ia begitu ceria, tetapi ada pula hari ketika senyumnya terlihat seperti sesuatu yang sengaja ia pasang agar tidak ditanya.
+
+Suatu siang, Miku tidak datang ke toko roti. Ia mengirim pesan singkat bahwa ada urusan keluarga. Zull membalas bahwa tidak apa-apa, tetapi setelah itu ia menatap kursi kosong di depannya lebih lama daripada yang seharusnya.
+
+Hari berikutnya, Miku kembali seperti biasa. Ia tertawa, bercerita, dan meminta Zull menemaninya ke perpustakaan. Namun, saat ia mengangkat tas, selembar kertas jatuh ke lantai.
+
+Zull hendak mengambilnya, tetapi Miku bergerak terlalu cepat.
+
+"Jangan dibaca," katanya.
+
+Nada suaranya bukan marah. Lebih mirip ketakutan.
+
+Zull menarik tangannya. "Oke. Maaf."
+
+Miku menggenggam kertas itu erat-erat. Ia meminta maaf berkali-kali, lalu mengalihkan pembicaraan. Zull tidak memaksanya menjelaskan. Ia ingin menghormati batas yang dibuat Miku, meski untuk pertama kalinya ia merasa ada sebuah pintu di antara mereka.
+
+Sore itu, saat mereka berjalan pulang, Miku berhenti di depan toko yang sudah tutup. Ia memandang kaca etalase, tetapi seolah tidak benar-benar melihat apa pun.
+
+"Zull, menurut kamu, kalau seseorang menyimpan rahasia, apa berarti dia nggak percaya sama kita?"
+
+Zull menimbang jawabannya.
+
+"Nggak selalu. Mungkin dia belum siap cerita."
+
+Miku mengangguk, tetapi matanya tampak berkaca-kaca.
+
+"Kalau suatu hari aku cerita semuanya, kamu mau dengar?"
+
+Zull menatapnya. "Aku akan dengar."
+
+Miku tersenyum kecil. Ia tidak mengatakan apa-apa lagi, dan Zull memutuskan untuk tidak bertanya.
+
+Namun, sejak hari itu, ia mulai memperhatikan hal-hal yang sebelumnya tidak ia sadari: cara Miku sering memeriksa waktu, caranya menghindari pertanyaan tentang liburan, dan bagaimana ia terkadang menatap Zull seolah sedang berusaha mengingat wajahnya.`,
+quote: "Tidak semua diam berarti tidak percaya. Terkadang, seseorang hanya sedang mencari keberanian untuk membuka bagian dirinya yang paling rapuh."
+},
+{
+title: "Hari yang Ingin Diulang",
+atmosphere: "Suasana: toko roti hangat, lampu kuning, dan kebahagiaan yang terasa rapuh.",
+story: `Pada suatu Sabtu, Miku mengajak Zull menghabiskan satu hari tanpa rencana. Mereka naik bus ke pusat kota, berjalan melewati toko-toko kecil, dan mencoba makanan yang namanya tidak mereka kenal.
+
+Miku tertawa ketika Zull salah menyebut nama minuman. Zull membalas dengan mengambil foto Miku saat ia sedang sibuk memilih gantungan kunci. Mereka membeli dua gantungan berbentuk bintang, satu hitam dan satu merah.
+
+"Biar kalau kita kehilangan barangnya, kita masih ingat pernah membelinya bersama," kata Miku.
+
+"Kenapa langsung bicara soal kehilangan?"
+
+Miku terdiam sebentar, lalu mengangkat bahu. "Cuma bercanda."
+
+Menjelang sore, mereka duduk di sebuah kedai kecil. Di luar, lampu kota mulai menyala. Miku bercerita tentang masa kecilnya, tentang rumah yang pernah ia tinggali, dan tentang seseorang yang dulu selalu berjanji akan menjemputnya tetapi tidak pernah datang.
+
+Zull mendengarkan tanpa menyela. Ia mulai mengerti bahwa di balik keceriaan Miku ada ketakutan yang tidak mudah hilang: ketakutan untuk berharap terlalu banyak kepada orang lain.
+
+"Aku nggak bisa janji semua hal bakal baik-baik saja," ujar Zull akhirnya. "Tapi kalau kamu butuh teman buat menghadapi hari yang buruk, aku bisa ada di sana."
+
+Miku memandangi minumannya. "Kamu nggak takut capek?"
+
+"Takut."
+
+Miku mengangkat wajah.
+
+"Tapi capek karena peduli sama seseorang berbeda dengan capek karena terus pura-pura nggak peduli."
+
+Miku menutup wajahnya dengan kedua tangan. Zull mengira ia sedang menangis, tetapi kemudian terdengar tawa kecil dari balik jemarinya.
+
+Hari itu mereka mengambil banyak foto. Di salah satu foto, Miku memandang kamera dengan senyum lebar, sedangkan Zull justru menatapnya.
+
+Foto itu menjadi foto favorit Miku.
+
+Ia menyimpannya di ponsel dan berkata bahwa suatu hari nanti mereka akan melihatnya lagi sambil menertawakan gaya rambut Zull yang berantakan.
+
+Zull mengiyakan. Ia belum tahu bahwa sebuah foto kadang bisa menjadi tempat seseorang kembali ketika orang yang ada di dalamnya tak lagi bisa ditemukan.`,
+quote: "Kebahagiaan tidak selalu berjanji untuk tinggal. Karena itu, saat ia datang, jangan lupa benar-benar hadir di dalamnya."
+},
+{
+title: "Pesan pada Tengah Malam",
+atmosphere: "Suasana: kamar gelap, cahaya ponsel, dan percakapan yang mengubah segalanya.",
+story: `Pukul 00.17, ponsel Zull menyala.
+
+Pesan dari Miku.
+
+"Kamu masih bangun?"
+
+Zull menjawab bahwa ia belum tidur. Beberapa menit kemudian, Miku mengirim foto langit malam dari jendela kamarnya. Tidak ada bintang yang terlihat, hanya awan gelap dan pantulan lampu jalan.
+
+"Aku takut sama masa depan," tulis Miku.
+
+Zull duduk di tepi tempat tidur. Ia mengetik beberapa jawaban, menghapusnya, lalu mencoba lagi.
+
+"Semua orang juga takut."
+
+"Tapi kalau sesuatu yang kamu tunggu ternyata nggak pernah datang gimana?"
+
+Zull teringat janji mereka di atap sekolah. Ia ingin meyakinkan Miku bahwa mereka akan selalu punya waktu untuk memenuhi semua rencana itu. Namun, ia tahu ia tidak bisa menjamin masa depan.
+
+"Kita hadapi yang ada dulu. Besok masih ada."
+
+Miku tidak membalas cukup lama. Ketika pesannya muncul, hanya ada satu kalimat.
+
+"Kalau suatu hari aku tiba-tiba menghilang, kamu bakal ingat aku?"
+
+Zull merasa dadanya mengencang. Ia menelepon Miku, tetapi panggilannya tidak diangkat. Ia mengirim pesan bertubi-tubi, menanyakan apakah sesuatu terjadi.
+
+Akhirnya Miku menjawab bahwa ia baik-baik saja dan meminta maaf karena membuat Zull khawatir.
+
+Zull menulis dengan jujur bahwa ia tidak suka pertanyaan seperti itu. Bukan karena ia tidak mau mengingat Miku, tetapi karena ia tidak ingin membayangkan hidup tanpa kehadirannya.
+
+Miku membaca pesan itu. Lama sekali tidak ada balasan.
+
+Kemudian sebuah pesan masuk.
+
+"Aku senang kamu ada, Zull. Maaf kalau aku belum bisa cerita semuanya."
+
+Zull menatap layar sampai cahaya ponselnya meredup. Ia ingin bertanya lebih banyak, tetapi memilih mengatakan bahwa Miku bisa bercerita ketika siap.
+
+Malam itu, mereka tetap bertukar pesan sampai menjelang pagi. Miku mengirim sebuah kalimat terakhir sebelum tidur.
+
+"Kalau nanti kamu melihat langit yang aneh, ingat aku, ya."
+
+Zull tidak memahami maksudnya. Ia hanya menjawab dengan sebuah emoji bintang.
+
+Keesokan paginya, ketika ia mencoba mengirim pesan lagi, satu tanda centang muncul. Lalu tidak ada kabar sepanjang hari.`,
+quote: "Ada percakapan yang terasa biasa saat berlangsung, tetapi bertahun-tahun kemudian setiap katanya kembali terdengar seperti pertanda."
+},
+{
+title: "Tempat yang Tak Lagi Sama",
+atmosphere: "Suasana: halte kosong, hujan deras, dan penantian yang melelahkan.",
+story: `Miku tidak masuk sekolah selama dua hari. Pesannya hanya dibalas singkat, lalu berhenti sama sekali.
+
+Zull mencoba menghubunginya lewat berbagai cara. Ia mengirim catatan pelajaran, foto langit, bahkan lelucon buruk yang biasanya membuat Miku tertawa. Tidak satu pun mendapatkan jawaban.
+
+Pada hari ketiga, Zull pergi ke halte tempat mereka pertama kali bertemu. Hujan turun deras, membuat semua suara di sekitarnya terdengar jauh. Ia berdiri di tempat yang sama, memandangi jalan yang dulu mereka lewati bersama.
+
+Ia menunggu sampai sore berubah menjadi malam.
+
+Miku tidak datang.
+
+Hari berikutnya, ia mendatangi toko roti. Pemilik toko mengenal Miku, tetapi tidak mengetahui apa yang terjadi. Kursi dekat jendela tetap kosong. Zull membeli dua roti, lalu menyadari ia tidak tahu harus melakukan apa dengan roti yang kedua.
+
+Ia membawa keduanya pulang.
+
+Di kamarnya, Zull membuka buku kenangan. Halaman-halamannya dipenuhi tulisan kecil dan gambar yang dibuat Miku. Ada tiket bus, bungkus permen, dan daun kering yang pernah mereka temukan saat berjalan pulang.
+
+Di halaman paling belakang, ada tulisan yang tidak pernah ia lihat sebelumnya.
+
+"Kalau suatu hari aku tidak bisa datang, jangan habiskan waktumu hanya untuk menunggu."
+
+Tulisan itu membuat Zull marah. Ia ingin tahu mengapa Miku menulisnya, kapan ia menulisnya, dan mengapa ia tidak pernah membicarakannya secara langsung.
+
+Namun, kemarahan itu tidak memberinya jawaban.
+
+Malamnya, Zull kembali ke atap sekolah. Kota di bawahnya terlihat penuh cahaya, tetapi semuanya terasa jauh. Ia baru menyadari bahwa selama ini ia telah menaruh begitu banyak harapan pada seseorang tanpa benar-benar mengetahui apa yang sedang dihadapi orang itu.
+
+Ia masih ingin percaya Miku akan kembali.
+
+Tetapi untuk pertama kalinya, ia mulai takut bahwa menunggu saja tidak akan pernah cukup.`,
+quote: "Tempat yang sama bisa terasa berbeda ketika seseorang yang membuatnya berarti tidak lagi berada di sana."
+},
+{
+title: "Foto yang Kehilangan Satu Nama",
+atmosphere: "Suasana: kamar sunyi, album foto lama, dan potongan masa lalu.",
+story: `Seminggu kemudian, sebuah amplop tipis muncul di depan rumah Zull. Tidak ada nama pengirim, hanya tulisan tangannya yang sangat ia kenal.
+
+Di dalamnya ada satu foto mereka di kedai kecil. Miku tersenyum lebar, sedangkan Zull menatapnya tanpa sadar. Di belakang foto, ada tulisan singkat.
+
+"Untuk hari ketika kamu lupa bahwa kita pernah bahagia."
+
+Zull duduk di lantai kamar dan membuka kembali semua foto mereka. Ia melihat senyum Miku di bawah lampu toko, wajahnya saat kehujanan, dan bayangan mereka yang memanjang di jalan saat senja.
+
+Di antara foto-foto itu, ia menemukan sesuatu yang aneh. Ada beberapa foto yang diambil di tempat yang tidak pernah ia ingat. Sebuah stasiun kecil, lorong dengan dinding biru, dan sebuah gedung tua dengan jam besar di atas pintunya.
+
+Zull yakin pernah melihat tempat-tempat itu, tetapi ia tidak bisa mengingat kapan.
+
+Ia membalik foto gedung tua tersebut. Di belakangnya tertulis sebuah tanggal dan tiga kata: "Jangan datang sendirian."
+
+Tanggal itu adalah hari setelah Miku terakhir kali masuk sekolah.
+
+Zull mencoba menelepon Miku lagi. Kali ini panggilan tersambung selama beberapa detik, lalu terputus sebelum seseorang menjawab.
+
+Ia memandangi layar, tidak yakin apakah itu kebetulan atau sebuah petunjuk.
+
+Keesokan harinya, ia meminta izin pulang lebih awal. Ia membawa foto tersebut dan mengikuti rute yang ia ingat. Setelah berjalan cukup lama, ia menemukan stasiun kecil yang sama, tersembunyi di balik deretan toko tua.
+
+Bangunannya hampir kosong. Jam besar di atas pintu berhenti pada pukul 17.42.
+
+Di papan pengumuman, ada kertas yang terlihat baru ditempel. Sebagian tulisannya tertutup sobekan, tetapi satu nama masih terbaca jelas.
+
+Miku.
+
+Zull mendekat. Sebelum sempat membaca sisanya, suara langkah terdengar dari ujung lorong.
+
+Ia berbalik, tetapi tidak ada siapa pun di sana.
+
+Hanya sebuah pintu yang bergerak perlahan, seolah seseorang baru saja melewatinya.`,
+quote: "Kenangan menyimpan lebih banyak hal daripada yang sanggup kita ingat. Kadang, yang hilang bukan hanya seseorang, melainkan jawaban yang belum sempat kita temukan."
+},
+{
+title: "Malam Tanpa Bintang",
+atmosphere: "Suasana: atap kota yang gelap, angin dingin, dan keberanian untuk berhenti berlari.",
+story: `Malam itu, Zull kembali ke atap sekolah. Ia membawa foto dari stasiun dan buku kenangan yang mulai kusut di bagian tepinya.
+
+Langit tidak memiliki satu bintang pun. Awan menutupi bulan, sementara angin membuat pintu atap berderit pelan. Zull duduk di tempat yang biasa ditempati Miku.
+
+Ia membaca tulisan-tulisan lama mereka satu per satu. Ada yang lucu, ada yang tidak masuk akal, dan ada yang sekarang terasa begitu menyakitkan.
+
+Di salah satu halaman, Miku pernah menulis bahwa ia ingin mengingat semua hal yang membuatnya merasa hidup. Ia menyebut aroma roti hangat, hujan pertama setelah musim panas, dan suara seseorang yang memanggil namanya tanpa terburu-buru.
+
+Zull menyentuh tulisan itu dengan ujung jari.
+
+Ia menyadari bahwa selama ini ia terus mencari alasan mengapa Miku pergi. Ia berpikir bahwa jika ia menemukan alasan tersebut, semua rasa sakitnya akan berhenti. Namun, semakin banyak petunjuk yang ia temukan, semakin banyak pertanyaan baru muncul.
+
+Mungkin ia tidak bisa mengendalikan apa yang terjadi pada Miku. Mungkin ia juga tidak bisa memaksa Miku menjelaskan semuanya.
+
+Tetapi ia masih bisa memilih apa yang akan ia lakukan dengan semua kenangan itu.
+
+Zull menutup buku dan menarik napas panjang. Ia menangis tanpa berusaha menyembunyikannya, membiarkan kesedihan datang tanpa harus segera menemukan jawaban.
+
+Setelah beberapa lama, ia berdiri. Sebelum meninggalkan atap, ia menulis satu kalimat baru di halaman terakhir.
+
+"Aku akan mencari kebenaran, bukan untuk memaksamu kembali, tetapi agar aku mengerti apa yang sebenarnya terjadi."
+
+Saat ia hendak menutup buku, sesuatu jatuh dari sela-sela halaman.
+
+Sebuah tiket kereta.
+
+Pada tiket itu tercetak tanggal esok hari, tujuan yang tidak dikenalnya, dan waktu keberangkatan 17.42.
+
+Di bagian belakangnya terdapat tulisan kecil.
+
+"Kalau kamu benar-benar ingin tahu, datanglah."
+
+Zull memandangi tiket itu lama sekali. Untuk pertama kalinya setelah berhari-hari, ia tidak hanya merasa kehilangan.
+
+Ia merasa takut terhadap apa yang mungkin akan ditemukannya.`,
+quote: "Menerima ketidakpastian bukan berarti berhenti mencari. Kadang itu berarti belajar berjalan tanpa mengetahui apa yang menunggu di depan."
+},
+{
+title: "Peron Nomor Tujuh",
+atmosphere: "Suasana: stasiun tua menjelang senja, pengumuman kereta, dan jejak yang hampir hilang.",
+story: `Zull tiba di stasiun jauh sebelum pukul 17.42. Tempat itu lebih besar daripada yang ia bayangkan, dengan lorong panjang, lampu pucat, dan bangku-bangku yang sebagian besar kosong.
+
+Ia memeriksa tiket berulang kali. Nama tujuan pada kertas itu terlihat samar, seperti tercetak dengan tinta yang hampir habis. Namun, nomor peronnya jelas: tujuh.
+
+Di peron tujuh, ada jam digital yang berkedip tidak teratur. Di dekatnya berdiri seorang petugas tua yang sedang merapikan beberapa lembar kertas.
+
+Zull menunjukkan tiketnya. Petugas itu mengamati tiket tersebut cukup lama, kemudian bertanya dari mana ia mendapatkannya.
+
+"Dari seseorang yang sedang saya cari."
+
+Petugas itu tidak bertanya lebih jauh. Ia hanya menunjuk ke ujung peron, tempat sebuah lorong sempit mengarah ke pintu keluar belakang.
+
+"Kalau kamu menunggu kereta, kamu mungkin akan menunggu lama."
+
+Zull mengikuti petunjuknya. Di ujung lorong, ia menemukan papan berisi jadwal lama dan daftar barang tertinggal. Di antara nama-nama yang tertulis, ia melihat nama Miku sekali lagi.
+
+Di sampingnya terdapat tanggal yang sama dengan tanggal pada foto.
+
+Zull mengambil gambar papan itu dengan ponselnya. Saat ia kembali menoleh, petugas tadi sudah tidak terlihat.
+
+Terdengar pengumuman dari pengeras suara, tetapi suaranya pecah dan sulit dimengerti. Hanya satu bagian yang terdengar jelas: "Keberangkatan pukul tujuh belas empat puluh dua."
+
+Jam digital berubah. 17.41.
+
+Zull berdiri di dekat garis kuning. Ia tidak tahu apakah ia sedang menunggu kereta, seseorang, atau jawaban yang selama ini menghindarinya.
+
+Ketika jam menunjukkan 17.42, seluruh lampu peron padam selama beberapa detik.
+
+Saat menyala kembali, sebuah kereta berhenti di hadapannya. Jendelanya gelap. Pintu paling dekat dengannya terbuka perlahan.
+
+Di dalam, tidak ada penumpang.
+
+Namun, pada kursi dekat jendela, terletak sebuah payung merah yang sangat ia kenal.
+
+Payung rusak dari hari pertama mereka bertemu.`,
+quote: "Beberapa jejak tidak menunjukkan ke mana seseorang pergi. Jejak itu hanya membuktikan bahwa seseorang pernah berada di sana."
+},
+{
+title: "Suara dari Seberang",
+atmosphere: "Suasana: gerbong kosong, suara statis, dan sebuah pesan yang mustahil.",
+story: `Zull naik ke dalam gerbong. Pintu menutup di belakangnya dengan suara pelan. Ia memanggil nama Miku, tetapi yang menjawab hanya gema suaranya sendiri.
+
+Payung merah itu tergeletak di kursi. Pada gagangnya terikat seutas benang hitam dan sebuah gantungan bintang kecil. Zull mengenal gantungan itu. Mereka pernah membeli dua gantungan serupa pada hari yang mereka habiskan tanpa rencana.
+
+Ia mengangkat payung tersebut. Di bawah kursi, ia menemukan alat perekam suara berukuran kecil.
+
+Tangannya gemetar saat menekan tombol putar.
+
+Awalnya hanya terdengar suara statis. Lalu, suara Miku muncul begitu dekat hingga Zull hampir menjatuhkan alat itu.
+
+"Kalau kamu mendengar ini, berarti kamu menemukan tempatnya."
+
+Zull menahan napas.
+
+"Aku nggak tahu kapan kamu akan mendengar pesan ini. Aku juga nggak tahu apakah aku bisa menjelaskan semuanya dengan benar. Ada banyak hal yang ingin aku katakan, tapi setiap kali aku mencoba, aku takut kamu akan melihatku dengan cara yang berbeda."
+
+Suara Miku terhenti sejenak. Terdengar tarikan napas yang bergetar.
+
+"Maaf karena membuatmu menunggu. Aku tahu kamu pasti marah. Kamu berhak marah."
+
+Rekaman itu kembali dipenuhi suara statis. Zull menekan tombol, mencoba membuatnya berlanjut, tetapi alat itu mati.
+
+Ia membuka penutup baterainya. Di bagian dalam, ada selembar kertas yang dilipat kecil.
+
+Tulisan di sana berbunyi: "Jangan percaya pada tanggal di foto."
+
+Zull membaca kalimat itu berkali-kali. Ia tidak mengerti siapa yang menulisnya, atau mengapa Miku meninggalkan petunjuk yang saling bertentangan.
+
+Tiba-tiba pengeras suara gerbong menyala.
+
+"Penumpang bernama Zull, silakan menuju gerbong terakhir."
+
+Zull membeku. Ia tidak pernah menyebutkan namanya kepada siapa pun di kereta itu.
+
+Pintu antar-gerbong terbuka sendiri. Di ujung sana, sebuah lampu kecil menyala merah.
+
+Zull menggenggam payung dan berjalan perlahan.
+
+Di kaca jendela, ia melihat pantulan seorang gadis berambut merah berdiri tepat di belakangnya.
+
+Ketika ia berbalik, gerbong itu tetap kosong.`,
+quote: "Kadang, yang paling menakutkan bukanlah tidak mendapatkan jawaban, tetapi mulai meragukan apa yang selama ini kita anggap nyata."
+},
+{
+title: "Pintu yang Belum Terbuka",
+atmosphere: "Suasana: lorong sempit, pintu terkunci, dan rahasia yang menunggu.",
+story: `Gerbong terakhir terasa jauh lebih dingin daripada gerbong sebelumnya. Tidak ada kursi penumpang, hanya dinding logam, sebuah lampu merah, dan pintu abu-abu di ujung ruangan.
+
+Di tengah pintu itu terdapat sebuah slot kecil. Zull mencoba gagangnya, tetapi terkunci. Ia memeriksa payung merah yang dibawanya dan menemukan sebuah kunci kecil tersembunyi di dalam pegangan.
+
+Kunci itu pas.
+
+Pintu terbuka hanya beberapa sentimeter, kemudian berhenti. Dari celahnya, Zull melihat sebuah ruangan kecil dengan meja, kursi, dan banyak foto yang ditempel di dinding.
+
+Foto-foto itu bukan hanya tentang dirinya dan Miku. Ada gambar halte, toko roti, atap sekolah, dan stasiun yang baru saja ia kunjungi. Beberapa foto terlihat lama, sementara yang lain tampak baru diambil.
+
+Di atas meja terdapat sebuah buku dengan sampul hitam. Zull membukanya dan menemukan daftar tanggal. Setiap tanggal memiliki catatan pendek: hujan pertama, senja di atap, pesan tengah malam, dan peron tujuh.
+
+Semua kejadian yang ia alami tertulis di sana.
+
+Di halaman terakhir, ada sebuah kalimat yang ditulis dengan tinta merah.
+
+"Zull tidak boleh mengetahui apa yang terjadi pada hari itu."
+
+Ia membaca kalimat tersebut dengan jantung berdegup keras. Siapa yang menulisnya? Mengapa namanya ada di buku itu? Dan hari apa yang dimaksud?
+
+Dari balik pintu terdengar suara langkah. Kali ini bukan gema, bukan rekaman, dan bukan suara dari pengeras suara.
+
+Seseorang benar-benar sedang berjalan mendekat.
+
+"Zull?"
+
+Suara itu membuat seluruh tubuhnya kaku.
+
+Ia mengenal suara itu lebih baik daripada suara siapa pun.
+
+"Miku?"
+
+Tidak ada jawaban selama beberapa detik.
+
+Kemudian suara itu terdengar lagi, lebih pelan.
+
+"Kalau kamu masih ingat aku, jangan buka pintu itu."
+
+Zull memandang celah pintu yang hanya terbuka sedikit. Ia bisa saja mundur, mengikuti peringatan itu, dan kembali ke kehidupan yang dikenalnya.
+
+Tetapi ia telah datang terlalu jauh.
+
+Ia meletakkan tangannya pada pintu dan mulai mendorong.`,
+quote: "Ada batas antara mencari seseorang dan mencari kebenaran. Kadang kita baru tahu batas itu ketika keduanya berdiri tepat di hadapan kita."
+},
+{
+title: "Nama di Balik Hujan",
+atmosphere: "Suasana: ruang rahasia, cahaya merah, dan sebuah pengakuan yang belum lengkap.",
+story: `Pintu itu terbuka dengan suara berderit. Ruangan di baliknya kosong.
+
+Tidak ada Miku. Tidak ada orang lain. Hanya meja, foto-foto, dan sebuah layar kecil yang menampilkan waktu: 17.42.
+
+Zull masuk dengan langkah pelan. Ia menemukan surat di bawah buku hitam. Amplopnya bertuliskan namanya dengan tulisan tangan Miku.
+
+Ia membukanya.
+
+"Zull, kalau kamu sampai di sini, berarti kamu tidak menyerah mencari. Aku tahu kamu akan begitu. Kamu selalu berusaha memahami sesuatu sampai lupa menjaga dirimu sendiri."
+
+Zull berhenti membaca. Ia harus menenangkan napasnya sebelum melanjutkan.
+
+"Ada sesuatu tentang hari pertama kita bertemu yang belum pernah aku ceritakan. Bukan tentang hujan, bukan tentang payung, dan bukan tentang bagaimana kita mulai berbicara."
+
+Di bawah paragraf itu, terdapat tulisan yang dihapus berkali-kali sampai kertasnya hampir robek.
+
+"Aku mengenal namamu sebelum kamu mengenal namaku."
+
+Zull membaca kalimat itu sekali lagi.
+
+Surat tersebut menjelaskan bahwa Miku pernah melihatnya di tempat yang tidak ia ingat. Ia mengetahui beberapa hal tentang kebiasaan Zull, tempat yang sering dikunjungi, bahkan alasan mengapa Zull selalu duduk menghadap pintu.
+
+Namun, bagian terpenting surat itu hilang. Halamannya robek tepat setelah kalimat: "Aku datang untuk memastikan bahwa..."
+
+Zull membalik surat itu. Di belakangnya ada gambar dua lingkaran kecil, sama seperti yang pernah mereka buat di buku kenangan.
+
+Di samping gambar itu, Miku menulis: "Kita pernah bertemu sebelumnya. Kamu hanya tidak mengingatnya."
+
+Zull merasa ruangan itu semakin sempit. Ia mencoba mencari tanggal, nama, atau petunjuk lain, tetapi semua foto hanya memperlihatkan tempat-tempat yang sudah ia kenal.
+
+Lalu layar kecil di meja berubah.
+
+Sebuah pesan muncul, huruf demi huruf.
+
+"JANGAN CARI MIKU DI STASIUN."
+
+Zull menatap pesan itu. Sebelum ia sempat menyentuh layar, seluruh foto di dinding terlepas dan jatuh bersamaan.
+
+Di balik foto terakhir, ada gambar yang belum pernah ia lihat.
+
+Dirinya sendiri, berdiri di depan sebuah pintu, dengan tangan menggenggam payung merah.
+
+Di belakang foto itu tertulis tanggal esok hari.`,
+quote: "Bagaimana jika seseorang yang kita cari ternyata telah mengenal kita jauh sebelum kisah kita dimulai?"
+},
+{
+title: "Langit yang Belum Selesai",
+atmosphere: "Suasana: fajar pucat, hujan yang berhenti, dan sebuah jawaban yang belum tiba.",
+story: `Zull keluar dari gerbong saat langit mulai berubah warna. Ia tidak tahu berapa lama ia berada di dalam kereta. Ponselnya tidak memiliki sinyal, dan jamnya menunjukkan waktu yang berbeda dari jam di stasiun.
+
+Di tangannya, surat Miku terasa semakin berat.
+
+Ia kembali ke sekolah, melewati halte tempat mereka pertama kali bertemu. Hujan telah berhenti. Untuk pertama kalinya setelah berminggu-minggu, jalanan tampak cerah. Namun, Zull tidak merasa lebih tenang.
+
+Ia membawa foto terakhir ke atap sekolah. Dari sana, kota terlihat seperti biasa: kendaraan bergerak, orang-orang berjalan, dan matahari terbit perlahan di antara gedung-gedung.
+
+Zull membuka buku kenangan pada halaman terakhir. Di bawah tulisannya sendiri, ada kalimat baru yang tidak pernah ia tulis.
+
+"Kalau kamu sudah menemukan semuanya, berarti kamu sudah siap mengingat."
+
+Ia menatap kalimat itu sampai matanya terasa lelah. Ia mencoba mengingat hari sebelum pertemuannya dengan Miku, tetapi yang muncul hanya potongan-potongan samar: suara kereta, cahaya merah, dan seseorang yang memanggil namanya dari balik hujan.
+
+Ponselnya tiba-tiba bergetar.
+
+Sebuah pesan masuk dari nomor yang tidak tersimpan.
+
+"Aku minta maaf karena tidak bisa menjelaskan semuanya secara langsung."
+
+Zull membalas cepat, menanyakan di mana Miku berada.
+
+Balasan berikutnya muncul setelah beberapa saat.
+
+"Lihat langitnya."
+
+Zull mengangkat kepala. Awan bergerak perlahan, membuka celah kecil yang membiarkan cahaya matahari jatuh ke atap. Di antara gedung-gedung, ia melihat sesuatu berkilau di kejauhan.
+
+Sebuah lampu merah.
+
+Lampu itu berkedip tiga kali, kemudian padam.
+
+Pesan terakhir masuk.
+
+"Besok, pukul 17.42. Datanglah ke tempat pertama kali kamu kehilangan aku."
+
+Zull menggenggam ponselnya erat-erat.
+
+Ia ingin bertanya apa maksud kalimat itu. Ia ingin mengatakan bahwa ia lelah dengan petunjuk, lelah dengan rahasia, dan lelah harus menebak-nebak apa yang sebenarnya terjadi.
+
+Namun, sebelum ia sempat mengetik, nomor itu menghilang dari layar.
+
+Tidak ada riwayat percakapan. Tidak ada nomor pengirim. Hanya satu foto yang tertinggal di galeri ponselnya.
+
+Foto Zull dan Miku di bawah payung yang sama.
+
+Di belakang mereka, samar-samar, terlihat seorang anak kecil berdiri di tengah hujan.
+
+Zull memperbesar foto itu.
+
+Anak kecil itu memiliki wajah yang sangat mirip dengannya.`,
+quote: "Mungkin beberapa cerita tidak berakhir ketika halaman terakhir dibaca. Mungkin justru saat itulah pertanyaan yang sebenarnya dimulai."
+}
+];
+
+/* TEKS ENDING */
+
+const endingText = `Di tempat yang menyimpan begitu banyak kenangan,
+aku akhirnya kembali.
+
+Kota ini memang sudah berubah.
+Banyak hal yang dulu kukenal kini tak lagi sama.
+
+Namun, ada satu kenangan
+yang tak pernah benar-benar pergi.
+
+Seseorang yang pernah menjadi bagian
+dari masa mudaku.
+
+Senyummu masih tinggal di ingatanku.
+Namamu masih tersimpan di sudut hatiku.
+
+Waktu mungkin membawa kita
+ke jalan yang berbeda.
+
+Dan mungkin, aku memang terlambat
+untuk mengatakan semuanya.
+
+Tapi jika suatu hari kita bertemu lagi,
+aku ingin tersenyum tanpa penyesalan.
+
+Terima kasih telah menjadi
+bagian terindah dari masa mudaku.
+
+Ada kenangan yang tak bisa diulang,
+ada perasaan yang tak sempat disampaikan.
+
+Dan ada seseorang
+yang akan selalu menjadi
+cinta pertama dalam ceritaku.`;
+
+let currentChapter = 0;
+let typingTimer = null;
+let typingIndex = 0;
+let chapterTransitionTimer = null;
+
+const $ = (id) => document.getElementById(id);
+/* AUDIO ENDING */
+
+const rapsodiAudio = $("rapsodiAudio");
+const karaokeText = $("karaokeText");
+
+let currentKaraokeLine = -1;
+
+/*
+ * Waktu di bawah ini contoh perkiraan.
+ * Sesuaikan dengan posisi lirik pada file audio milikmu
+ * jika ingin pergantian teks lebih tepat.
+ */
+const karaokeLines = [
+      // Intro musik sebelum vokal
+    { time: 10, text: "♫ ♪ ♬ ♪ ♫" },
+    { time: 20, text: "♪ ♫ ♪ ♬" },
+    { time: 30, text: "♬ ♪ ♫ ♪" },
+    { time: 0, text: "Di kota yang menyimpan kenangan..." },
+    { time: 5, text: "Waktu mengubah banyak hal." },
+    { time: 10, text: "Namun, ada yang tetap tinggal." },
+    { time: 15, text: "Senyummu masih kuingat." },
+    { time: 20, text: "Meski jalan kita berbeda." },
+    { time: 25, text: "Ada kata yang belum tersampaikan." },
+    { time: 30, text: "Terima kasih untuk kenangan itu." },
+    { time: 35, text: "Kau akan selalu menjadi bagian ceritaku." }
+];
+
+function updateKaraoke() {
+    if (!rapsodiAudio || !karaokeText) return;
+
+    const time = rapsodiAudio.currentTime;
+    let activeIndex = -1;
+
+    for (let i = 0; i < karaokeLines.length; i++) {
+        if (time >= karaokeLines[i].time) {
+            activeIndex = i;
+        } else {
+            break;
+        }
+    }
+
+    if (activeIndex === currentKaraokeLine) return;
+
+    currentKaraokeLine = activeIndex;
+    karaokeText.classList.add("fade");
+
+    setTimeout(() => {
+        karaokeText.textContent = activeIndex < 0
+            ? "Putar lagu untuk memulai..."
+            : karaokeLines[activeIndex].text;
+
+        karaokeText.classList.remove("fade");
+    }, 200);
+}
+
+rapsodiAudio.addEventListener("timeupdate", updateKaraoke);
+
+rapsodiAudio.addEventListener("ended", () => {
+    currentKaraokeLine = -1;
+    karaokeText.textContent = "Lagu selesai 🎵";
+});
+
+/* UPDATE PROGRESS */
+
+function updateProgress(percent, label) {
+    $("chapterLabel").textContent = label;
+    $("progressPercent").textContent = percent + "%";
+    $("progressFill").style.width = percent + "%";
+    $("progressBar").setAttribute("aria-valuenow", String(percent));
+}
+
+/* ANIMASI PARAGRAF */
+
+function revealParagraphs() {
+    const paragraphs = document.querySelectorAll(".story-paragraph");
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: "0px 0px -25px 0px"
+        });
+
+        paragraphs.forEach((paragraph) => {
+            observer.observe(paragraph);
+        });
+    } else {
+        paragraphs.forEach((paragraph) => {
+            paragraph.classList.add("is-visible");
+        });
+    }
+}
+
+/* TAMPILKAN BAB */
+
+function renderChapter() {
+    const chapter = chapters[currentChapter];
+
+    if (!chapter) {
+        console.error("Bab tidak ditemukan:", currentChapter + 1);
+        return;
+    }
+
+    $("chapterNumber").textContent =
+        "BAB " + String(currentChapter + 1).padStart(2, "0");
+
+    $("chapterTitle").textContent = chapter.title;
+    $("chapterAtmosphere").textContent = chapter.atmosphere;
+    $("chapterQuote").textContent = "“" + chapter.quote + "”";
+
+    const chapterImage = $("chapterImage");
+
+    chapterImage.onerror = function () {
+        console.error("Gambar gagal dimuat:", this.src);
+        this.alt = "Gambar tidak ditemukan. Periksa folder dan nama file.";
+    };
+
+    chapterImage.onload = function () {
+        console.log("Gambar berhasil dimuat:", this.src);
+    };
+
+    chapterImage.src = "./image/bab-" + (currentChapter + 1) + ".jpg";
+    chapterImage.alt = "Ilustrasi " + chapter.title;
+
+    const storyContainer = $("chapterStory");
+    storyContainer.replaceChildren();
+
+    const paragraphs = chapter.story
+        .trim()
+        .split(/\n\s*\n/)
+        .filter((paragraph) => paragraph.trim());
+
+    paragraphs.forEach((paragraph) => {
+        const p = document.createElement("p");
+        p.className = "story-paragraph";
+        p.textContent = paragraph.trim();
+        storyContainer.appendChild(p);
+    });
+
+    revealParagraphs();
+
+    const progress = Math.round(
+        ((currentChapter + 1) / chapters.length) * 100
+    );
+
+    updateProgress(
+        progress,
+        "Bab " + (currentChapter + 1) + " dari " + chapters.length
+    );
+
+    $("prevChapter").disabled = currentChapter === 0;
+
+    $("nextChapter").textContent =
+        currentChapter === chapters.length - 1
+            ? "Lihat Ending →"
+            : "Bab Berikutnya →";
+
+    $("chapterPage").classList.remove("chapter-transition");
+}
+
+/* TRANSISI SAAT PINDAH BAB */
+
+function goToChapter(targetIndex) {
+    if (targetIndex < 0 || targetIndex >= chapters.length) {
+        return;
+    }
+
+    if (chapterTransitionTimer) {
+        clearTimeout(chapterTransitionTimer);
+    }
+
+    const chapterPage = $("chapterPage");
+
+    chapterPage.classList.add("chapter-transition");
+
+    chapterTransitionTimer = setTimeout(() => {
+        currentChapter = targetIndex;
+        renderChapter();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        chapterTransitionTimer = null;
+    }, 250);
+}
+
+/* MULAI MEMBACA */
+
+$("startReading").addEventListener("click", () => {
+    currentChapter = 0;
+
+    $("welcomePage").style.display = "none";
+    $("endingPage").classList.remove("active");
+    $("chapterPage").style.display = "";
+    $("novelProgress").style.display = "";
+
+    renderChapter();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+
+
+
+/* TAMPILKAN ENDING */
+
+function showEnding() {
+    clearTimeout(typingTimer);
+    clearTimeout(chapterTransitionTimer);
+
+    const endingPage = $("endingPage");
+    const endingVideo = $("endingVideo");
+    const finalQuote = $("finalQuote");
+
+    // Sembunyikan halaman awal dan halaman bab
+    $("welcomePage").style.display = "none";
+    $("chapterPage").style.display = "none";
+
+    // Siapkan halaman ending
+    endingPage.classList.remove("ending-revealed");
+    endingPage.classList.add("active", "ending-video-playing");
+
+    // Sembunyikan progress selama video berjalan
+    document.body.classList.add("ending-video-playing");
+
+    // Hentikan musik sebelumnya
+    if (rapsodiAudio) {
+        rapsodiAudio.pause();
+        rapsodiAudio.currentTime = 0;
+    }
+
+    // Sembunyikan kutipan sampai waktunya muncul
+    if (finalQuote) {
+        finalQuote.style.opacity = "0";
+        finalQuote.style.animation = "none";
+    }
+
+    if (!endingVideo) {
+        endingPage.classList.remove("ending-video-playing");
+        document.body.classList.remove("ending-video-playing");
+        endingPage.classList.add("ending-revealed");
+        $("novelProgress").style.display = "";
+
+        if (rapsodiAudio) {
+            rapsodiAudio.play().catch(() => {});
         }
 
-        prevButton.addEventListener("click", () => {
-            if (currentChapter > 1) {
-                currentChapter--;
-                renderChapter();
+        return;
+    }
+
+    // Video diputar tanpa suara
+    endingVideo.pause();
+    endingVideo.currentTime = 0;
+    endingVideo.muted = true;
+    endingVideo.load();
+
+    // Fungsi untuk menampilkan penutup setelah jeda
+    let endingFinished = false;
+
+    function revealEnding() {
+        if (endingFinished) return;
+        endingFinished = true;
+
+        setTimeout(() => {
+            endingPage.classList.remove("ending-video-playing");
+            document.body.classList.remove("ending-video-playing");
+
+            $("novelProgress").style.display = "";
+
+            // Tampilkan tulisan dan tombol secara perlahan
+            endingPage.classList.remove("ending-revealed");
+            void endingPage.offsetWidth;
+            endingPage.classList.add("ending-revealed");
+
+            if (finalQuote) {
+                finalQuote.style.opacity = "1";
+            }
+        }, 2000);
+    }
+
+    // Setelah video selesai, beri jeda 2 detik
+    endingVideo.onended = revealEnding;
+
+    // Kalau video gagal, tampilkan penutup agar halaman tidak kosong
+    endingVideo.onerror = function () {
+        console.error("Video ending gagal dimuat.");
+        revealEnding();
+    };
+
+    // Mulai video
+    endingVideo.play()
+        .then(() => {
+            // Musik mulai bersamaan dengan video
+            if (rapsodiAudio) {
+                rapsodiAudio.currentTime = 0;
+
+                rapsodiAudio.play().catch((error) => {
+                    console.error("Musik JKT48 gagal diputar:", error);
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Video ending gagal diputar:", error);
+            revealEnding();
+
+            if (rapsodiAudio) {
+                rapsodiAudio.play().catch(() => {});
             }
         });
 
-        nextButton.addEventListener("click", () => {
-            if (currentChapter < totalChapters) {
-                currentChapter++;
-                renderChapter();
-            }
-        });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
-        renderChapter();
-    </script>
+
+/* BACA ULANG DARI BAB 1 */
+
+function returnToChapterOne() {
+    clearTimeout(typingTimer);
+    clearTimeout(chapterTransitionTimer);
+
+    if (rapsodiAudio) {
+        rapsodiAudio.pause();
+        rapsodiAudio.currentTime = 0;
+    }
+
+    currentKaraokeLine = -1;
+
+    if (karaokeText) {
+        karaokeText.textContent = "Putar lagu untuk memulai...";
+    }
+
+    currentChapter = 0;
+
+    $("endingPage").classList.remove("active");
+    $("welcomePage").style.display = "none";
+    $("chapterPage").style.display = "";
+    $("novelProgress").style.display = "";
+
+    renderChapter();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+/* BAB BERIKUTNYA */
+
+$("nextChapter").addEventListener("click", () => {
+    if (currentChapter < chapters.length - 1) {
+        goToChapter(currentChapter + 1);
+    } else {
+        showEnding();
+    }
+});
+
+/* BAB SEBELUMNYA */
+
+$("prevChapter").addEventListener("click", () => {
+    if (currentChapter > 0) {
+        goToChapter(currentChapter - 1);
+    }
+});
+
+/* TOMBOL ENDING */
+
+$("readAgain").addEventListener("click", returnToChapterOne);
+
+$("backHome").addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
+/* CEK JUMLAH BAB */
+
+console.log("Jumlah bab novel:", chapters.length);
+
+/* SIAPKAN BAB 1 */
+
+renderChapter();
+</script>
 </body>
 </html>
