@@ -2475,3 +2475,162 @@ body.ending-video-playing #novelProgress {
     overflow-wrap: anywhere;
     margin: 12px 0;
 }
+
+/* ========================================
+   INSTAGRAM PROFILE - PIXEL VAULT
+======================================== */
+
+.instagram-section {
+    margin-top: 38px;
+    margin-bottom: 32px;
+}
+
+.instagram-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    border: 1px solid rgba(174, 108, 255, 0.35);
+    border-radius: 20px;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(126, 70, 255, 0.16),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(24, 20, 44, 0.97),
+            rgba(10, 16, 31, 0.97)
+        );
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.instagram-profile {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.instagram-avatar {
+    width: 112px;
+    height: 112px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid #b47aff;
+    box-shadow:
+        0 0 12px rgba(180, 122, 255, 0.5),
+        0 0 28px rgba(103, 232, 249, 0.12);
+}
+
+.instagram-info {
+    min-width: 0;
+}
+
+.instagram-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #bda0ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.instagram-info h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.instagram-username {
+    margin: 0 0 10px;
+    color: #67e8f9;
+    font-size: 14px;
+}
+
+.instagram-description {
+    margin: 0;
+    color: #c5c0d8;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.instagram-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 24px;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: linear-gradient(100deg, #793ee8, #a344d5);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.instagram-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+    box-shadow: 0 8px 24px rgba(153, 78, 238, 0.28);
+}
+
+.instagram-button span {
+    font-size: 18px;
+}
+
+.instagram-card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #8e87a9;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .instagram-card {
+        padding: 20px;
+    }
+
+    .instagram-profile {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .instagram-avatar {
+        width: 78px;
+        height: 78px;
+    }
+
+    .instagram-info h3 {
+        font-size: 18px;
+    }
+
+    .instagram-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .instagram-description {
+        font-size: 12px;
+    }
+
+    .instagram-card-footer {
+        font-size: 9px;
+    }
+}
