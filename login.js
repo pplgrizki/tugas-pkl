@@ -1,3 +1,4 @@
+
 import { supabase } from "./supabase-client.js";
 
 const loginForm = document.getElementById("loginForm");
@@ -7,100 +8,129 @@ const loginMessage = document.getElementById("loginMessage");
 const togglePassword = document.getElementById("togglePassword");
 const googleLoginBtn = document.getElementById("googleLoginBtn");
 
-// Tampilkan atau sembunyikan password
 if (togglePassword && passwordInput) {
     togglePassword.addEventListener("click", () => {
-        const showPassword = passwordInput.type === "password";
-        passwordInput.type = showPassword ? "text" : "password";
+        passwordInput.type =
+            passwordInput.type === "password" ? "text" : "password";
     });
 }
 
-// Login dengan Supabase
-if (loginForm) {
+if (loginForm && usernameInput && passwordInput && loginMessage) {
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
-        loginMessage.textContent = "Sedang masuk...";
 
         const email = usernameInput.value.trim();
         const password = passwordInput.value;
 
+        if (!email || !password) {
+            loginMessage.textContent =
+                "Masukkan email dan password terlebih dahulu.";
+            return;
+        }
+
+        const submitButton = loginForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (submitButton) submitButton.disabled = true;
+
+        loginMessage.textContent = "Sedang masuk...";
+
         try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password
-            });
+            const { data, error } =
+                await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
 
             if (error) {
                 console.error("Login gagal:", error.message);
-                loginMessage.textContent =
-                    "Login gagal. Periksa email dan password.";
-                return;
-            }
 
-            console.log("Login berhasil!");
-            console.log("Email:", data.user.email);
-            console.log("User ID:", data.user.id);
+                const message = error.message.toLowerCase();
 
-            // Mengirim informasi login ke terminal
-            await fetch("/api/login-log", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: data.user.email,
-                    userId: data.user.id
-                })
-            });
-
-            // Mengirim JWT ke API /api/me
-            const response = await fetch("/api/me", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${data.session.access_token}`
+                if (
+                    message.includes("email not confirmed") ||
+                    message.includes("email_not_confirmed")
+                ) {
+                    loginMessage.textContent =
+                        "Email kamu belum diverifikasi. " +
+                        "Periksa Inbox atau Spam dan klik tautan verifikasi. " +
+                        "Jika belum menerima email, coba lagi nanti.";
+                } else if (
+                    message.includes("invalid login credentials")
+                ) {
+                    loginMessage.textContent =
+                        "Email atau password salah, atau akun belum " +
+                        "dapat digunakan. Periksa kembali data login " +
+                        "dan pastikan email sudah diverifikasi.";
+                } else if (
+                    message.includes("rate limit") ||
+                    message.includes("too many requests")
+                ) {
+                    loginMessage.textContent =
+                        "Terlalu banyak percobaan. Tunggu sebentar " +
+                        "sebelum mencoba login kembali.";
+                } else {
+                    loginMessage.textContent =
+                        "Login belum berhasil. Coba lagi nanti. " +
+                        "Jika masalah berlanjut, hubungi admin.";
                 }
-            });
 
-            const result = await response.json();
-
-            if (!response.ok) {
-                console.error("Verifikasi JWT gagal:", result);
-                loginMessage.textContent = "Verifikasi token gagal.";
                 return;
             }
 
-            console.log("Verifikasi JWT berhasil!");
-            console.log("Data dari API /api/me:", result);
+            if (!data.session || !data.user) {
+                loginMessage.textContent =
+                    "Sesi login tidak ditemukan. Silakan coba lagi.";
+                return;
+            }
 
-            loginMessage.textContent = "Login dan verifikasi JWT berhasil!";
-
-            window.location.href = "index.html";
-
-        } catch (error) {
-            console.error("Terjadi kesalahan:", error);
             loginMessage.textContent =
-                "Terjadi kesalahan. Periksa server.";
+                "Login berhasil! Membuka Pixel Vault...";
+
+            window.location.replace("index.html");
+        } catch (error) {
+            console.error("Kesalahan login:", error);
+
+            loginMessage.textContent =
+                "Terjadi masalah koneksi. Periksa internet " +
+                "dan coba lagi nanti.";
+        } finally {
+            if (submitButton) submitButton.disabled = false;
         }
     });
 }
 
-// Login Google
-if (googleLoginBtn) {
+if (googleLoginBtn && loginMessage) {
     googleLoginBtn.addEventListener("click", async () => {
         loginMessage.textContent = "Menghubungkan ke Google...";
+        googleLoginBtn.disabled = true;
 
-        const { error } = await supabase.auth.signInWithOAuth({
-            provider: "google",
-            options: {
-                redirectTo: "http://localhost:3001/index.html"
+        try {
+            const { error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: `${window.location.origin}/index.html`
+                }
+            });
+
+            if (error) {
+                console.error("Login Google gagal:", error.message);
+
+                loginMessage.textContent =
+                    "Login Google gagal. Coba lagi atau periksa " +
+                    "konfigurasi OAuth.";
+
+                googleLoginBtn.disabled = false;
             }
-        });
+        } catch (error) {
+            console.error("Kesalahan login Google:", error);
 
-        if (error) {
-            console.error("Login Google gagal:", error.message);
             loginMessage.textContent =
-                "Login Google gagal: " + error.message;
+                "Tidak dapat menghubungkan ke Google. " +
+                "Periksa koneksi internet.";
+
+            googleLoginBtn.disabled = false;
         }
     });
 }
